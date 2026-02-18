@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.1.24-3",
+    "lastTouchedAt": "2026-02-05T13:11:40.251Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-05T11:56:09.013Z",
+    "lastRunVersion": "2026.1.24-3",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://127.0.0.1:11434/v1",
+        "apiKey": "ollama",
+        "api": "openai-completions",
+        "authHeader": false,
+        "models": [
+          {
+            "id": "hhao/qwen2.5-coder-tools:32b",
+            "name": "Qwen2.5 Coder Tools 32B",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32768,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen2.5:14b",
+            "name": "Qwen 2.5 14B",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "llama3.1:8b",
+            "name": "Llama 3.1 8B Instruct",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "mistral:7b-instruct",
+            "name": "Mistral 7B Instruct",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32768,
+            "maxTokens": 8192
+          },
+          {
+            "id": "gpt-oss:20b",
+            "name": "GPT-OSS 20B",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen3:30b",
+            "name": "Qwen3 30B",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 65536,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen3-agentic:latest",
+            "name": "Qwen3 Agentic 30B",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 65536,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-haiku-4-5",
+        "fallbacks": ["ollama/hhao/qwen2.5-coder-tools:14b"]
+      },
+      "models": {
+        "ollama/hhao/qwen2.5-coder-tools:32b": {
+          "alias": "coder-tools"
+        },
+        "ollama/qwen2.5:14b": {
+          "alias": "qwen25"
+        },
+        "ollama/llama3.1:8b": {
+          "alias": "llama"
+        },
+        "ollama/mistral:7b-instruct": {
+          "alias": "mistral"
+        },
+        "ollama/gpt-oss:20b": {},
+        "anthropic/claude-sonnet-4-5": {
+          "alias": "sonnet"
+        },
+        "ollama/qwen3-agentic:latest": {
+          "alias": "qwen"
+        },
+        "anthropic/claude-haiku-4-5": {
+          "alias": "haiku"
+        }
+      },
+      "workspace": "/Users/alfredpifi/clawd",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "7936074718:AAHe4QNMmoF-LXfOYCGza9yKzLYy-31BQB0",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local"
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  },
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "clawdbot",
+    "headless": false
+  },
+  "tools": {
+    "profile": "coding",
+    "allow": ["read", "exec", "write", "edit", "browser"],
+    "exec": {
+      "host": "gateway",
+      "ask": "always",
+      "security": "full"
+    }
+  }
+}

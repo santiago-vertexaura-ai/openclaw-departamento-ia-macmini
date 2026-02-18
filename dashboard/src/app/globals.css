@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #0A0A0B;
+  color: #e2e8f0;
+}
+
+@keyframes spinRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.animate-spin-ring {
+  animation: spinRing 1.5s infinite;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.2s ease-out;
+}
+
+/* Thin scrollbars for dark theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Glass surface utility */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@keyframes glassGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.02);
+  }
+}
+
+/* Thinking animation */
+.thinking-orb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #818cf8 0%, #6366f1 60%, #4f46e5 100%);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+  animation: orbPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes orbPulse {
+  0%, 100% {
+    transform: scale(0.85);
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 18px rgba(99, 102, 241, 0.5);
+  }
+}
+
+.thinking-phrase {
+  animation: phraseFade 0.5s ease-in-out;
+}
+
+@keyframes phraseFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Agent Card gradients */
+.agent-card-alfred {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, #3b82f6, #6366f1) 1;
+}
+
+.agent-card-roberto {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, #8b5cf6, #ec4899) 1;
+}
+
+@keyframes workingGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 0 rgba(34, 197, 94, 0.1);
+  }
+}
+
+.agent-card-working {
+  animation: workingGlow 2s ease-in-out infinite;
+}
+
+/* Toast slide-up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.25s ease-out;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

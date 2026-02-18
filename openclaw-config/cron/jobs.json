@@ -1,0 +1,641 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "alfred-security-audit-8h",
+      "name": "Alfred - Security Audit Máximo Nivel (Cada 8h)",
+      "description": "Alfred ejecuta auditoría de máximo nivel cada 8 horas. Cubre 15 categorías: network, auth, secrets, encryption, compliance, etc. Lock previene solapamientos (máximo 1x/8h). Genera JSON + risk score + trends.",
+      "enabled": true,
+      "createdAtMs": 1739185200000,
+      "updatedAtMs": 1771419900000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 0,8,16 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "ALFRED: Ejecuta auditoría de MÁXIMO NIVEL (15 categorías) con lock anti-solapamiento.\n\nPASO 1: VERIFICAR LOCK\nExecuta: bash /Users/alfredpifi/clawd/scripts/security-audit-8h-wrapper.sh\n\nEste script:\n- Lee /tmp/security-audit-8h.lock\n- Si existe y timestamp < 8 horas: SKIPPEA (audit ya corrió recientemente)\n- Si NO existe o > 8 horas: Ejecuta auditoría COMPLETA\n- Genera: /tmp/security-audits/audit-TIMESTAMP.json\n- Genera: /tmp/security-audit-trends.json (histórico)\n- Calcula: Risk Score (0-100)\n\nPASO 2: ANALIZAR RESULTADOS\nSi risk_score >= 70:\n  → Envía ALERTA a Santi:\n    🚨 RIESGO ALTO DETECTADO (Risk: X/100)\n    Hallazgos críticos:\n    [lista top 3 findings]\n    Acción recomendada: [remediation]\n\nSi risk_score < 70:\n  → Mensaje normal: 'Auditoría completada. Risk score: X/100. Status: OK'\n\nPASO 3: GUARDAR EN VAULT\nExecuta: /Users/alfredpifi/clawd/scripts/vault.sh add projects 'Security Audit - Máximo Nivel' 'Auditoría completada [timestamp]. Risk score: X/100. Hallazgos: [count]. Trending: [mejorando/empeorando]'\n\nIMPORTANTE:\n- NUNCA ejecutes el script directamente\n- SIEMPRE usa el wrapper (/security-audit-8h-wrapper.sh) que gestiona el lock\n- Si wrapper retorna exit code 0 → OK\n- Si wrapper retorna error → investiga /tmp/security-audit-stderr.log y reporta a Santi\n\nDATOS DISPONIBLES DESPUÉS:\n- JSON report: /tmp/security-audits/audit-*.json\n- Trends: /tmp/security-audit-trends.json (temporal series)\n- Risk score: en JSON report\n- Logs: /tmp/security-audit-stdout.log, stderr.log",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771432800000,
+        "lastRunAtMs": 1771419600000,
+        "lastStatus": "ok",
+        "lastDurationMs": 85000,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "memory-cleanup-monthly",
+      "name": "Limpieza mensual de memoria",
+      "description": "Revisa memory/*.md del ultimo mes, extrae hechos duraderos a MEMORY.md, poda entradas obsoletas",
+      "enabled": true,
+      "createdAtMs": 1770730000000,
+      "updatedAtMs": 1770730000000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 1 * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Es el primer dia del mes. Ejecuta el ciclo de limpieza de memoria: 1) Lee todos los archivos en /Users/alfredpifi/clawd/memory/ del ultimo mes. 2) Extrae hechos duraderos que no esten ya en MEMORY.md y propon anadirlos a la seccion correspondiente. 3) Revisa MEMORY.md e identifica entradas obsoletas o contradictorias con info mas reciente. 4) Actualiza MEMORY.md: anade lo nuevo, elimina lo obsoleto. 5) Resumen de cambios realizados.",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772330400000
+      }
+    },
+    {
+      "id": "roberto-task-poll",
+      "name": "Alfred - Orquestar tareas de Roberto",
+      "description": "Alfred busca tareas, recopila fuentes, y las envia a Roberto (local) para analisis",
+      "enabled": false,
+      "createdAtMs": 1770795000000,
+      "updatedAtMs": 1771371008796,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1770795000000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred orquestando tareas de investigacion. Ejecuta estos pasos EN ORDEN:\n\n1. Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh resume\n   Resetea tareas atascadas >30min y devuelve pendientes.\n\n2. Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh fetch\n   Devuelve tareas pendientes como JSON array.\n\n3. Si ambos comandos devuelven arrays vacios [], responde \"Sin tareas para Roberto\" y termina.\n\n4. Toma la PRIMERA tarea del array. Anota id, title, task_type, brief, description, comments. Los comments son feedback directo de Santi — si dice cosas como 'esperar a mi orden' o da instrucciones especificas, DEBES respetarlas. Si hay comments que bloquean la ejecucion, NO proceses la tarea y pasa a la siguiente.\n\n5. Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh start <id>\n\n5b. Consulta el vault del departamento para contexto previo:\n    Ejecuta: /Users/alfredpifi/clawd/scripts/vault.sh search \"<palabras clave del titulo de la tarea>\"\n    Si hay resultados, incluye ese contexto en las instrucciones de Roberto como CONTEXTO PREVIO DEL VAULT.\n\n6. Segun task_type, recopila fuentes:\n   A) youtube_analysis:\n      - Lee /Users/alfredpifi/clawd/workspace-roberto/skills/youtube/config.json\n      - Busca el channel_id del canal mencionado en title (si no esta en config, usa el handle @nombre)\n      - Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/youtube.sh list <channel_id> 5\n      - IMPORTANTE: NO ejecutes youtube.sh info para cada video. El JSON de yt-dlp desborda el contexto (>200K tokens). Solo pasa los datos del RSS list. Roberto usara browser/exec para obtener mas detalles.\n   B) news_scan:\n      - Extrae la query del title/brief\n      - Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/news.sh search \"<query>\" 10 es ES\n   C) research:\n      - Extrae el tema del title/brief\n      - Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/news.sh search \"<tema>\" 10 es ES\n      - Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/news.sh search \"<topic in english>\" 10 en US\n\n7. Usa sessions_spawn para crear una sub-sesion de Roberto:\n   - agentId: \"roberto\"\n   - model: \"anthropic/claude-haiku-4-5\"\n   - thinking: \"off\"\n   - runTimeoutSeconds: 600\n   - task: Incluye datos de scripts + estas instrucciones:\n\n   \"Eres Roberto, analista de investigacion de VertexAura. Usa herramientas read, exec, write.\n\n   TAREA: <title> (id: <id>, tipo: <task_type>)\n   BRIEF: <brief>\n   DESCRIPCION: <description si existe>\n   COMENTARIOS DE SANTI: <comments array — son instrucciones directas del jefe, DEBES seguirlas>\n\n   DATOS RECOPILADOS: <output de scripts>\n\n   CONTEXTO PREVIO DEL VAULT: <resultado de vault.sh search si existe, o 'sin datos previos'>\n   Usa este contexto como base. No repitas investigaciones que ya se hayan hecho — amplialas.\n\n   INSTRUCCIONES:\n\n   PASO 0: Ejecuta /Users/alfredpifi/clawd/scripts/vault.sh search \\\"<tema principal>\\\" para ver que datos previos tiene el departamento. Usalos como base.\n\n   PASO 1: Para youtube_analysis, usa la herramienta browser para visitar cada video de YouTube y extraer: titulo completo, duracion, views, likes, descripcion, y un resumen del contenido. Para otros tipos, usa exec/read para consultar fuentes adicionales si es necesario.\n\n   PASO 2: Escribe /tmp/roberto_doc.md con un informe profesional en espanol:\n   - Titulo, fecha, tipo, analista (Roberto, VertexAura Research)\n   - Resumen ejecutivo (4-6 lineas)\n   - Contexto y relevancia para VertexAura\n   - Hallazgos principales (basado en datos + config real)\n   - Mejores practicas identificadas (3-5)\n   - Recomendaciones para VertexAura (3-5 acciones)\n   - Fuentes consultadas con URLs cuando sea posible\n   Minimo 1000 palabras.\n\n   PASO 3: Ejecuta:\n   /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh complete <id> '{\"resumen\":\"<resumen 2-3 frases>\"}'\n\n   IMPORTANTE: Ejecuta los 3 pasos en ORDEN. Si algo falla, consulta al menos 2 fuentes alternativas antes de rendirte. Si no puedes completar, justifica detalladamente por que.\"\n\n8. Espera la confirmacion del sub-agente. Si falla, ejecuta:\n   /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh fail <id> '<descripcion del error>'\n\nSolo procesa UNA tarea por sesion.",
+        "model": "anthropic/claude-haiku-4-5",
+        "system_prompt_cacheable": "/Users/alfredpifi/clawd/workspace-roberto/SYSTEM_PROMPT_CACHEABLE.md",
+        "cache_control": "ephemeral",
+        "cache_version": "cacheable-v1.0-20260217"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "lastRunAtMs": 1771371000020,
+        "lastStatus": "ok",
+        "lastDurationMs": 8776,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "daily-diary",
+      "name": "Diario del dia - Alfred y Roberto",
+      "description": "Genera un diario del departamento con lecciones, trabajo realizado y metricas del dia",
+      "enabled": true,
+      "createdAtMs": 1770941144946,
+      "updatedAtMs": 1771365768989,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Genera el diario del dia para el departamento de agentes. Pasos:\n1) Ejecuta curl al API de Supabase para leer agent_activity de las ultimas 24h:\n   curl -s \"$SUPABASE_URL/rest/v1/agent_activity?order=created_at.desc&limit=50\" con headers de auth (lee credenciales de ~/clawd/.env.local)\n2) Lee agent_tasks completadas hoy (status=eq.completada, filtrar por completed_at de hoy)\n3) Lee agent_docs creados hoy\n4) Genera un documento markdown con:\n   - Fecha y titulo: 'Diario del Departamento - DD/MM/YYYY'\n   - Resumen de actividad de Alfred (que hizo, decisiones tomadas)\n   - Resumen de actividad de Roberto (tareas ejecutadas, hallazgos clave)\n   - Lecciones aprendidas (errores, timeouts, patterns observados)\n   - Mejoras identificadas (que podria funcionar mejor)\n   - Metricas: tareas completadas, docs generados, costes estimados del dia\n5) Guarda el diario en Supabase usando:\n   curl -X POST \"$SUPABASE_URL/rest/v1/agent_docs\" con service_role key, doc_type='journal', tags=['diario','auto']\n6) Escribe en MEMORY.md un resumen de 3-5 lineas de las lecciones mas importantes del dia",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771452000000,
+        "lastRunAtMs": 1771365614073,
+        "lastStatus": "ok",
+        "lastDurationMs": 154916,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "memory-digest-weekly",
+      "name": "Digest semanal de memoria",
+      "description": "Procesa diarios, aprendizajes y ratings para actualizar MEMORY.md de Alfred y Roberto",
+      "enabled": true,
+      "createdAtMs": 1770941144946,
+      "updatedAtMs": 1771211038786,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 4 * * 1",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Ejecuta el digest semanal de memoria del departamento:\n1) Lee credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local (service_role key)\n2) Lee TODOS los agent_docs de la ultima semana via Supabase REST API (sin filtro de rating). Usa service_role key para bypass RLS.\n3) Lee los diarios (doc_type='journal') de la semana\n4) Lee docs con doc_type='aprendizaje' de la semana\n5) PRIORIDAD para la memoria: docs con rating >= 4 estrellas extraen los learnings mas detallados. Docs con rating < 3 generan instrucciones de mejora para Roberto.\n6) LEE LOS COMENTARIOS de cada doc (campo 'comments', es un array JSONB con {author, text, timestamp}). Los comentarios de Santi son feedback DIRECTO y deben incorporarse a la memoria tal como los expresa.\n7) Lee MEMORY.md de Alfred: ~/clawd/MEMORY.md\n8) Lee MEMORY.md de Roberto: /Users/alfredpifi/clawd/workspace-roberto/MEMORY.md\n9) Extrae: lecciones duraderas, patterns repetidos, errores recurrentes, mejoras confirmadas\n10) Para docs con rating bajo (1-2 estrellas): genera instrucciones especificas de mejora para Roberto (formato de investigacion, nivel de detalle, fuentes a consultar)\n11) Actualiza MEMORY.md de Alfred: anade learnings relevantes, elimina info obsoleta, incorpora feedback de Santi\n12) Actualiza MEMORY.md de Roberto: anade learnings de investigacion, mejora instrucciones basandose en feedback\n13) Genera un resumen de cambios realizados y guardalo como doc en Supabase (doc_type='report', tags=['memoria','auto'])",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771815600000,
+        "lastRunAtMs": 1771210858564,
+        "lastStatus": "ok",
+        "lastDurationMs": 180222
+      }
+    },
+    {
+      "id": "alfred-weekly-report",
+      "name": "Informe Semanal CSO - Alfred",
+      "description": "Alfred genera el informe estrategico semanal de VertexAura cada domingo a las 22:00",
+      "enabled": true,
+      "createdAtMs": 1770980500000,
+      "updatedAtMs": 1771189470018,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 22 * * 0",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Es domingo noche. Genera el Informe Semanal Estrategico de VertexAura.\n\nPasos:\n1) Lee las credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local\n2) Consulta agent_tasks completadas esta semana via Supabase REST API\n3) Consulta agent_docs generados esta semana. NOTA: Presta especial atencion a docs con rating >= 4 (son los mejor valorados por Santi)\n4) Consulta agent_activity de los ultimos 7 dias\n5) Lee /Users/alfredpifi/clawd/workspace-roberto/config/keywords_tiers.json para contexto de keywords\n6) Lee /Users/alfredpifi/clawd/workspace-roberto/config/interest_profile.json para temas de interes de Santi\n7) Consulta el vault del departamento:\n   - /Users/alfredpifi/clawd/scripts/vault.sh stats (metricas generales: total notas, por categoria, confidence medio)\n   - /Users/alfredpifi/clawd/scripts/vault.sh list decisions (decisiones recientes)\n   - /Users/alfredpifi/clawd/scripts/vault.sh list formulas (formulas de contenido descubiertas)\n   - /Users/alfredpifi/clawd/scripts/vault.sh list trends (tendencias detectadas)\n8) Lee datos de costes:\n   - cat /Users/alfredpifi/clawd/cost-ledger.json (costes por agente: hoy, mes, total)\n   - cat /Users/alfredpifi/clawd/cost-history.json (historial diario para tendencia)\n\nGenera un informe en espanol con estas secciones:\n- RESUMEN EJECUTIVO (3-4 lineas, lo mas importante de la semana)\n- TENDENCIAS DETECTADAS (que temas estan ganando traccion en las fuentes de Roberto)\n- INTELIGENCIA COMPETITIVA (menciones de competidores, movimientos del mercado)\n- IDEAS DE CONTENIDO (3-5 propuestas basadas en las formulas del vault + hallazgos de Andres)\n- OPORTUNIDADES DE NEGOCIO (leads detectados, partnerships posibles, nichos)\n- VAULT Y CONOCIMIENTO (notas nuevas esta semana, formulas descubiertas, confidence medio, temas mejor documentados)\n- DOCUMENTOS DESTACADOS (top 3-5 docs mejor valorados por rating, con resumen de por que son valiosos)\n- ANALISIS DE COSTES (coste semanal por agente, tendencia vs semana anterior, coste por documento generado)\n- MEJORAS DEL DEPARTAMENTO (que podemos hacer mejor, nuevas fuentes, optimizaciones)\n- ESTADO DEL EQUIPO (Alfred: decisiones, Roberto: tareas/hallazgos, Andres: analisis/formulas)\n\nGuarda el informe en Supabase como doc (doc_type='report', tags=['semanal','cso','auto']). Envialo por Telegram a Santi.",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771794000000,
+        "lastRunAtMs": 1771189211198,
+        "lastStatus": "ok",
+        "lastDurationMs": 258820
+      }
+    },
+    {
+      "id": "roberto-morning-scan",
+      "name": "Roberto - Scan matutino completo (02:00)",
+      "description": "Roberto ejecuta un scan completo de TODAS las fuentes: YouTube, News, Twitter, Reddit, HackerNews + procesa tareas pendientes",
+      "enabled": true,
+      "createdAtMs": 1770980500000,
+      "updatedAtMs": 1771376532754,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 2 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred orquestando el scan matutino completo de Roberto. Ejecuta EN ORDEN:\n\n1. Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh resume\n   Resetea tareas atascadas.\n\n2. Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh fetch\n   Lee tareas pendientes.\n\n2b. Consulta el vault para contexto del departamento:\n    Ejecuta: /Users/alfredpifi/clawd/scripts/vault.sh stats\n    Esto te da una vision general de cuanto sabe el departamento. Incluye las stats en el briefing de Roberto para que sepa que temas ya estan cubiertos.\n\n3. Recopila datos de TODAS las fuentes:\n   A) YouTube: Lee /Users/alfredpifi/clawd/workspace-roberto/skills/youtube/config.json, ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/youtube.sh list <channel_id> 5 para cada canal\n   B) News: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/news.sh search con keywords de tier 1-2 de /Users/alfredpifi/clawd/workspace-roberto/config/keywords_tiers.json\n   C) Reddit: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/reddit.sh scan (escanea 8 subreddits)\n   D) HackerNews: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/hackernews.sh scan (busca keywords tier 1-2)\n   E) Twitter: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/twitter.sh search con keywords de tier 1 de /Users/alfredpifi/clawd/workspace-roberto/config/keywords_tiers.json (max 10 por query). Busca tendencias y conversaciones relevantes.\n\n4. Usa sessions_spawn para crear una sesion de Roberto con TODOS los datos recopilados.\n   - agentId: \"roberto\"\n   - model: \"anthropic/claude-haiku-4-5\"\n   - thinking: \"off\"\n   - runTimeoutSeconds: 3600\n   - Instrucciones para Roberto: procesar las tareas pendientes + generar un resumen de hallazgos del scan, marcar tareas con tasks.sh complete/fail\n   - IMPORTANTE: Incluye los campos comments y description de cada tarea. Los comments son feedback directo de Santi — si dice 'esperar' o da instrucciones, RESPETARLAS. Si un comment bloquea la tarea, saltarla.\n\n5. Si hay tareas pendientes, procesarlas una a una.\n\nEste es el scan de las 02:00. Roberto debe procesar TODO lo pendiente.",
+        "model": "anthropic/claude-haiku-4-5",
+        "system_prompt_cacheable": "/Users/alfredpifi/clawd/workspace-roberto/SYSTEM_PROMPT_CACHEABLE.md",
+        "cache_control": "ephemeral",
+        "cache_version": "cacheable-v1.0-20260217"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771462800000,
+        "lastRunAtMs": 1771376400022,
+        "lastStatus": "ok",
+        "lastDurationMs": 132732,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "roberto-afternoon-scan",
+      "name": "Roberto - Scan vespertino completo (14:00)",
+      "description": "Roberto ejecuta un scan completo de TODAS las fuentes por la tarde",
+      "enabled": true,
+      "createdAtMs": 1770980500000,
+      "updatedAtMs": 1771419696152,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 14 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred orquestando el scan vespertino completo de Roberto. Ejecuta EN ORDEN:\n\n1. Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh resume\n   Resetea tareas atascadas.\n\n2. Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh fetch\n   Lee tareas pendientes.\n\n2b. Consulta el vault para contexto del departamento:\n    Ejecuta: /Users/alfredpifi/clawd/scripts/vault.sh stats\n    Esto te da una vision general de cuanto sabe el departamento. Incluye las stats en el briefing de Roberto para que sepa que temas ya estan cubiertos.\n\n3. Recopila datos de TODAS las fuentes:\n   A) YouTube: Lee /Users/alfredpifi/clawd/workspace-roberto/skills/youtube/config.json, ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/youtube.sh list <channel_id> 5 para cada canal\n   B) News: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/news.sh search con keywords de tier 1-2 de /Users/alfredpifi/clawd/workspace-roberto/config/keywords_tiers.json\n   C) Reddit: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/reddit.sh scan (escanea 8 subreddits)\n   D) HackerNews: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/hackernews.sh scan (busca keywords tier 1-2)\n   E) Twitter: Ejecuta /Users/alfredpifi/clawd/workspace-roberto/scripts/twitter.sh search con keywords de tier 1 de /Users/alfredpifi/clawd/workspace-roberto/config/keywords_tiers.json (max 10 por query). Busca tendencias y conversaciones relevantes.\n\n4. Usa sessions_spawn para crear una sesion de Roberto con TODOS los datos recopilados.\n   - agentId: \"roberto\"\n   - model: \"anthropic/claude-haiku-4-5\"\n   - thinking: \"off\"\n   - runTimeoutSeconds: 3600\n   - Instrucciones para Roberto: procesar las tareas pendientes + generar un resumen de hallazgos del scan, marcar tareas con tasks.sh complete/fail\n   - IMPORTANTE: Incluye los campos comments y description de cada tarea. Los comments son feedback directo de Santi — si dice 'esperar' o da instrucciones, RESPETARLAS. Si un comment bloquea la tarea, saltarla.\n\n5. Si hay tareas pendientes, procesarlas una a una.\n\nEste es el scan de las 14:00. Roberto debe procesar TODO lo pendiente.",
+        "model": "anthropic/claude-haiku-4-5",
+        "system_prompt_cacheable": "/Users/alfredpifi/clawd/workspace-roberto/SYSTEM_PROMPT_CACHEABLE.md",
+        "cache_control": "ephemeral",
+        "cache_version": "cacheable-v1.0-20260217"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771506000000,
+        "lastRunAtMs": 1771419600016,
+        "lastStatus": "ok",
+        "lastDurationMs": 96136,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "andres-task-poll",
+      "name": "Alfred - Orquestar tareas de Andrés",
+      "description": "Alfred busca tareas de análisis pendientes y las envía a Andrés (Haiku 4.5) para content intelligence",
+      "enabled": false,
+      "createdAtMs": 1771020000000,
+      "updatedAtMs": 1771371024577,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1771020000000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred orquestando tareas de análisis de Andrés. Ejecuta estos pasos EN ORDEN:\n\n0. Ejecuta: /Users/alfredpifi/clawd/workspace-andres/scripts/auto-dispatch.sh\n   Esto revisa si Roberto completó tareas con docs que Andrés aún no ha analizado, y crea tareas de análisis automáticamente.\n\n1. Ejecuta: /Users/alfredpifi/clawd/workspace-andres/scripts/tasks.sh resume\n   Resetea tareas atascadas >30min y devuelve pendientes.\n\n2. Ejecuta: /Users/alfredpifi/clawd/workspace-andres/scripts/tasks.sh fetch\n   Devuelve tareas pendientes como JSON array.\n\n3. Si ambos comandos devuelven arrays vacíos [], responde \"Sin tareas para Andrés\" y termina.\n\n4. Toma la PRIMERA tarea del array. Anota id, title, task_type, brief, description, comments. Los comments son feedback directo de Santi — si bloquean ejecución, salta a la siguiente tarea.\n\n5. Ejecuta: /Users/alfredpifi/clawd/workspace-andres/scripts/tasks.sh start <id>\n\n5b. Consulta el vault para formulas y tendencias existentes:\n    Ejecuta: /Users/alfredpifi/clawd/scripts/vault.sh search \"<palabras clave del titulo>\"\n    Ejecuta: /Users/alfredpifi/clawd/scripts/vault.sh list formulas\n    Si hay resultados, incluye ese contexto en las instrucciones de Andres.\n\n6. Obtén los docs fuente para el análisis:\n   A) Si brief contiene source_doc_id → ejecuta: /Users/alfredpifi/clawd/workspace-andres/scripts/docs.sh fetch-by-task <source_task_id>\n   B) Si no → ejecuta: /Users/alfredpifi/clawd/workspace-andres/scripts/docs.sh fetch-recent 7 5\n\n7. Usa sessions_spawn para crear una sub-sesión de Andrés:\n   - agentId: \"andres\"\n   - model: \"anthropic/claude-haiku-4-5\"\n   - thinking: \"off\"\n   - runTimeoutSeconds: 900\n   - task: Incluye datos de docs + estas instrucciones:\n\n   \"Eres Andrés, analista de content intelligence de VertexAura. Usa herramientas read, exec, write.\n\n   TAREA: <title> (id: <id>, tipo: <task_type>)\n   BRIEF: <brief>\n   COMENTARIOS DE SANTI: <comments array — instrucciones directas del jefe>\n\n   DOCUMENTOS DE ROBERTO:\n   <contenido de los docs obtenidos>\n\n   CONTEXTO DEL VAULT:\n   <formulas existentes y datos previos del vault, o 'sin datos previos'>\n   Usa este contexto como base. Refina formulas existentes en vez de crear nuevas desde cero. Detecta contradicciones con datos previos.\n\n   INSTRUCCIONES:\n\n   PASO 0: Ejecuta /Users/alfredpifi/clawd/scripts/vault.sh search \\\"<tema>\\\" y /Users/alfredpifi/clawd/scripts/vault.sh list formulas para ver el conocimiento previo del departamento.\n\n   PASO 1: Lee skills/content_intelligence/README.md para ver el schema de output.\n   PASO 2: Lee COMPLETAMENTE cada documento de Roberto.\n   PASO 3: Ejecuta el análisis de 5 capas según el schema.\n   PASO 4: Valida output: scripts/validate-output.sh /tmp/andres_analysis.json\n   PASO 5: Escribe /tmp/andres_doc.md con el análisis en formato legible (mínimo 500 palabras).\n   PASO 6: Ejecuta: scripts/tasks.sh complete <id> '<json_del_analisis>'\n\n   IMPORTANTE: NO inventes datos. Si un dato no está en los docs de Roberto, escribe 'dato no disponible'. Cada claim debe citar evidencia del documento.\"\n\n8. Espera confirmación. Si falla: /Users/alfredpifi/clawd/workspace-andres/scripts/tasks.sh fail <id> '<descripción del error>'\n\nSolo procesa UNA tarea por sesión.",
+        "model": "anthropic/claude-haiku-4-5",
+        "system_prompt_cacheable": "/Users/alfredpifi/clawd/workspace-andres/SYSTEM_PROMPT_CACHEABLE.md",
+        "cache_control": "ephemeral",
+        "cache_version": "cacheable-v1.0-20260217"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "lastRunAtMs": 1771371008796,
+        "lastStatus": "ok",
+        "lastDurationMs": 15781,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "roberto-ig-scan",
+      "name": "Roberto - Instagram scan diario (10:00)",
+      "description": "Roberto escanea cuentas de Instagram monitoreadas y documenta posts relevantes",
+      "enabled": true,
+      "createdAtMs": 1771300800000,
+      "updatedAtMs": 1771405567283,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred orquestando el scan de Instagram para Roberto. Ejecuta EN ORDEN:\n\n1. RECOPILAR POSTS NUEVOS (via Apify, deduplicado automaticamente):\n   A) /Users/alfredpifi/clawd/scripts/instagram-apify.sh scrape santim.ia 5\n   B) /Users/alfredpifi/clawd/scripts/instagram-apify.sh scrape rackslabs 5\n   C) /Users/alfredpifi/clawd/scripts/instagram-apify.sh scrape mattganzak 5\n   Si TODOS devuelven arrays vacios [] → responde 'Sin posts nuevos' y TERMINA aqui.\n\n2. PERFILES:\n   D) /Users/alfredpifi/clawd/scripts/instagram-apify.sh profile santim.ia\n   E) /Users/alfredpifi/clawd/scripts/instagram-apify.sh profile rackslabs\n   F) /Users/alfredpifi/clawd/scripts/instagram-apify.sh profile mattganzak\n\n3. ANALISIS VISUAL de reels nuevos (max 3 por cuenta, solo is_video=true):\n   Para cada reel nuevo con video_url:\n   a) /Users/alfredpifi/clawd/scripts/instagram-apify.sh download-reel <video_url> /tmp/ig-reels/<shortcode>.mp4\n   b) /Users/alfredpifi/clawd/scripts/visual-analysis.sh analyze-reel /tmp/ig-reels/<shortcode>.mp4\n   Si falla o >50MB, skip y continua.\n\n4. MARCAR COMO VISTOS:\n   /Users/alfredpifi/clawd/scripts/instagram-apify.sh mark-seen santim.ia <shortcodes_comma>\n   (repetir para rackslabs y mattganzak)\n\n5. VAULT: /Users/alfredpifi/clawd/scripts/vault.sh search \"instagram\"\n\n6. SPAWN ROBERTO con todos los datos:\n   - agentId: \"roberto\"\n   - thinking: \"off\"\n   - runTimeoutSeconds: 900\n   - Datos: posts JSON + profiles JSON + visual analysis JSON\n   - Instrucciones Roberto:\n     * Competidores (rackslabs, mattganzak): Extraer FORMULAS, hooks, patrones replicables\n     * santim.ia: Recopilar datos (performance analysis lo hace CM semanalmente)\n     * Incluir visual analysis (composicion, OCR, transcripcion) si hay reels\n     * Escribir /tmp/roberto_doc.md (min 500 palabras)\n     * Crear doc: /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh doc 'ig-scan-daily' 'Instagram Scan Diario' 'research' '[\"instagram\",\"auto\"]'",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771491600000,
+        "lastRunAtMs": 1771405200021,
+        "lastStatus": "ok",
+        "lastDurationMs": 367262,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "marina-task-poll",
+      "name": "Alfred - Orquestar tareas de Marina",
+      "description": "Alfred busca tareas de content creation pendientes y las envia a Marina para generar drafts",
+      "enabled": false,
+      "createdAtMs": 1771300800000,
+      "updatedAtMs": 1771402940063,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1771300800000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred orquestando tareas de content creation de Marina. Ejecuta estos pasos EN ORDEN:\n\n1. Ejecuta: /Users/alfredpifi/clawd/workspace-marina/scripts/tasks.sh resume\n\n2. Ejecuta: /Users/alfredpifi/clawd/workspace-marina/scripts/tasks.sh fetch\n\n3. Si arrays vacios [], responde \"Sin tareas para Marina\" y termina.\n\n4. Toma la PRIMERA tarea. Anota id, title, task_type, brief, description, comments.\n   IMPORTANTE: Los comments son feedback DIRECTO de Santi — tienen MAXIMA prioridad sobre todo lo demas.\n   Si Santi dice 'enfocalo en X', 'no menciones Y', o cualquier directiva → SEGUIRLA al pie de la letra.\n\n5. Ejecuta: /Users/alfredpifi/clawd/workspace-marina/scripts/tasks.sh start <id>\n\n5b. Recopila contexto:\n    A) Si brief tiene source_doc_id: /Users/alfredpifi/clawd/workspace-marina/scripts/content.sh fetch-source <source_doc_id>\n       (Acepta cualquier doc: research de Roberto O analysis de Andres)\n    B) Si no hay source_doc_id: /Users/alfredpifi/clawd/workspace-marina/scripts/content.sh fetch-analysis-recent 3\n    C) /Users/alfredpifi/clawd/workspace-marina/scripts/content.sh fetch-formulas\n    D) /Users/alfredpifi/clawd/workspace-marina/scripts/content.sh fetch-voice\n    E) /Users/alfredpifi/clawd/workspace-marina/scripts/content.sh fetch-platforms\n    F) /Users/alfredpifi/clawd/scripts/vault.sh search \"<palabras clave>\"\n    NOTA: Lee brief.platforms para saber para que plataformas generar contenido.\n    NOTA: Lee brief.source_doc_type para saber si es research directo o analysis procesado.\n\n6. Usa sessions_spawn para Marina:\n   - agentId: \"marina\"\n   - thinking: \"off\"\n   - runTimeoutSeconds: 900\n   - task: Generar contenido multi-plataforma. 3 variantes de hook. Contenido adaptado para las plataformas indicadas en brief.platforms (o LinkedIn, Twitter/X, Instagram por defecto). CTA por plataforma. Visual brief. COMMENTS DE SANTI = MAXIMA PRIORIDAD — si dice como enfocar el contenido, ese es el enfoque. Escribir /tmp/marina_doc.md (min 300 palabras). Completar con /Users/alfredpifi/clawd/workspace-marina/scripts/tasks.sh complete <id> '<json>'\n   JSON: {platforms, hooks:{principal,variante_1,variante_2}, formulas_aplicadas, source_doc_id, visual_brief}\n   NUNCA inventar datos. Cada plataforma contenido DIFERENTE.\n\n7. Si falla: /Users/alfredpifi/clawd/workspace-marina/scripts/tasks.sh fail <id> '<error>'\n\nSolo UNA tarea por sesion.",
+        "model": "anthropic/claude-haiku-4-5",
+        "system_prompt_cacheable": "/Users/alfredpifi/clawd/workspace-marina/SYSTEM_PROMPT_CACHEABLE.md",
+        "cache_control": "ephemeral",
+        "cache_version": "cacheable-v1.0-20260217"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "lastRunAtMs": 1771402828930,
+        "lastStatus": "ok",
+        "lastDurationMs": 111133,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "morning-brief-santi",
+      "name": "Morning Brief - Santi",
+      "description": "Alfred genera el briefing matutino con resumen nocturno, noticias, estado del departamento y plan del dia",
+      "enabled": true,
+      "createdAtMs": 1771300800000,
+      "updatedAtMs": 1771399872851,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 8 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Buenos dias Santi. Genera el Morning Brief del departamento. Texto natural, 300-500 palabras, en espanol.\n\nPasos:\n\n1. RESUMEN NOCTURNO: Lee agent_tasks completadas en las ultimas 12h:\n   Ejecuta: curl -s \"$SUPABASE_URL/rest/v1/agent_tasks?status=eq.completada&order=completed_at.desc&limit=10&select=title,assigned_to,completed_at\" con headers de auth (lee credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local, usa service_role key)\n\n2. NOTICIAS DEL DIA: Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/news.sh search \"AI agents automation\" 5 es ES\n   Lee el JSON de output y INCLUYE las 3 noticias mas relevantes en el brief (titulo + fuente + por que importa).\n\n3. TWITTER RELEVANTE: Ejecuta: /Users/alfredpifi/clawd/workspace-roberto/scripts/twitter.sh search \"AI agents automation marketing\" 5 2>/dev/null || echo 'Twitter no disponible'\n   Incluye los 2-3 tweets mas relevantes en el brief.\n\n4. ESTADO DEPARTAMENTO:\n   - Tareas pendientes: curl al API de agent_tasks con status=eq.pendiente&select=title,assigned_to&limit=10\n   - Docs nuevos ultimas 24h: curl al API de agent_docs con created_at reciente&select=title,doc_type,author&limit=5\n   - Reviews pendientes: curl al API de agent_docs con review_status=eq.pending_review&select=title&limit=5\n\n5. PLAN SUGERIDO HOY: Basandote en lo anterior, sugiere 3-5 acciones prioritarias para Santi.\n\n6. Consulta el vault: /Users/alfredpifi/clawd/scripts/vault.sh search \"prioridades\" para recordar decisiones recientes.\n\nFormato: Texto conversacional como si hablaras directamente con Santi. Empieza con un saludo breve. Organiza en secciones claras pero sin ser rigido. Termina con las prioridades del dia.\n\n7. GENERAR AUDIO: Guarda el brief en /tmp/morning_brief.txt y ejecuta: bash /Users/alfredpifi/clawd/scripts/say-alfred.sh Reed \"$(cat /tmp/morning_brief.txt)\" /tmp/morning_brief.m4a\n\n8. Menciona: Audio generado en /tmp/morning_brief.m4a (Telegram enviara automaticamente)",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771486200000,
+        "lastRunAtMs": 1771399800033,
+        "lastStatus": "ok",
+        "lastDurationMs": 72818,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "alfred-proactive-leader",
+      "name": "Alfred Proactive Leader",
+      "description": "Alfred revisa docs, decide que contenido crear, gestiona proyectos y propone decisiones estrategicas",
+      "enabled": true,
+      "createdAtMs": 1771300800000,
+      "updatedAtMs": 1771426999881,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 16 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred, LIDER del departamento de marketing de VertexAura. No eres un asistente reactivo — eres el director que PIENSA y toma decisiones. Razonas con tu propio conocimiento, no solo reaccionas a documentos.\n\nFASE 1: REVISION DE CONTEXTO\n1. Consulta vault para recordar filosofia, decisiones, tendencias y formulas:\n   /Users/alfredpifi/clawd/scripts/vault.sh search \"como-piensa-santi\"\n   /Users/alfredpifi/clawd/scripts/vault.sh search \"proyectos-activos\"\n   /Users/alfredpifi/clawd/scripts/vault.sh list trends\n   /Users/alfredpifi/clawd/scripts/vault.sh list formulas\n   /Users/alfredpifi/clawd/scripts/vault.sh list decisions\n2. Lee MEMORY.md: /Users/alfredpifi/clawd/MEMORY.md\n3. Lee docs de Roberto/Andres de las ultimas 48h:\n   curl -s \"$SUPABASE_URL/rest/v1/agent_docs?order=created_at.desc&limit=10&select=id,title,doc_type,author,tags,word_count,created_at\" (lee credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local, usa service_role key)\n4. Revisa tareas pendientes de todos:\n   curl -s \"$SUPABASE_URL/rest/v1/agent_tasks?status=eq.pendiente&select=id,title,assigned_to,priority&limit=15\"\n\nFASE 2: CONTENT CURATOR (docs existentes)\nPara cada doc nuevo, evalua (score 1-5):\n- Relevancia VertexAura (automatizaciones, AI agents, building in public)\n- Potencial autoridad (demostramos expertise)\n- Referencia a creators seguidos → oportunidad version propia\n- Actualidad (tendencia del momento)\n\nSi score >= 4 → crea tarea Marina con enfoque especifico en comments:\ncurl -X POST \"$SUPABASE_URL/rest/v1/agent_tasks\" con body:\n{\"title\":\"Crear contenido: [titulo]\",\"assigned_to\":\"Marina\",\"task_type\":\"content_creation\",\"status\":\"pendiente\",\"priority\":\"media\",\"brief\":{\"source_doc_id\":\"[id]\",\"source_doc_type\":\"[tipo]\",\"platforms\":[\"linkedin\",\"twitter\",\"instagram\"]},\"comments\":[{\"author\":\"Alfred\",\"text\":\"[enfoque especifico del contenido]\",\"timestamp\":\"[now]\"}],\"created_by\":\"Alfred\"}\n\nNUNCA contenido de: configs internas, debugging, discusiones entre agentes\nPRIORIZAR: building in public, autoridad AI, reacciones a creators, sistemas de clientes\nMax 2 tareas contenido por ejecucion. Si score = 5, ejecuta sin preguntar.\n\nFASE 3: PENSAMIENTO ESTRATEGICO PROPIO\nEsto es CRITICO. NO dependas solo de docs nuevos. USA tu conocimiento acumulado (vault, memory, contexto) para:\n1. Detectar huecos de contenido: Que temas importantes NO estamos cubriendo? Que deberiamos investigar?\n2. Proponer ideas originales: Basado en tendencias del vault, formulas exitosas, y el perfil de audiencia, genera 1-2 ideas de contenido propias (sin necesitar doc fuente). Si tienes una idea → crea tarea Roberto para investigar el tema primero.\n3. Evaluar el pipeline: Hay cuellos de botella? Tareas estancadas? Agentes infrautilizados?\n4. Identificar oportunidades: Noticias del sector, fechas relevantes, momentos para contenido reactivo\n5. Revisar decisiones pasadas del vault: Alguna necesita revision o seguimiento?\n6. Si detectas problema operativo → resuelvelo o propone solucion\n\nGuarda decisiones y razonamientos en vault:\n   /Users/alfredpifi/clawd/scripts/vault.sh add \"decision-[tema]\" decisions \"[decision y razon]\"\n\nFASE 4: DELEGACION Y ACCION\n1. Si faltan datos → crea tarea Roberto (puede delegar sin preguntar, bajo coste)\n2. Si hay analisis pendientes → asigna a Andres\n3. Desglosa tareas grandes en subtareas accionables\n4. Si detecta oportunidad urgente → crea tarea Roberto inmediata\n\nFASE 5: APROBACION DE SANTI\nPara decisiones estrategicas (nuevos proyectos, cambios pipeline, gastos):\n- PROPONE via mensaje Telegram, NO ejecuta directamente\n- Formato: 'Propongo: [accion]. Razon: [por que]. Impacto: [que cambia]. OK?'\n- Para investigacion → puede delegar a Roberto sin preguntar\n\nAl terminar, resume brevemente: que docs revisaste, que decidiste, que ideas propias tuviste, y que queda pendiente.",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771513200000,
+        "lastRunAtMs": 1771426800023,
+        "lastStatus": "ok",
+        "lastDurationMs": 199858,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "alfred-evening-review",
+      "name": "Alfred Evening Review",
+      "description": "Alfred genera el resumen vespertino con logros del dia, estado del departamento y plan nocturno",
+      "enabled": true,
+      "createdAtMs": 1771300800000,
+      "updatedAtMs": 1771362097447,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 22 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Buenas noches Santi. Genera el Evening Review del departamento. Texto natural, 300-500 palabras, en espanol.\n\nPasos:\n\n1. RESUMEN DEL DIA: Lee agent_tasks completadas hoy:\n   curl -s \"$SUPABASE_URL/rest/v1/agent_tasks?status=eq.completada&order=completed_at.desc&limit=15&select=title,assigned_to,completed_at\" (lee credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local, usa service_role key)\n\n2. OUTPUT DEPARTAMENTO:\n   - Docs generados hoy: curl al API de agent_docs recientes&select=title,doc_type,author,word_count&limit=10\n   - Drafts pendientes de review: curl con review_status=eq.pending_review&select=title&limit=5\n   - Tareas pendientes: curl con status=eq.pendiente&select=title,assigned_to&limit=10\n\n3. INSIGHTS: Que funciono bien hoy? Que oportunidades detectaste? Algun patron interesante?\n\n4. PLAN NOCTURNO: Roberto/Andres tienen scans programados (02:00 morning scan, polls cada 30min). Que deberian priorizar esta noche?\n\n5. PRIORIDADES MANANA: Top 3-5 cosas para manana.\n\n6. Consulta vault: /Users/alfredpifi/clawd/scripts/vault.sh search \"prioridades\" para contexto.\n\nFormato: Conversacional, como cierre de dia con Santi. Breve, directo, con datos concretos.\n\nIMPORTANTE: NO crees documentos en agent_docs de Supabase. Este resumen se envia SOLO por Telegram.",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771448400000,
+        "lastRunAtMs": 1771362036620,
+        "lastStatus": "ok",
+        "lastDurationMs": 60827,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "alfred-process-own-tasks",
+      "name": "Alfred - Procesar tareas propias",
+      "description": "Procesa tareas de Alfred: recordatorios, diagnósticos, mejoras, análisis",
+      "enabled": false,
+      "createdAtMs": 1771323705000,
+      "updatedAtMs": 1771371819518,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000,
+        "anchorMs": 1771323705000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred. TAREAS PENDIENTES VENCIDAS (>2h):\n\n1) RECORDATORIO: Sesion brainstorm SaaS (11:00-11:30h VENCIDA)\n   → Notifica a Santi: qué se discutió, accionables, próximos pasos\n\n2) DIAGNÓSTICO: Instagram feed vacío en dashboard (>2h20min)\n   → Investiga: /Users/alfredpifi/clawd/alfred-dashboard/\n   → Root cause, solución, reporte\n\n3) PREPARACIÓN: Lista funcionalidades SaaS (>2h25min)\n   → 10-15 funcionalidades VertexAura\n   → Análisis vs competencia\n   → Guarda: /tmp/saas_funcionalidades.md\n\nACCIÓN:\n- Ejecuta cada tarea\n- Marca completada en Supabase\n- Documenta en vault\n\nPRIORIDAD MÁXIMA (vencidas).",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "lastRunAtMs": 1771371705019,
+        "lastStatus": "ok",
+        "lastDurationMs": 114499,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "alfred-daily-self-review",
+      "name": "Alfred - Daily Self-Review & Improvement",
+      "description": "Alfred revisa su propio rendimiento diario, identifica errores, documenta learnings y propone mejoras",
+      "enabled": true,
+      "createdAtMs": 1771333800000,
+      "updatedAtMs": 1771376699709,
+      "schedule": {
+        "kind": "cron",
+        "expr": "15 23 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "SELF-REVIEW DIARIO: Evalúa tu rendimiento de HOY.\n\n1) REVISAR ERRORES: tail -200 logs | grep error → documenta qué falló y por qué\n2) REVISAR DECISIONES: Lee memory del día → ¿fueron correctas? ¿qué aprendí?\n3) REVISAR WORKFLOWS: jobs.json, prompts, SYSTEM_PROMPT_CACHEABLE.md → ¿ineficiencias?\n4) MÉTRICAS: tareas completadas, errores resueltos, calidad 1-10\n5) DOCUMENTAR EN VAULT: crea resumen con errores + learnings + mejoras usando /Users/alfredpifi/clawd/scripts/vault.sh add lessons\n6) ACTUALIZAR MEMORY.md: nuevas ineficiencias, patrones, mejoras implementadas\n7) PROPONER MEJORAS: si hay problemas graves, crea AUTO-MEJORA task para ti\n8) GENERAR REPORTE: JSON con timestamp, errores, quality_score, learnings (solo en output, NO guardar como doc)\n\nIMPORTANTE: NO crees documentos en agent_docs de Supabase. Documenta SOLO en vault (vault.sh add) y MEMORY.md. El diario formal lo genera otro job (daily-diary).\n\nFILOSOFÍA: No eres perfecto. Error = oportunidad. Documenta para que Future-Alfred aprenda de Present-Alfred.",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771452000000,
+        "lastRunAtMs": 1771376532754,
+        "lastStatus": "ok",
+        "lastDurationMs": 166955,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "alfred-cron-health-monitor",
+      "name": "Alfred - Cron Health Monitor (Alert Critical Failures)",
+      "description": "Monitorea salud de todos los crons. Si alguno falla >2 veces, alerta CRÍTICA",
+      "enabled": false,
+      "createdAtMs": 1771334400000,
+      "updatedAtMs": 1771372240569,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000,
+        "anchorMs": 1771334400000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "HEALTH CHECK: Analiza jobs.json y detecta CRONS EN ESTADO CRÍTICO.\n\nPORQUÉ: Si un cron falla, tarea se traba. Si falla >2 veces, competencia gana tiempo.\n\nCHECK LISTA:\n1) Lee jobs.json - identifica jobs con consecutiveErrors >= 2\n2) Para CADA job fallido:\n   - lastError: ¿qué falló?\n   - lastStatus: error o skipped?\n   - Frecuencia fallos: ¿es recurrente o one-time?\n3) Clasifica:\n   - CRÍTICO: si bloquea Roberto/Andrés/Marina (content pipeline)\n   - ALTO: si bloquea Alfred (infraestructura)\n   - MEDIO: si bloquea crons no-core\n\nACCIÓN SI CRÍTICO:\n- Envía alerta URGENTE a Santi:\n  \"🚨 CRON FALLIDO: [nombre] - Error: [lastError]\n   Status: [lastStatus]\n   Impacto: [qué se traba]\n   Próxima ejecución: [nextRunAtMs]\"\n\nDOCUMENTACIÓN:\n- Crea nota en /tmp/cron_health_report.json\n- Propone solución a Santi\n\nOBJETIVO: Detectar problemas en MINUTOS, no en horas.",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "lastRunAtMs": 1771372200020,
+        "lastStatus": "ok",
+        "lastDurationMs": 40549,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "arturo-weekly-review",
+      "name": "Arturo - Weekly Social Performance Review",
+      "description": "Analisis semanal de rendimiento en redes sociales de @santim.ia y competidores",
+      "enabled": true,
+      "createdAtMs": 1771300800000,
+      "updatedAtMs": 1771300800000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 20 * * 0",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred orquestando el review semanal de redes sociales para Arturo.\n\n1. RECOPILAR DATOS DE LA SEMANA:\n   A) Docs de Roberto sobre Instagram de los ultimos 7 dias:\n      Lee credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local (usa service_role key).\n      curl -s \"$SUPABASE_URL/rest/v1/agent_docs?author=eq.Roberto&tags=cs.{instagram}&order=created_at.desc&limit=7&select=id,title,content,created_at,word_count\" -H \"Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY\" -H \"apikey: $SUPABASE_SERVICE_ROLE_KEY\"\n   B) Perfiles actuales:\n      /Users/alfredpifi/clawd/scripts/instagram-apify.sh profile santim.ia\n      /Users/alfredpifi/clawd/scripts/instagram-apify.sh profile rackslabs\n      /Users/alfredpifi/clawd/scripts/instagram-apify.sh profile mattganzak\n   C) Vault context:\n      /Users/alfredpifi/clawd/scripts/vault.sh search \"instagram\"\n      /Users/alfredpifi/clawd/scripts/vault.sh list formulas\n\n2. SPAWN Arturo con todos los datos:\n   - agentId: \"arturo\"\n   - thinking: \"off\"\n   - runTimeoutSeconds: 900\n   - Datos: docs semana + perfiles + vault\n   - Instrucciones Arturo:\n     * Analizar performance @santim.ia esta semana vs semanas anteriores\n     * Top 3 posts (por que funcionaron) y Bottom 3 (que mejorar)\n     * Engagement rate trends\n     * Que hicieron @rackslabs y @mattganzak esta semana\n     * 3-5 recomendaciones CONCRETAS para proxima semana\n     * Leer benchmarks: cat /Users/alfredpifi/clawd/workspace-arturo/knowledge/benchmarks.json\n     * Leer historico: cat /Users/alfredpifi/clawd/workspace-arturo/data/metrics/weekly-history.json\n     * Actualizar weekly-history.json con datos de esta semana\n     * Escribir /tmp/arturo_doc.md (min 500 palabras)\n     * Crear doc: /Users/alfredpifi/clawd/workspace-arturo/scripts/tasks.sh doc 'Social Performance Review Semanal' /tmp/arturo_doc.md",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771786800000
+      }
+    },
+    {
+      "id": "alfred-morning-standup",
+      "name": "Alfred - Standup Matutino",
+      "description": "Standup matutino: Alfred orquesta a Roberto, Andrés y Marina para revision diaria",
+      "enabled": true,
+      "createdAtMs": 1771372800000,
+      "updatedAtMs": 1771402122515,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred ejecutando el STANDUP MATUTINO del departamento.\n\nFASE 0: SEÑALIZAR INICIO\nEjecuta este comando EXACTO con exec:\necho '{\"active\":true,\"type\":\"morning\",\"agents\":[\"alfred\",\"roberto\",\"andres\",\"marina\"]}' > /Users/alfredpifi/clawd/standup-active.json\n\nFASE 1: RECOPILAR DATOS\n1. sessions_spawn roberto: \"Reporta datos frescos desde ultimo standup. Que descubrio el scan nocturno? Hallazgos clave de las ultimas 12h. Usa /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh fetch para ver pendientes.\"\n2. sessions_spawn andres: \"Reporta analisis pendientes y formulas detectadas en las ultimas 24h. Que patrones estas viendo? Usa /Users/alfredpifi/clawd/workspace-andres/scripts/tasks.sh fetch para ver pendientes.\"\n3. Consulta vault:\n   /Users/alfredpifi/clawd/scripts/vault.sh list decisions\n   /Users/alfredpifi/clawd/scripts/vault.sh list trends\n   /Users/alfredpifi/clawd/scripts/vault.sh search \"proyectos-activos\"\n\nFASE 2: SINTETIZAR\n- Cuellos de botella: que tareas llevan >24h pendientes?\n- Oportunidades: datos frescos + tendencias = ideas de contenido?\n- Gaps: que falta investigar? que formulas no se estan usando?\n\nFASE 3: BRIEFING MARINA\n4. sessions_spawn marina: \"Brief del dia. Prioridades de contenido basadas en hallazgos de Roberto y Andres: [incluir resumen]. Consulta /Users/alfredpifi/clawd/scripts/vault.sh list formulas para las formulas disponibles.\"\n\nFASE 4: DOCUMENTAR\n5. Genera acta del standup (200-400 palabras) y guardala:\n   Lee credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local\n   curl -X POST \"$SUPABASE_URL/rest/v1/agent_docs\" con service_role key\n   body: {\"title\":\"Standup Matutino - [fecha]\",\"content\":\"[acta]\",\"doc_type\":\"report\",\"tags\":[\"standup\",\"matutino\",\"auto\"],\"author\":\"Alfred\"}\n\nFASE 5: REGISTRAR EN ACTIVITY FEED\n6. Lee las credenciales de ~/clawd/.env.local (SUPABASE_URL y SUPABASE_SERVICE_ROLE_KEY).\n   Genera un resumen breve del standup (2-3 frases) y ejecuta con exec:\n   curl -s -X POST \"$SUPABASE_URL/rest/v1/agent_activity\" -H \"Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY\" -H \"apikey: $SUPABASE_SERVICE_ROLE_KEY\" -H \"Content-Type: application/json\" -d '{\"agent_id\":\"alfred\",\"action\":\"standup_summary\",\"details\":{\"title\":\"Standup Matutino - FECHA\",\"summary\":\"RESUMEN_BREVE\",\"agents_involved\":[\"Roberto\",\"Andrés\",\"Marina\"]}}'\n   Reemplaza FECHA y RESUMEN_BREVE con los datos reales.\n\n7. Envia resumen conciso a Santi por Telegram (3-5 lineas: que se hizo anoche, que haremos hoy, bloqueadores si los hay).\n\nFASE FINAL: SEÑALIZAR FIN\nEjecuta este comando EXACTO con exec:\necho '{\"active\":false}' > /Users/alfredpifi/clawd/standup-active.json",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771488000000,
+        "lastRunAtMs": 1771401836036,
+        "lastStatus": "ok",
+        "lastDurationMs": 286479,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "alfred-weekly-standup",
+      "name": "Alfred - Standup Semanal",
+      "description": "Retrospectiva semanal de TODO el departamento",
+      "enabled": true,
+      "createdAtMs": 1771372800000,
+      "updatedAtMs": 1771372800000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 19 * * 0",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Eres Alfred ejecutando el STANDUP SEMANAL (retrospectiva) del departamento.\n\nFASE 0: SEÑALIZAR INICIO\nEjecuta este comando EXACTO con exec:\necho '{\"active\":true,\"type\":\"weekly\",\"agents\":[\"alfred\",\"roberto\",\"andres\",\"marina\",\"arturo\",\"alex\"]}' > /Users/alfredpifi/clawd/standup-active.json\n\nFASE 1: RECOPILAR DATOS DE TODOS LOS AGENTES\n1. sessions_spawn roberto: \"Reporte semanal: que investigaste esta semana, hallazgos clave, fuentes mas valiosas, problemas encontrados. Usa /Users/alfredpifi/clawd/workspace-roberto/scripts/tasks.sh fetch para ver pendientes.\"\n2. sessions_spawn andres: \"Reporte semanal: que analisis completaste, formulas nuevas detectadas, patrones de la semana, gaps identificados. Usa /Users/alfredpifi/clawd/workspace-andres/scripts/tasks.sh fetch para ver pendientes.\"\n3. sessions_spawn marina: \"Reporte semanal: que contenido creaste, que funciono, que no, feedback recibido. Usa /Users/alfredpifi/clawd/workspace-marina/scripts/tasks.sh fetch para ver pendientes.\"\n4. sessions_spawn arturo: \"Reporte semanal: metricas de redes sociales, engagement trends, top/bottom posts, recomendaciones. Usa /Users/alfredpifi/clawd/workspace-arturo/scripts/tasks.sh fetch para ver pendientes.\"\n5. sessions_spawn alex: \"Reporte semanal: estado de proyectos tecnicos, avances, bloqueadores.\"\n\nFASE 2: CONTEXTO DEL VAULT\n6. Consulta vault:\n   /Users/alfredpifi/clawd/scripts/vault.sh stats\n   /Users/alfredpifi/clawd/scripts/vault.sh list decisions\n   /Users/alfredpifi/clawd/scripts/vault.sh list trends\n   /Users/alfredpifi/clawd/scripts/vault.sh list formulas\n\nFASE 3: RETROSPECTIVA\n- Que funciono esta semana? (exitos, contenido que performo, investigaciones valiosas)\n- Que NO funciono? (fallos, tareas estancadas, contenido que no performo)\n- Patrones detectados: tendencias emergentes, formulas validadas\n- Content gaps: que temas no cubrimos que deberiamos?\n- Pipeline health: cuellos de botella, agentes infrautilizados\n\nFASE 4: PLAN PROXIMA SEMANA\n- Top 5 prioridades para la proxima semana\n- Tareas a crear para cada agente\n- Decisiones estrategicas pendientes\n\nFASE 5: DOCUMENTAR\n7. Genera acta del standup semanal (500-800 palabras) y guardala:\n   Lee credenciales de ~/clawd/.env.local y ~/clawd/alfred-dashboard/.env.local\n   curl -X POST \"$SUPABASE_URL/rest/v1/agent_docs\" con service_role key\n   body: {\"title\":\"Standup Semanal - [fecha]\",\"content\":\"[acta]\",\"doc_type\":\"report\",\"tags\":[\"standup\",\"semanal\",\"retrospectiva\",\"auto\"],\"author\":\"Alfred\"}\n\nFASE 6: REGISTRAR EN ACTIVITY FEED\n8. Lee las credenciales de ~/clawd/.env.local (SUPABASE_URL y SUPABASE_SERVICE_ROLE_KEY).\n   Genera un resumen breve del standup (2-3 frases) y ejecuta con exec:\n   curl -s -X POST \"$SUPABASE_URL/rest/v1/agent_activity\" -H \"Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY\" -H \"apikey: $SUPABASE_SERVICE_ROLE_KEY\" -H \"Content-Type: application/json\" -d '{\"agent_id\":\"alfred\",\"action\":\"standup_summary\",\"details\":{\"title\":\"Standup Semanal - FECHA\",\"summary\":\"RESUMEN_BREVE\",\"agents_involved\":[\"Roberto\",\"Andrés\",\"Marina\",\"Arturo\",\"Alex\"]}}'\n   Reemplaza FECHA y RESUMEN_BREVE con los datos reales.\n\n9. Envia resumen a Santi por Telegram (5-10 lineas: logros semana, problemas, plan proxima semana).\n\n10. Incluye vault stats en el resumen: total notas, por categoria, tendencias.\n\nFASE FINAL: SEÑALIZAR FIN\nEjecuta este comando EXACTO con exec:\necho '{\"active\":false}' > /Users/alfredpifi/clawd/standup-active.json",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771783200000
+      }
+    }
+  ]
+}

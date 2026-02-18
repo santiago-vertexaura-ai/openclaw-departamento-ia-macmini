@@ -1,0 +1,44 @@
+# SECRETS - NUNCA COMMITEAR
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# OPENCLAW SECRETS
+credentials/
+agents/*/agent/auth-profiles.json
+telegram/
+devices/
+identity/
+
+# DEPENDENCIES
+node_modules/
+venv_scraper/
+.venv/
+dist/
+build/
+
+# GENERATED
+.next/
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# OS FILES
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+
+# SENSITIVE DATA
+cost-*.json
+agents-status.json
+standup-active.json
+*.bak
+
+# CACHE
+.cache/
+.next/cache/
