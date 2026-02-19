@@ -96,3 +96,14 @@ Format: `[DD-MMM-YYYY] Daily Infrastructure Update - [Summary]`
 ## 📞 Support
 
 For issues or questions, check vault documentation in `/docs/vault/`
+
+
+Para restaurar en otra máquina solo necesitarías:
+
+git clone el repo
+Rellenar los [REDACTED] con los tokens reales
+npm install en alfred-dashboard
+Copiar los plists a ~/Library/LaunchAgents/
+Configurar .env.local con las API keys
+
+
