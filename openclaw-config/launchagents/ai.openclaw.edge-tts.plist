@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>ai.openclaw.edge-tts</string>
+    <key>Comment</key>
+    <string>OpenAI-compatible Edge TTS server for Telegram voice bubbles</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/alfredpifi/clawd/services/openai-edge-tts/venv/bin/python</string>
+      <string>/Users/alfredpifi/clawd/services/openai-edge-tts/app/server.py</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/alfredpifi/clawd/services/openai-edge-tts</string>
+    <key>StandardOutPath</key>
+    <string>/Users/alfredpifi/.openclaw/logs/edge-tts.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/alfredpifi/.openclaw/logs/edge-tts.err.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>HOME</key>
+      <string>/Users/alfredpifi</string>
+      <key>PATH</key>
+      <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+  </dict>
+</plist>

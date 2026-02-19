@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>ai.openclaw.poll-guard-marina</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/alfredpifi/clawd/scripts/poll-guard.sh</string>
+    <string>marina</string>
+    <string>marina-task-poll</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>1800</integer>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HOME</key>
+    <string>/Users/alfredpifi</string>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/alfredpifi/clawd/logs/poll-guard-marina.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/alfredpifi/clawd/logs/poll-guard-marina.err.log</string>
+</dict>
+</plist>

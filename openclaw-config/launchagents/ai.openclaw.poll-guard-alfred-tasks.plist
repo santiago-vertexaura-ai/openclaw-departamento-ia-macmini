@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>ai.openclaw.poll-guard-alfred-tasks</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/alfredpifi/clawd/scripts/poll-guard.sh</string>
+    <string>alfred</string>
+    <string>alfred-process-own-tasks</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>600</integer>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HOME</key>
+    <string>/Users/alfredpifi</string>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/alfredpifi/clawd/logs/poll-guard-alfred-tasks.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/alfredpifi/clawd/logs/poll-guard-alfred-tasks.err.log</string>
+</dict>
+</plist>
