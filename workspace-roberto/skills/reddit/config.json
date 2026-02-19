@@ -1,0 +1,16 @@
+{
+  "subreddits": [
+    "artificial",
+    "MachineLearning",
+    "LocalLLaMA",
+    "ClaudeAI",
+    "ChatGPT",
+    "SaaS",
+    "startups",
+    "marketing"
+  ],
+  "default_limit": 25,
+  "default_timeframe": "day",
+  "min_score_filter": 10,
+  "data_dir": "data/reddit"
+}

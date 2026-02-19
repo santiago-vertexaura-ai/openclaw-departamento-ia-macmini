@@ -1,0 +1,16 @@
+1
+00:00:00,000 --> 00:00:08,000
+Pero te faltan dos pestañas, la del bauult y la de la oficina.
+
+2
+00:00:08,000 --> 00:00:12,000
+Entonces, necesito nuestro dashboard.
+
+3
+00:00:12,000 --> 00:00:14,000
+Nuestro dashboard donde gestionamos todo.
+
+4
+00:00:14,000 --> 00:00:17,000
+Esto es independiente a la mandarme capturas de cada pestaña.
+

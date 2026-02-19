@@ -1,0 +1,135 @@
+
+@kazagod (Zoltan Szilagyi):
+@VadimStrizheus Did you have any prior knowledge about AI in general or anything related to it or you just started to figure it out all on your own? And what was the first step?
+date: Fri Feb 13 12:29:53 +0000 2026
+url: https://x.com/kazagod/status/2022287106802872805
+──────────────────────────────────────────────────
+
+@_ConvoKit (ConvoKit):
+@VadimStrizheus Building ConvoKit today — AI chat widget for websites
+https://t.co/20sSG2TlrU
+date: Fri Feb 13 12:29:25 +0000 2026
+url: https://x.com/_ConvoKit/status/2022286989111013869
+──────────────────────────────────────────────────
+
+@Messito4800 (Nemeaeus):
+@VadimStrizheus @Extended_Humans Next code in, that you can give them books (pdf) to learn and get better at their craft or have certain perspective based on the book author. Gamify it more :)))
+date: Fri Feb 13 12:28:40 +0000 2026
+url: https://x.com/Messito4800/status/2022286801931505706
+──────────────────────────────────────────────────
+
+@OmriBuilds (Omri Dan):
+@VadimStrizheus OpenClaw Wrappers are doing $4K-$22K/mo 📈
+
+Every wrapper needs the same Auth, Payments, Telegram &amp; Docker deployment setup to the VPS...  
+
+That's why I built @ClawWrapper🦞 
+
+You can Clone, Rebrand it &amp; Ship your own wrapper faster https://t.co/mcuJzTg5ns
+date: Fri Feb 13 12:27:32 +0000 2026
+url: https://x.com/OmriBuilds/status/2022286517347946768
+──────────────────────────────────────────────────
+
+@Saulimedes (Paul Becker):
+@VadimStrizheus People really need to learn @FFmpeg
+date: Fri Feb 13 12:23:55 +0000 2026
+url: https://x.com/Saulimedes/status/2022285605711802596
+──────────────────────────────────────────────────
+
+@BakiVisuals (Baki • Video Editor):
+@VadimStrizheus Thinking clearly will outperform technical skill alone.
+date: Fri Feb 13 12:19:50 +0000 2026
+url: https://x.com/BakiVisuals/status/2022284579994808611
+──────────────────────────────────────────────────
+
+@golfteefmerica (Jarrett Foust):
+@VadimStrizheus @sebsigloch Exactly. This open claw nonsense is internet creator porn.
+date: Fri Feb 13 12:05:36 +0000 2026
+url: https://x.com/golfteefmerica/status/2022280995563552881
+──────────────────────────────────────────────────
+
+@DorcasOkiokio (Dorcas Okiokio| Video Editor):
+@VadimStrizheus that's crazy, congratulations
+date: Fri Feb 13 12:04:47 +0000 2026
+url: https://x.com/DorcasOkiokio/status/2022280790994804983
+──────────────────────────────────────────────────
+
+@golfteefmerica (Jarrett Foust):
+@VadimStrizheus Exactly what are you building? What is the company? What value are you adding to the market?
+date: Fri Feb 13 12:04:18 +0000 2026
+url: https://x.com/golfteefmerica/status/2022280669993312629
+──────────────────────────────────────────────────
+
+@anton_liashenka (Anton Liashenka):
+@VadimStrizheus Hey! I'm building local tunneling tool Port Buddy. https://t.co/3v8geKP4sg
+date: Fri Feb 13 12:00:45 +0000 2026
+url: https://x.com/anton_liashenka/status/2022279777999110236
+──────────────────────────────────────────────────
+
+@NaiduSreedhara (Sreedhara Naidu):
+@VadimStrizheus Hi Vadim, that's amazing. What user interface is that on your screen that shows OpenClaw dashboard? You did that your self or it's available already.
+date: Fri Feb 13 11:44:27 +0000 2026
+url: https://x.com/NaiduSreedhara/status/2022275675781206372
+──────────────────────────────────────────────────
+
+@SkillWagerIO (skillwager.io):
+@VadimStrizheus This if fire bro I gotta do this. 
+
+Just ensure your endpoints correctly handle input validation you don’t want to blindly take http requests and pass them as commands anyone with network access can RCE
+date: Fri Feb 13 11:44:27 +0000 2026
+url: https://x.com/SkillWagerIO/status/2022275674354987374
+──────────────────────────────────────────────────
+
+@SkillWagerIO (skillwager.io):
+It sounds like it’s time to scale—you’ll likely need to expand the team and go multi-platform. For your tech stack, I’d recommend Fathom for meeting notes and tightening up your GitHub workflow with formal requests, reviews, and backups.
+
+You might also want to integrate Twilio, Notion, Cursor, ElevenLabs, and MCP, while managing everything through Kanban boards to keep the momentum organized.
+PHOTO: https://pbs.twimg.com/media/HBCP1OEbcAAV8Xp.jpg
+PHOTO: https://pbs.twimg.com/media/HBCP1OFbUAA8oA_.jpg
+PHOTO: https://pbs.twimg.com/media/HBCP1OKa4AAn7Gz.jpg
+PHOTO: https://pbs.twimg.com/media/HBCP1ODacAAaiRp.jpg
+date: Fri Feb 13 11:39:19 +0000 2026
+url: https://x.com/SkillWagerIO/status/2022274382341812639
+──────────────────────────────────────────────────
+
+@PracticalAIExp (Practical AI Lab):
+@VadimStrizheus 13k in 83 days is nuts. What was the one format that changed the curve: daily short takes, threads, or replies?
+date: Fri Feb 13 11:38:57 +0000 2026
+url: https://x.com/PracticalAIExp/status/2022274288964055206
+──────────────────────────────────────────────────
+
+@alexmacgregor__ (Alex MacGregor):
+@VadimStrizheus https://t.co/BTEvHmLrBR
+date: Fri Feb 13 11:37:19 +0000 2026
+url: https://x.com/alexmacgregor__/status/2022273877221761094
+──────────────────────────────────────────────────
+
+@aijoey (Joey):
+@snicklink @VadimStrizheus Okay this one tops it. Great job!!
+date: Fri Feb 13 11:35:36 +0000 2026
+url: https://x.com/aijoey/status/2022273446151901420
+──────────────────────────────────────────────────
+
+@SKoramtla (Santhosh Koramtla):
+@VadimStrizheus 9 AI employees working 24/7 is the dream! OpenClaw looks incredible for building autonomous AI agents. Token optimization is key to keeping costs down. Would love to learn more about your agent architecture.
+date: Fri Feb 13 11:32:48 +0000 2026
+url: https://x.com/SKoramtla/status/2022272741035130888
+──────────────────────────────────────────────────
+
+@MINIPR3Y (PR3Y):
+@VadimStrizheus this is unironically the best way to justify hiring 9 AI agents to your cofounder who thinks you're insane
+date: Fri Feb 13 11:32:48 +0000 2026
+url: https://x.com/MINIPR3Y/status/2022272740594458633
+──────────────────────────────────────────────────
+
+@Nasser_kari (Nasser):
+@VadimStrizheus Do it 💪
+date: Fri Feb 13 11:28:42 +0000 2026
+url: https://x.com/Nasser_kari/status/2022271709848736118
+──────────────────────────────────────────────────
+
+@qadrishabih_ (shabi):
+@VadimStrizheus So basically we need to work on communication skills first
+date: Fri Feb 13 11:25:02 +0000 2026
+url: https://x.com/qadrishabih_/status/2022270786384568489
+──────────────────────────────────────────────────

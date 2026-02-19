@@ -1,0 +1,176 @@
+{
+  "task_id": "ig-scan-daily",
+  "timestamp": "2026-02-17T10:02:00Z",
+  "analyst": "Roberto",
+  "status": "COMPLETED",
+  "analysis_type": "research",
+  "tags": ["instagram", "auto"],
+  
+  "executive_summary": {
+    "issue": "Rate limit 401 (Please wait a few minutes before you try again)",
+    "root_cause": "Session expired or Instagram aggressive rate limiting",
+    "impact": "Cannot retrieve posts from @santim.ia, @racklabs, @mattganzak",
+    "profile_data_available": true,
+    "posts_available": false,
+    "severity": "MEDIUM (recoverable)"
+  },
+  
+  "profiles_analyzed": {
+    "@santim.ia": {
+      "full_name": "Santiago Martín",
+      "positioning": "Expert AI & Automation | VertexAura Founder",
+      "followers": 1604,
+      "following": 44,
+      "posts": 52,
+      "engagement_prediction": "HIGH",
+      "content_frequency": "~1 post/week",
+      "bio_strategy": {
+        "emojis": "3 strategic (💻🤖📈)",
+        "cta": "URL to vertexaura.com",
+        "tone": "Professional/Expert",
+        "clarity_score": "4/5",
+        "conversion_focus": "high"
+      },
+      "expected_content": "Short-form video reels with text overlay, IA effects, subtitles, educational composition"
+    },
+    "@racklabs": {
+      "positioning": "Dev Agency | Casual/Rock tone",
+      "followers": 472,
+      "following": 352,
+      "posts": 2,
+      "engagement_prediction": "LOW",
+      "status": "INACTIVE - dormant account or new strategy",
+      "bio_strategy": {
+        "emojis": "0",
+        "cta": "none",
+        "tone": "Casual",
+        "clarity_score": "2/5",
+        "conversion_focus": "low"
+      },
+      "competitive_note": "Reference for why low engagement despite similar niche"
+    },
+    "@mattganzak": {
+      "full_name": "Matthew Ganzak",
+      "positioning": "SaaS Entrepreneur & AI Mentor | 0→1 with AI",
+      "followers": 53815,
+      "verified": true,
+      "following": 272,
+      "posts": 956,
+      "engagement_prediction": "ULTRA-HIGH",
+      "content_frequency": "1+ posts/day",
+      "bio_strategy": {
+        "emojis": "0",
+        "cta": "URL + Mentoring offer ($1)",
+        "tone": "Entrepreneurial",
+        "clarity_score": "5/5",
+        "conversion_focus": "ultra-high"
+      },
+      "learning_value": "956-post corpus = golden reference for tested formats and engagement patterns"
+    }
+  },
+  
+  "technical_diagnosis": {
+    "error_code": 401,
+    "error_message": "Please wait a few minutes before you try again",
+    "probable_causes": [
+      "Session token expired (Instagram revokes ~48-72h)",
+      "Rate limiting: too many consecutive requests",
+      "IP flagged for bot-like behavior",
+      "Password changed after session saved"
+    ],
+    "session_location": "~/.config/instaloader/session-*",
+    "session_type": "plaintext cookies (vulnerable to invalidation)"
+  },
+  
+  "solutions_proposed": [
+    {
+      "rank": 1,
+      "name": "Wait + Retry",
+      "eta": "5-15 minutes",
+      "cost": "$0",
+      "viability": "HIGH",
+      "steps": [
+        "sleep 900 (15 minutes)",
+        "instaloader --sleep-requests 5 @santim.ia"
+      ],
+      "pros": "Zero cost, high probability success",
+      "cons": "Blocks workflow"
+    },
+    {
+      "rank": 2,
+      "name": "Session Regeneration",
+      "eta": "30 minutes",
+      "cost": "$0",
+      "viability": "HIGH",
+      "steps": [
+        "rm -rf ~/.config/instaloader/session-*",
+        "instaloader --login USERNAME @santim.ia",
+        "Enter 2FA code if prompted"
+      ],
+      "pros": "Generates valid token",
+      "cons": "Requires credentials + possible 2FA"
+    },
+    {
+      "rank": 3,
+      "name": "Apify Connector",
+      "eta": "2-4 hours",
+      "cost": "$5-20 USD",
+      "viability": "VERY HIGH",
+      "requirements": "Apify API key",
+      "pros": [
+        "No personal session risk",
+        "Residential proxies included",
+        "Rate limit auto-managed",
+        "Full historical posts"
+      ],
+      "cons": "Cost + less control"
+    },
+    {
+      "rank": 4,
+      "name": "Instagram Graph API",
+      "eta": "3-5 days",
+      "cost": "$0",
+      "viability": "FUTURE",
+      "requirements": "Business Account verified by Meta",
+      "pros": "Official, legal, low rate limits",
+      "cons": "Setup time, Business Account needed"
+    }
+  ],
+  
+  "recommendation": {
+    "immediate": "Wait 15 min → retry with --sleep-requests 5",
+    "fallback_1": "Re-login with session regeneration",
+    "fallback_2": "Implement Apify if Instagram remains restrictive",
+    "long_term": "Migrate to Graph API when VertexAura has verified Business Account"
+  },
+  
+  "context_architecture": {
+    "santi_priority": "Visual analysis of videos/reels",
+    "planned_stack": "OpenCV + VLLM (hybrid)",
+    "interests": [
+      "Transcription",
+      "Tone & pacing",
+      "Text overlay detection",
+      "Subtitles",
+      "Composition analysis"
+    ],
+    "next_steps": [
+      "Extract frames via OpenCV",
+      "Transcribe audio with Whisper",
+      "Detect text overlay via OCR",
+      "Color palette analysis",
+      "Object detection",
+      "Correlate hooks with engagement metrics"
+    ]
+  },
+  
+  "deliverables": {
+    "analysis_document": "/Users/alfredpifi/clawd/workspace-roberto/data/instagram/scan-2026-02-17.md",
+    "summary": "This JSON file",
+    "word_count": 2847,
+    "sections": 8,
+    "tables": 3
+  },
+  
+  "next_review": "2026-02-17 10:30 GMT+1 (after retry attempts)"
+}

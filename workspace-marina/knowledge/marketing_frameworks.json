@@ -1,0 +1,25 @@
+{
+  "frameworks": {
+    "hormozi_hooks": {
+      "source": "Alex Hormozi",
+      "patterns": ["dream_outcome", "pattern_interrupt", "specific_claim", "transformation", "contrarian"],
+      "vault_ref": "hormozi-twitter-hooks"
+    },
+    "gary_vee_pyramid": {
+      "source": "Gary Vaynerchuk",
+      "levels": ["pillar_content", "derivative_L1", "micro_L2", "atomization_L3"],
+      "vault_ref": "gary-vee-content-pyramid"
+    },
+    "brunson_narrative": {
+      "source": "Russell Brunson",
+      "structure": ["story", "tension", "breakthrough", "framework", "vulnerable_insight", "soft_CTA"],
+      "vault_ref": "brunson-linkedin-narrative"
+    },
+    "schwartz_levels": {
+      "source": "Eugene Schwartz",
+      "levels": [1, 2, 3, 4, 5],
+      "weekly_mix": "40/30/20/10",
+      "vault_ref": "schwartz-awareness-levels"
+    }
+  }
+}

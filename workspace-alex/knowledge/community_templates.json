@@ -1,0 +1,17 @@
+{
+  "structure": {
+    "modules": [
+      { "name": "Modulo 0: Setup", "content": "Instalacion herramientas, config basica" },
+      { "name": "Modulo 1: Fundamentos AI Agents", "content": "Que son, como funcionan, primer agente" },
+      { "name": "Modulo 2: Claude Code Mastery", "content": "Claude Code avanzado, workflows" },
+      { "name": "Modulo 3: OpenClaw", "content": "Framework completo, agentes multi-skill" },
+      { "name": "Modulo 4: Automatizacion", "content": "n8n, integraciones, pipelines" },
+      { "name": "Modulo 5: Agentes de Voz", "content": "Vapi, Retell, casos de uso" }
+    ],
+    "community_areas": ["General", "Showcases", "Q&A", "Recursos", "Off-topic"]
+  },
+  "gamification": {
+    "levels": ["Novato", "Constructor", "Arquitecto", "Master", "Leyenda"],
+    "points_for": ["completar modulos", "ayudar a otros", "compartir resultados", "asistir Q&As"]
+  }
+}

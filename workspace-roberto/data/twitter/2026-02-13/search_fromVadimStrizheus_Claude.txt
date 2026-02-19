@@ -1,0 +1,178 @@
+
+@VadimStrizheus (Vadim):
+@davidbmadsen @mdnlabs Yeah if you do everything with Claude, and burn tokens because then they lose money on their end
+date: Wed Feb 11 17:08:52 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021632540952736069
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@mdnlabs You should use the OAuth for Claude rather than the API keys
+date: Wed Feb 11 17:02:10 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021630854632821073
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@spencerr110 Claude Code is just my software engineer that I can run with multi-agents in the T-MUX 24/7
+date: Tue Feb 10 18:57:54 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021297590524887095
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@PromptLLM 200 a month for Claude and then about 50 to 100 for API credits, skills, and so on
+date: Tue Feb 10 18:55:20 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021296946233638928
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@buildwithumair This is the Open Claude Gateway dashboard and then the mission control I just built for me locally
+date: Tue Feb 10 18:43:43 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021294023378604422
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@xdrewmiko $300 a month: $200 for Claude and then the rest is just API keys and different skills
+date: Tue Feb 10 18:34:42 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021291752649351665
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@LikhonTamim Yeah I literally love Claude Code. It's amazing
+date: Tue Feb 10 18:28:50 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021290279278461030
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+THIS IS THE FUTURE!! 
+
+I have Claude Code debugging and troubleshooting my clipping agent on my MacBook on the right, while my entire Vugola AI team is working 24/7 on my Mac Mini on the left. 
+
+100% of my code has been coded by AI, and all I have to do is just give prompts to Claude Code, and it builds a $215M software. 
+
+You don't need to know how to code in 2026, all you need is a MacBook and OpenClaw. 
+
+I'm calling that vibe-coding will become the #1 skillset in the next decade.
+
+We are only a month into 2026, I'm genuinely SHOCKED!!
+PHOTO: https://pbs.twimg.com/media/HAzn4DqaAAAPoAb.jpg
+date: Tue Feb 10 15:30:05 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021245294004797613
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@Mehuljd Yeah including Claude and MCP servers are basically connectors for AI to see data, tools, etc
+date: Tue Feb 10 06:39:22 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021111732182163863
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+When you set up your oauth account you want to make an entire team, so for example Jarvis uses my oauth Claude max but he doesn’t do everything for me, he thinks and uses opus 4.6 but doesn’t actually work he delegates tasks and prompts other employees to take the stress off of him. 
+
+That way you don’t burn through credits and solely rely on the Claude plan
+date: Mon Feb 09 19:28:47 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020942976365769038
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@aizvo Now you don't know what you're talking about. Claude code is significantly better and more cost-effective than Codex 😂
+date: Mon Feb 09 18:19:55 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020925644000125402
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@abhip_me On Claude I'm spending $200 a month but in general my entire AI company is probably gonna cost me around $300 a month right now
+date: Mon Feb 09 18:01:45 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020921074016502106
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Yeah because I don’t run ever thing through Jarvis, Jarvis is my CSO, he uses that Claude oauth for thinking, reasoning, personality, etc but then for tasks, he delegates them to the employees so it takes stress off of him, and so I don’t raise any flags and but through tokens. 
+
+So you combine the opus 4.6 reasoning and thinking with a bunch of LLMs that you connect to your ai team.
+date: Mon Feb 09 17:21:44 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020911003744010543
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+I just fired my first AI employee 🫡
+
+Jarvis found out that my previous software engineer was slacking and giving me crap quality work, so Codex was fired. 
+
+Introducing Clawd, my new software engineer, instead of using codex for coding, we’re using Claude code. 
+
+Jarvis realized that Claude code is significantly better especially with the new multi-agents.
+
+I’m genuinely curious to see how Jarvis will be hiring and firing in the uocoming days and weeks, truly incredible.  
+
+Back to work now!! 💪
+VIDEO: https://pbs.twimg.com/amplify_video_thumb/2020903958366257154/img/Q75gQzEP_TSVTcPS.jpg
+date: Mon Feb 09 16:54:49 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020904229687246962
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Day 4 of OpenClaw 🦞 
+
+I hired my 7th AI employee today!! 
+
+Claude Code is running on my MacBook nonstop, while my AI company is working for me 24/7 on my Mac mini. 
+
+THIS IS TRULY THE FUTURE. 
+
+My entire startup costs only $250/mo, and we are just getting started. 
+
+I will start making entire departments soon with Jarvis!! ⚡️
+VIDEO: https://pbs.twimg.com/amplify_video_thumb/2020736251003854848/img/72C410x3FOABVlL8.jpg
+date: Mon Feb 09 05:49:16 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020736739833229482
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+$50M Funded Giant vs My $39/mo SaaS. 
+
+I have zero coding experience and my app is:
+
+- Faster
+- Cheaper
+- Simpler
+
+All you need in 2026 is a MacBook and Claude. 🫡 https://t.co/E6qEqziZi9
+VIDEO: https://pbs.twimg.com/amplify_video_thumb/2020310114289471488/img/RkM_dQPEvmO9eY7e.jpg
+date: Sun Feb 08 01:34:16 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020310176750801064
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@Tobby_scraper I have Claude $200/mo then I put $25 for api credits per employee
+date: Sat Feb 07 20:17:07 +0000 2026
+url: https://x.com/VadimStrizheus/status/2020230362883108936
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+As a developer, which one are you choosing? 
+
+1. Claude Opus 4.6 
+2. GPT- 5.3-Codex
+date: Fri Feb 06 17:46:24 +0000 2026
+url: https://x.com/VadimStrizheus/status/2019830047235011049
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@jwsaml I switched to Claude code now
+date: Fri Feb 06 02:44:37 +0000 2026
+url: https://x.com/VadimStrizheus/status/2019603104212340849
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+My solo founder stack for building Vugola:
+
+• Claude Code — writes 90% of my code
+• Lovable — rapid prototyping
+• Vercel — instant deploys
+• Supabase — auth + database
+
+No CTO needed.
+
+The future of SaaS is one person + AI agents.
+date: Fri Feb 06 02:15:00 +0000 2026
+url: https://x.com/VadimStrizheus/status/2019595654612353176
+──────────────────────────────────────────────────

@@ -1,0 +1,34 @@
+{
+  "niche": "AI/Automation/SaaS",
+  "benchmarks": {
+    "engagement_rate": {
+      "excellent": 0.06,
+      "good": 0.035,
+      "average": 0.02,
+      "below_average": 0.01,
+      "source": "Industry average for tech/AI niche, 1K-10K followers"
+    },
+    "post_frequency": {
+      "optimal": "3-5 posts/week",
+      "minimum": "2 posts/week",
+      "high_growth": "daily"
+    },
+    "format_performance": {
+      "reels": "highest reach, 2-3x vs static",
+      "carousels": "highest saves, good for educational",
+      "single_image": "lowest reach but easiest to produce"
+    },
+    "best_times_spain": {
+      "weekdays": ["08:00-09:00", "13:00-14:00", "20:00-21:00"],
+      "weekends": ["10:00-12:00", "18:00-20:00"]
+    }
+  },
+  "reference_accounts": {
+    "mattganzak": {
+      "followers": 53815,
+      "frequency": "daily",
+      "engagement_rate": "estimated 0.02-0.04",
+      "strength": "consistency + authority positioning"
+    }
+  }
+}

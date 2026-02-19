@@ -1,0 +1,23 @@
+{
+  "pricing": {
+    "entry": { "range": "29-49 EUR/mes", "recommended": 47 },
+    "premium": { "range": "97-197 EUR/mes", "for": "mentorias, acceso extra" },
+    "enterprise": { "range": "500-1000 EUR", "for": "consultorias 1:1" }
+  },
+  "onboarding": {
+    "critical_days": 7,
+    "day_1": "Welcome + primer quick win",
+    "day_2_3": "Primer modulo core completado",
+    "day_4_5": "Primera interaccion en comunidad",
+    "day_6_7": "Primer resultado tangible compartido"
+  },
+  "retention": {
+    "target_monthly_churn": "< 5%",
+    "engagement_indicators": ["posts por semana", "comentarios", "completitud modulos", "asistencia Q&As"]
+  },
+  "growth": {
+    "organic": "contenido en redes + referrals",
+    "paid": "ads a audiencia similar",
+    "community_led": "retos, concursos, colaboraciones"
+  }
+}

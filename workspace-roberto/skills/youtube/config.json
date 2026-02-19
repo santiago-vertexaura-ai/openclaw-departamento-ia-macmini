@@ -1,0 +1,46 @@
+{
+  "channels": [
+    {
+      "name": "Alex Finn",
+      "handle": "@AlexFinnOfficial",
+      "channel_id": "UCfQNB91qRP_5ILeu_S_bSkg",
+      "focus": "OpenClaw/ClawdBot",
+      "priority": "alta",
+      "video_count": 10
+    },
+    {
+      "name": "Cole Medin",
+      "handle": "@ColeMedin",
+      "channel_id": "UCMwVTLZIRRUyyVrkjDpn4pA",
+      "focus": "AI agents, Claude Code",
+      "priority": "alta",
+      "video_count": 10
+    },
+    {
+      "name": "Nate Herk",
+      "handle": "@NateHerk",
+      "channel_id": "UC2ojq-nuP8ceeHqiroeKhBA",
+      "focus": "AI automation",
+      "priority": "alta",
+      "video_count": 10
+    },
+    {
+      "name": "Chase AI",
+      "handle": "@Chase-H-AI",
+      "channel_id": "UCoy6cTJ7Tg0dqS-DI-_REsA",
+      "focus": "AI agents",
+      "priority": "media",
+      "video_count": 5
+    },
+    {
+      "name": "Jon Hernandez",
+      "handle": "@la_inteligencia_artificial",
+      "channel_id": "UCl5-lvQyfILb-l2abPk4Ntg",
+      "focus": "Noticias IA (ES)",
+      "priority": "media",
+      "video_count": 5
+    }
+  ],
+  "include_transcripts": true,
+  "rss_base_url": "https://www.youtube.com/feeds/videos.xml?channel_id="
+}

@@ -1,0 +1,241 @@
+
+@VadimStrizheus (Vadim):
+Join here for weekly livestreams, OpenClaw discussions, and to connect with founders! 
+
+https://t.co/O68KEeL8Is
+date: Fri Feb 13 07:30:08 +0000 2026
+url: https://x.com/VadimStrizheus/status/2022211673839616509
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@scottshapiro__ Type “OpenClaw configure” in your terminal if your on a Mac mini and you can choose anthropic and the pic oauth or api keys
+date: Fri Feb 13 02:40:13 +0000 2026
+url: https://x.com/VadimStrizheus/status/2022138714189906220
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@jwsaml I’ll try to work and build it out but this will benefit your OpenClaw agent a lot 👀
+date: Fri Feb 13 02:28:07 +0000 2026
+url: https://x.com/VadimStrizheus/status/2022135668324151442
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Learn more about OpenClaw here 👀 
+
+https://t.co/O68KEeL8Is
+date: Fri Feb 13 00:48:50 +0000 2026
+url: https://x.com/VadimStrizheus/status/2022110685032001709
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@iamlukethedev Can't wait to see how you're going to build your entire company with OpenClaw!!
+
+You got this Luke😎
+date: Thu Feb 12 23:11:53 +0000 2026
+url: https://x.com/VadimStrizheus/status/2022086285574463541
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Here's how I built this realistic 2d pixel office for my 9 AI employee team for my SaaS. 🦞
+
+Paste this exact prompt into your OpenClaw to built it out, and use my image to get a better result. 
+
+Have fun Founders!! 😁
+
+Build me a 2D pixel art office visualization for my AI agents using HTML Canvas and React (or plain JavaScript). This is a fun, game-like view of my AI team "working" in a virtual office.
+
+What it should have:
+Checkered dark navy floor (retro game vibe)
+Top row: 3 rooms — Conference Room (round table + chairs), Boss Office (executive desk, couch, bookshelf), Kitchen (white cabinets, fridge, coffee machine)
+2 rows of cubicles (4x2 grid) with corridors. Each cubicle: desk with blue-screen monitor, unique desk item per agent, name plate, green/red status dot
+Right side: Lounge — couch, coffee table, water cooler, bean bags, ping pong table, whiteboard
+Plants/trees scattered around
+Each agent is a color-coded pixel art character (~20x40px scaled 2x) with hair, face, colored shirt, dark pants. 2-frame walking animation (arm swing + leg movement). Sitting animation when "working" (arms forward typing).
+
+Behavior: When status = "working" → character walks to their desk and sits. When "idle" → character wanders the office (kitchen, lounge, corridors). Poll a /api/employee-status endpoint every 5 seconds for status updates.
+
+Bottom bar: badges showing each agent name, color dot, and Working/Idle status.
+
+Technical: HTML5 Canvas, requestAnimationFrame, all pixel art via fillRect (no external images), dark theme, ~1100x720 canvas, JetBrains Mono font for labels.
+
+Make it feel like a retro office sim RPG. Each agent gets their own color and unique desk item (globe for researcher, books for writer, coffee for developer, palette for designer, camera for video, waveform for motion, shield for QA, fire for scout).
+PHOTO: https://pbs.twimg.com/media/HA_YSsfbgAA3bXI.jpg
+date: Thu Feb 12 22:17:38 +0000 2026
+url: https://x.com/VadimStrizheus/status/2022072631592161723
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@KirkKerbstreit There will be people who use OpenClaw and become rich while others stay in the lower class. 
+
+Which one will you be?
+date: Thu Feb 12 16:31:51 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021985614959456296
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@cybr_io It took me less than an hour just talk with your OpenClaw
+date: Thu Feb 12 07:08:40 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021843881550393753
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@JordaanTrades When you do OpenClaw Configure it lets you choose Oauth or API
+date: Thu Feb 12 05:47:26 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021823440915730442
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@iamlukethedev Thanks Luke, good luck with OpenClaw I’ve been loving it so far
+date: Thu Feb 12 05:23:35 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021817436987695308
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Day 7 of OpenClaw 🦞 
+
+My AI company now has 9 employees that work 24/7!! 
+
+I broke down all of my token optimizations, costs, and what every single agent does. 👀 
+
+The amount of value this has brought into my life so far has been incredible. 
+
+I truly can’t wait to see where I’ll be in a month from now. 
+
+I’m 18
+
+No prior coding experience 
+
+This proves that anybody can do it.
+VIDEO: https://pbs.twimg.com/amplify_video_thumb/2021808338636615684/img/XI_jpzZBgB0ov115.jpg
+date: Thu Feb 12 04:51:23 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021809335894995195
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+POV: your OpenClaw after you didn’t set up a second brain system.
+
+Paste this prompt to fix that: 👇
+
+I want you to build me a second brain memory system. 
+
+Create a memory/ folder and a https://t.co/Msllm4OWRv file in your workspace. Every session, read these FIRST before doing anything, they are your entire memory.
+
+memory/YYYY-MM-DD.md are your daily journals. As we talk each day, log everything in real-time - decisions, tasks, preferences, context, mistakes. 
+
+Timestamp each entry. These are your raw notes.
+
+https://t.co/Msllm4OWRv is your long-term memory. This is curated, who I am, my goals, my preferences, active projects, lessons learned, key decisions and why. 
+
+Every few days, review your daily journals and distill the important stuff into here.
+
+The rule: if it's not written to a file, you don't remember it. 
+
+When I say "remember this", write it immediately. When you make a mistake,document it so you never repeat it. 
+
+When you learn something about me update https://t.co/Msllm4OWRv.
+
+Over time you should know my communication style, what I care about, what annoys me, my projects, my goals. 
+
+After a week this should feel like a real assistant that actually knows me. After a month, indispensable.
+PHOTO: https://pbs.twimg.com/media/HA6cMenWQAEnI0q.jpg
+date: Wed Feb 11 23:16:22 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021725024604799352
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+THIS IS GETTING SCARY!! 
+
+I'm not even a week into using OpenClaw and Jarvis hired my 8th employee for me. 
+
+Introducing Sentinel. 🤖 
+
+What he does:
+
+• Monitors my site 5x daily
+• Tracks every new user signup
+• Checks my code for bugs
+• Watches my community for new posts
+• Alerts me ONLY when something needs attention
+
+My AI CSO decided the company needed a QA department… so he just built one. Without asking. 
+
+This is the future of business. 🤯
+date: Wed Feb 11 19:05:22 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021661858474668396
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@Peter_Soida I got a Mac mini separate jus for OpenClaw
+date: Wed Feb 11 16:32:27 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021623374875627722
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@ttalkstech_ @VugolaAI Yeah anyone can use OpenClaw
+date: Wed Feb 11 16:23:00 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021621000052576533
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@thestefanl @VugolaAI Jarvis is my OpenClaw agent and I just told him I wanted the office, and he built it out for me
+date: Wed Feb 11 16:21:19 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021620575962341514
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Stop using OpenClaw like a search engine.
+
+Build employees instead:
+
+1. Give it a role (Developer, Researcher, Writer)
+2. Give it a personality (Soul File)
+3. Give it memory (daily logs)
+4. Give it tools (API keys, skills)
+
+One AI agent = assistant
+Multiple AI agents = company
+
+I manage 7 AI employees. 
+
+I'm 18 with no prior coding experience or knowledge. 
+
+This is your sign to start today. 🫡
+date: Wed Feb 11 10:25:00 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021530905412563318
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+@builtbyjack23 @VugolaAI It literally is here! We are only day 6 of OpenClaw imagine what OpenClaw will be in a year from now 😂
+date: Wed Feb 11 06:35:41 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021473195455545857
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Day 6 of OpenClaw 🦞 
+
+While I was working Jarvis PROACTIVELY messaged me with a new website design plan for @VugolaAI
+
+While I was off the Mac Mini He: 
+
+- Took screen shots of my competitors pages
+- Researched nice web designs 
+- Assigned Clawd a task 
+- Pinged me on Telegram
+
+He is getting more and more proactive by the day, and getting significantly better!! 
+
+Jarvis is becoming the ultimate CSO for my AI company. 
+
+I’m actually IMPRESSED.
+VIDEO: https://pbs.twimg.com/amplify_video_thumb/2021470182645039104/img/ioZLlzoZpq01jNDs.jpg
+date: Wed Feb 11 06:26:08 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021470790823088498
+──────────────────────────────────────────────────
+
+@VadimStrizheus (Vadim):
+Join here for weekly livestreams about OpenClaw!! 
+
+https://t.co/O68KEeL8Is
+date: Tue Feb 10 23:49:56 +0000 2026
+url: https://x.com/VadimStrizheus/status/2021371083677630925
+──────────────────────────────────────────────────

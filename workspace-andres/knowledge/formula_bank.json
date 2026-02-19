@@ -1,0 +1,1195 @@
+{
+  "version": 2,
+  "last_updated": "2026-02-15T02:06:00Z",
+  "analyst": "Andrés",
+  "source_analysis": "73cee642-f02a-4a5e-99fa-217339443bd6",
+  "formulas": [
+    {
+      "id": "hook-de-curiosidad",
+      "nombre": "Hook de Curiosidad",
+      "descripcion": "Pregunta provocadora o dato sorprendente que genera expectativa sin revelar",
+      "tipo": "hook",
+      "platforma": ["email", "twitter", "linkedin", "sms"],
+      "contexto": "Especialmente potente en Email D1 de lanzamientos (anticipación + exclusividad)",
+      "variantes": [
+        {
+          "nombre": "anticipación-exclusividad",
+          "ejemplo": "Algo grande viene (y quiero que seas de los primeros)",
+          "mecanismo": "Combina expectativa + sensación insider. Paréntesis personaliza"
+        }
+      ],
+      "efectividad": {
+        "open_rate_esperado": "35-40%",
+        "click_rate_esperado": "10-15%",
+        "evidencia": "VertexAura email D1 Skool"
+      }
+    },
+    {
+      "id": "negacion-paradojica",
+      "nombre": "Negación Paradójica",
+      "descripcion": "Reconoce problema del mercado, luego reposiciona como solucionable",
+      "tipo": "hook",
+      "platforma": ["email", "content", "video"],
+      "contexto": "Especialmente potente en Email D2 (problem agitation)",
+      "estructura": "Negación (problema existe) + Reposicionamiento (existe solución)",
+      "ejemplos": [
+        {
+          "ejemplo": "Por qué mayoría comunidades fallan (y cómo evitarlo)",
+          "contexto": "Problema + solución para audiencia emprendedora"
+        },
+        {
+          "ejemplo": "Casi toda IA llega muerta sin adopción (porque falta implementación real. Acá es diferente)",
+          "contexto": "IA + implementación"
+        }
+      ],
+      "efectividad": {
+        "engagement_esperado": "12-18% click-through",
+        "evidencia": "Email D2 sequences Hormozi"
+      }
+    },
+    {
+      "id": "offer-stacking",
+      "nombre": "Offer Stacking",
+      "descripcion": "Construcción de capas de valor percibido donde cada elemento suma psicológicamente sin aumentar costo marginal",
+      "tipo": "estrategia-packaging",
+      "categoria": "pricing-psychological",
+      "fecha_descubierta": "2026-02-14",
+      "fuente": "Investigación Hormozi VertexAura",
+      "plantilla": {
+        "paso_1": "Definir precio base (X€)",
+        "paso_2": "Listar beneficio principal (acceso/membresía)",
+        "paso_3": "Agregar 3-4 bonuses con valor >3x precio elemento individual",
+        "paso_4": "Asignar valor a cada bonus (formato: valor_asignado)",
+        "paso_5": "Calcular stack total: suma de todos los valores",
+        "paso_6": "Validar RATIO: stack_total / precio_base debe ser >10x",
+        "paso_7": "Si ratio <10x, ajustar bonuses (agregar más o aumentar valores)"
+      },
+      "benchmark": {
+        "ratio_minimo": 10,
+        "ratio_optimo": 10.5,
+        "cita_hormozi": "Cuando ratio es 10x+, compra se vuelve obvia"
+      },
+      "cuando_usar": "Lanzamientos de productos digitales, membresías, comunidades (márgenes altos, costo marginal bajo)",
+      "ticket_ideal": "30-100€",
+      "ejemplo_original_vertexaura": {
+        "producto": "Skool VertexAura",
+        "precio_base": "47€",
+        "componentes": [
+          {
+            "nombre": "Acceso comunidad",
+            "valor_asignado": "incluido"
+          },
+          {
+            "nombre": "Masterclass exclusiva",
+            "valor_asignado": "97€"
+          },
+          {
+            "nombre": "10 proyectos template",
+            "valor_asignado": "77€"
+          },
+          {
+            "nombre": "Grupo Telegram Santi",
+            "valor_asignado": "47€"
+          },
+          {
+            "nombre": "Sesión 1-to-1 Santi",
+            "valor_asignado": "197€",
+            "notas": "Limitado a primeros 50"
+          }
+        ],
+        "stack_total": "495€",
+        "ratio": 10.5,
+        "status": "✓ En target"
+      },
+      "ejemplo_adaptacion_vertexaura": {
+        "producto": "Vault IA 2.0",
+        "precio_base": "49€",
+        "iteracion": "Ajuste inicial",
+        "componentes": [
+          {
+            "nombre": "50 templates IA",
+            "valor_asignado": "no_asignado"
+          },
+          {
+            "nombre": "Workshop en vivo",
+            "valor_asignado": "79€"
+          },
+          {
+            "nombre": "20 prompts avanzados",
+            "valor_asignado": "59€"
+          },
+          {
+            "nombre": "Comunidad Discord",
+            "valor_asignado": "29€"
+          },
+          {
+            "nombre": "Revisión 1-to-1",
+            "valor_asignado": "149€",
+            "notas": "Primeros 30"
+          }
+        ],
+        "stack_total": "415€",
+        "ratio": 8.5,
+        "status": "❌ Por debajo de target",
+        "ajuste_recomendado": [
+          {
+            "bonus_nuevo": "Sesión seguimiento",
+            "valor": "60€",
+            "ratio_resultado": 9.6
+          },
+          {
+            "bonus_nuevo_2": "Acceso 6 meses (vs 3 meses)",
+            "valor": "50€",
+            "ratio_final": 10.7,
+            "status": "✓ En target"
+          }
+        ]
+      },
+      "antipatrones": [
+        "Inflar valores sin credibilidad = reduce confianza a largo plazo",
+        "Agregar bonuses que no aportan (listos superfluos) = devalúa stack",
+        "Ratio >15x con ticket <20€ = parece fake, reduce conversión"
+      ],
+      "metricas_exito": {
+        "conversion_rate": "8-15% (vs industry 2-5%)",
+        "cart_abandonment": "<30% (vs industry 70%)",
+        "customer_lifetime_value": "3x más alta"
+      }
+    },
+    {
+      "id": "urgencia-dual-engine",
+      "nombre": "Urgencia Dual-Engine",
+      "descripcion": "Combinar escasez de CANTIDAD (spots limitados) + escasez de TIEMPO (deadline) como variables ortogonales (no redundantes)",
+      "tipo": "estrategia-scarcity",
+      "categoria": "urgency-psychological",
+      "fecha_descubierta": "2026-02-14",
+      "fuente": "Investigación Hormozi VertexAura",
+      "plantilla": {
+        "paso_1": "Definir tiers con límite de spots (Tier 1: N plazas, Tier 2: M plazas, Tier 3: ilimitado)",
+        "paso_2": "Asignar precio a cada tier (T1 precio base, T2 +40-50%, T3 +100%)",
+        "paso_3": "Definir deadline de lanzamiento (fecha específica, no vaga)",
+        "paso_4": "Definir duración de bonuses (válidos primeros N días)",
+        "paso_5": "Combinar en messaging: 'Quedan [N] plazas a [precio]. Precio sube en [X horas]. Bonuses válidos hasta [fecha]'",
+        "paso_6": "Crear tracker visible de spots (disminuir número cada 12-24h reales)",
+        "paso_7": "Email updates D2, D4, D5 con números REALES (no fabricados)"
+      },
+      "componentes": {
+        "escasez_cantidad": {
+          "tipo": "Hard cap de usuarios",
+          "mecanismo": "FOMO por competencia percibida (otros están comprando)"
+        },
+        "escasez_tiempo": {
+          "tipo": "Deadline específica",
+          "mecanismo": "Loss aversion + urgencia temporal"
+        }
+      },
+      "cuando_usar": "Lanzamientos con cap de usuarios (comunidades, cohorts, workshops). CRÍTICO: solo si scarcity es REAL",
+      "antipatrones": [
+        "Fake scarcity = killer to credibility a largo plazo",
+        "Usar solo escasez cantidad (sin tiempo) = débil",
+        "Usar solo escasez tiempo (sin cantidad) = débil",
+        "Cambiar números mid-flight = reduce confianza"
+      ],
+      "ejemplo_original_vertexaura": {
+        "producto": "Skool VertexAura",
+        "estructura": [
+          {
+            "tier": "Tier 1",
+            "plazas": 20,
+            "precio": "33€",
+            "duracion": "hasta 28 febrero",
+            "bonuses": "todos"
+          },
+          {
+            "tier": "Tier 2",
+            "plazas": 180,
+            "precio": "47€",
+            "duracion": "hasta 28 febrero",
+            "bonuses": "limitados (sin 1-to-1)"
+          },
+          {
+            "tier": "Tier 3",
+            "plazas": "ilimitado",
+            "precio": "67€",
+            "duracion": "after 28 febrero",
+            "bonuses": "ninguno"
+          }
+        ],
+        "bonuses_expiracion": "válidos primeros 7 días lanzamiento",
+        "mensaging_ejemplo": "Quedan 8 plazas a 33€. Precio sube en 48h. Bonuses válidos 7 días"
+      },
+      "ejemplo_adaptacion_vertexaura": {
+        "producto": "Cohort IA para CTOs",
+        "estructura": [
+          {
+            "tier": "Cohort 1",
+            "capacidad": 15,
+            "precio": "97€",
+            "deadline": "21 marzo",
+            "bonuses": "masterclass + templates"
+          },
+          {
+            "tier": "Cohort 2",
+            "capacidad": 35,
+            "precio": "127€",
+            "deadline": "21 marzo",
+            "bonuses": "templates only"
+          }
+        ],
+        "duracion_bonuses": "válidos semana 1 lanzamiento",
+        "email_dia_4": "Quedan 7 plazas Cohort 1 a 97€. Siguientes 28 personas pagarán 127€"
+      },
+      "metricas_exito": {
+        "velocidad_agotar_t1": "<48h",
+        "conversion_rate_t1": "10-15%",
+        "conversion_rate_t2": "5-8%",
+        "monitoreo_critico": "¿cuántas horas tarda agotar T1?"
+      }
+    },
+    {
+      "id": "email-sequence-5-dias",
+      "nombre": "Email Sequence 5 Días (Lanzamiento)",
+      "descripcion": "Arquitectura prescriptiva de 5 emails con objetivos emocionales específicos para lanzamiento de productos/comunidades",
+      "tipo": "estrategia-comunicacion",
+      "categoria": "email-marketing",
+      "fecha_descubierta": "2026-02-14",
+      "fuente": "Investigación Hormozi VertexAura",
+      "plantilla": {
+        "dia_1": {
+          "objetivo": "Anticipación + exclusividad",
+          "emocion": "Expectativa alta",
+          "subject_linea": "Curiosidad corta + exclusividad (<60 chars)",
+          "subject_ejemplo": "Algo grande viene (y quiero que seas de los primeros)",
+          "body_estrategia": "Anticipa sin revelar. Menciona qué problema resuelve pero sin detalles. Genera expectativa",
+          "body_longitud": "150-250 palabras",
+          "cta": "Regístrate lista de espera",
+          "metricas_esperadas": "Open rate 35-40%, Click rate 15-20%"
+        },
+        "dia_2": {
+          "objetivo": "Problem agitation",
+          "emocion": "Miedo (problema) + esperanza (solución)",
+          "subject_linea": "Menciona problema común de audiencia",
+          "subject_ejemplo": "Por qué mayoría comunidades fallan (y cómo evitarlo)",
+          "body_estrategia": "Agita el problema. Muestra por qué mayoría falla. Crea motivación para solución",
+          "body_longitud": "200-300 palabras",
+          "cta": "Lee más aquí",
+          "metricas_esperadas": "Click rate 10-15%"
+        },
+        "dia_3": {
+          "objetivo": "Revelar oferta completa",
+          "emocion": "Alegría + orgullo",
+          "subject_linea": "Anuncio directo de oferta",
+          "subject_ejemplo": "Esto es lo que obtienes (y por qué es una ganga)",
+          "body_estrategia": "Desglose completo: qué incluye, bonuses, precio. Anchoring valor alto. Justificación psicológica",
+          "body_longitud": "250-400 palabras",
+          "elementos": [
+            "Beneficio principal",
+            "3-4 bonuses con valores",
+            "Precio anclaje",
+            "Comparativa valor/precio",
+            "Garantía"
+          ],
+          "cta": "Únete ahora a [precio]",
+          "metricas_esperadas": "Conversión 8-12%, Click rate 20-25%"
+        },
+        "dia_4": {
+          "objetivo": "Urgencia + escasez",
+          "emocion": "Miedo a perder (FOMO)",
+          "subject_linea": "Número específico de spots restantes",
+          "subject_ejemplo": "Quedan 8 plazas a 33€",
+          "body_estrategia": "Update REAL de scarcity. Número visible disminuyendo. Reitera oferta. Presión moderada",
+          "body_longitud": "150-250 palabras",
+          "cta": "Asegura tu plaza antes de que suba",
+          "metricas_esperadas": "Conversión 2-3%, Click rate 12-18%"
+        },
+        "dia_5": {
+          "objetivo": "Last call + urgencia extrema",
+          "emocion": "Urgencia extrema + claridad",
+          "subject_linea": "Tiempo específico restante",
+          "subject_ejemplo": "Última oportunidad - cierra en 6 horas",
+          "body_estrategia": "Ultra-corto, ultra-directo. Formato SMS-like. Brevedad = seriedad. Activation energy mínima",
+          "body_longitud": "50-150 palabras",
+          "cta": "Únete ahora",
+          "metricas_esperadas": "Conversión 5-8%, Click rate 15-20%"
+        }
+      },
+      "principios_copy": [
+        "Subject <60 caracteres (máximo)",
+        "Body: 200-400 palabras máximo",
+        "1 CTA directo por email",
+        "Lenguaje conversacional (no corporativo)",
+        "Beneficios > features",
+        "Datos específicos > genéricos"
+      ],
+      "cuando_usar": "Lanzamientos digitales, membresías, cohorts, productos con deadline. Ideal: 5 días previos a cierre",
+      "timing_recomendado": {
+        "semana_2_previo": "Contenido teaser + landing page + setup",
+        "semana_1": "Emails D1-D2 + anticipation en social",
+        "dia_0": "Email D3 + countdown timer + posts redes",
+        "dias_1_3": "Email D4 + testimonios + live Q&A",
+        "dias_4_5": "Email D5 + stories countdown + urgency updates"
+      },
+      "ejemplo_original_vertexaura": {
+        "producto": "Skool VertexAura",
+        "dia_1": "Anticipación lanzamiento",
+        "dia_2": "Problema comunidades fracasan",
+        "dia_3": "Oferta completa con pricing visual",
+        "dia_4": "Update spots restantes",
+        "dia_5": "Last call 6 horas"
+      },
+      "ejemplo_adaptacion_vertexaura": {
+        "producto": "Content Intelligence Masterclass (297€)",
+        "secuencia": [
+          {
+            "dia": 1,
+            "subject": "Algo llega que cambia cómo analizas contenido"
+          },
+          {
+            "dia": 2,
+            "subject": "Por qué mayoría análisis falla (y cómo evitar)"
+          },
+          {
+            "dia": 3,
+            "subject": "Aquí está el sistema (masterclass + vault + revisión)"
+          },
+          {
+            "dia": 4,
+            "subject": "Quedan 8 plazas a precio early"
+          },
+          {
+            "dia": 5,
+            "subject": "Cierra en 4h"
+          }
+        ]
+      },
+      "monitoreo_critico": {
+        "open_rate_d1": "target >30%",
+        "click_rate_d1_d2": "target >10%",
+        "tiempo_agotar_t1": "target <48h",
+        "si_tarda_mas_48h": "Email D3 necesita rewrite (mejorar hook/copy)"
+      },
+      "antipatrones": [
+        "Cambiar estructura durante lanzamiento = caos",
+        "Emails sin CTA claro = baja conversión",
+        "Copy genérico = low engagement",
+        "No monitorear en tiempo real = no poder ajustar"
+      ]
+    },
+    {
+      "id": "pricing-escalonado-piramide",
+      "nombre": "Pricing Escalonado Pirámide",
+      "descripcion": "Estrategia de pricing con 3 tiers donde cada tier progresivamente más caro crea urgencia + maximiza revenue sin parecer 'greedy'",
+      "tipo": "estrategia-pricing",
+      "categoria": "pricing-psychology",
+      "fecha_descubierta": "2026-02-14",
+      "fuente": "Investigación Hormozi VertexAura",
+      "plantilla": {
+        "paso_1": "Definir target: número total de personas ideales",
+        "paso_2": "Tier 1 (Super Early): primeros X% a precio P1. TODOS bonuses incluidos",
+        "paso_3": "Tier 2 (Early): siguiente Y% a precio P1×1.4 (típico). Algunos bonuses excluidos",
+        "paso_4": "Tier 3 (General): resto a precio P1×2. Solo acceso base",
+        "paso_5": "Validar: Tier 1 + Tier 2 spots deben completarse en 50-70% del tiempo de venta",
+        "paso_6": "Proyección ingresos: (T1_spots × P1) + (T2_spots × P2) + (T3_spots × P3) = MRR objetivo",
+        "paso_7": "Setup tracker visible de tiers (mostrar progreso hacia siguiente tier)"
+      },
+      "mecanismo_psicologico": {
+        "recompensa_accion_rapida": "Precio más bajo para los primeros",
+        "crea_urgencia": "Próximo tier más caro viene",
+        "genera_momentum": "Visible progress (X/20 plazas T1 agotadas)",
+        "maximiza_ingresos": "Sin parecer greedy (justificado por escasez)"
+      },
+      "cuando_usar": "Lanzamientos de productos digitales con ticket 20€+. Maximiza revenue sin generar backlash 'por qué pagué más'",
+      "ticket_ideal": "30€+",
+      "estructura_recomendada": {
+        "tier_1_porcentaje": "10-15% de target total",
+        "tier_1_duracion": "primeras 48h",
+        "tier_2_porcentaje": "60-70% de target total",
+        "tier_2_duracion": "14 días",
+        "tier_3": "Resto (ilimitado)"
+      },
+      "ejemplo_original_vertexaura": {
+        "producto": "Skool VertexAura",
+        "target_total": 200,
+        "tier_1": {
+          "spots": 20,
+          "precio": "33€",
+          "porcentaje": "10%",
+          "ingresos": "660€",
+          "bonuses": "todos"
+        },
+        "tier_2": {
+          "spots": 180,
+          "precio": "47€",
+          "porcentaje": "90%",
+          "ingresos": "8.460€",
+          "bonuses": "sin 1-to-1"
+        },
+        "tier_3": {
+          "spots": "ilimitado",
+          "precio": "67€",
+          "disponible_after": "28 febrero",
+          "ingresos": "si aplica"
+        },
+        "total_proyectado_primeros_200": "9.120€",
+        "mrr": "9.120€ MRR mes 1"
+      },
+      "ejemplo_adaptacion_vertexaura": {
+        "producto": "Vault IA 2.0",
+        "target_total": 500,
+        "tier_1": {
+          "spots": 50,
+          "precio": "29€",
+          "duracion": "72h",
+          "ingresos": "1.450€",
+          "nota": "Early bird intensivo"
+        },
+        "tier_2": {
+          "spots": 200,
+          "precio": "39€",
+          "duracion": "14 días",
+          "ingresos": "7.800€",
+          "nota": "Early bird regular"
+        },
+        "tier_3": {
+          "spots": "250+ (target)",
+          "precio": "59€",
+          "duracion": "abierto",
+          "ingresos": "14.750€",
+          "nota": "Precio regular"
+        },
+        "total_proyectado_primeros_500": "24.000€",
+        "mrr_mes_1": "24.000€"
+      },
+      "validacion_estructura": {
+        "rule_of_70": "T1 + T2 deben llenar en 50-70% del tiempo total",
+        "si_menos_50_porciento": "Tiers demasiado generosos, revenue baja",
+        "si_mas_70_porciento": "T3 nunca se abre, dejas dinero en mesa"
+      },
+      "metricas_exito": {
+        "t1_agotar_en_horas": "<48h",
+        "t2_conversion": "5-8%",
+        "total_conversion": "8-12%",
+        "mrr_resultado": ">90% de proyección"
+      },
+      "antipatrones": [
+        "T1 spots demasiado altos = no crea urgencia",
+        "T1 duracion demasiado larga = baja conversión T2",
+        "Precios T1→T2→T3 no justificados = parece arbitrario",
+        "No comunicar estructura visualmente = no funciona"
+      ]
+    },
+    {
+      "id": "skool-audience-first-launch",
+      "nombre": "Skool Audience-First Launch",
+      "descripcion": "Fórmula para lanzar comunidad Skool únicamente cuando hay audience preexistente validada de 500+ leads",
+      "tipo": "estrategia-lanzamiento",
+      "categoria": "community-growth",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Benchmarking Roberto: TOP 10 Comunidades Skool - Best Practices 2026",
+      "plantilla": {
+        "paso_1": "Identifica audiencia preexistente cuantificable: email list, YouTube, Twitter, Slack, comunidad actual",
+        "paso_2": "Establece mínimo absoluto: 500+ leads cualificadas. Si <500, NO LANZAR",
+        "paso_3": "Define cohort inicial: primeros 50-100 usuarios. Prioridad a activos/engaged",
+        "paso_4": "Segmenta por tipo de usuario: VIP early adopters vs community builders vs learning-focused",
+        "paso_5": "Diseña welcome experience ESPECÍFICA para cada segmento (no one-size-fits-all)",
+        "paso_6": "Crea urgencia con founder pricing: $X-Y lifetime access, cuota límite (ej: primeros 500), deadline definitivo",
+        "paso_7": "Lanza a cohort inicial, recopila feedback intenso primeros 7 días, itera ANTES de escalar"
+      },
+      "mecanismo": "Audience preexistente = base predecible. Evita el error fatal de lanzar esperando que la gente llegue sola",
+      "cuando_usar": "ANTES de cualquier lanzamiento de comunidad Skool. Es el filtro principal de viabilidad",
+      "riesgo_si_no_aplicar": "15-25% churn mes 1, pero si no tienes 500+ leads: churn será 50%+. Comunidad muere.",
+      "benchmark": {
+        "comunidades_exitosas": "500-5000+ miembros",
+        "requisito_minimo": "500 leads preexistentes",
+        "implicacion": "Skool escala, no genera audience inicial"
+      },
+      "ejemplo_original": {
+        "producto": "Comunidades Skool benchmarked (N=10+)",
+        "patron": "100% lanzaron con audience preexistente"
+      },
+      "ejemplo_vertexaura": {
+        "producto": "VertexAura IA Community",
+        "lanzamiento": "20 febrero 2026",
+        "audience_identificada": {
+          "newsletter": 2500,
+          "twitter": 1200,
+          "slack_interno": 50,
+          "estudiantes_previos": 300,
+          "total": 4050
+        },
+        "validacion": "✓ >1500 leads = OK para lanzar",
+        "cohort_inicial": 200,
+        "segmentacion": [
+          "Implementers (50): quieren agentes listos",
+          "Builders (100): quieren customizar",
+          "Researchers (50): quieren entender"
+        ],
+        "founder_pricing": {
+          "precio": "$99",
+          "tipo": "lifetime access",
+          "cuota": "primeros 500",
+          "deadline": "28 febrero DEFINITIVO"
+        },
+        "conversion_esperada": "10% = 250 conversiones = $24.750",
+        "feedback_collection": "7 dias intensos"
+      },
+      "metricas_exito": {
+        "validar_antes_lanzamiento": "Audience >500 cualificadas",
+        "dias_lanzamiento": "<7 dias setup desde validacion",
+        "cohort_inicial_enrolled": ">100 miembros dia 1",
+        "churn_mes_1_aceptable": "15-25%"
+      },
+      "antipatrones": [
+        "Lanzar con <500 leads = probabilidad alta fracaso",
+        "Esperar 'estar listo' organicamente = nunca sucede",
+        "No segmentar audience = experience genérica"
+      ]
+    },
+    {
+      "id": "skool-7day-critical-onboarding",
+      "nombre": "Skool 7-Day Critical Onboarding",
+      "descripcion": "Programa intensivo de primeros 7 días post-lanzamiento que es determinante de retención mes 1-3",
+      "tipo": "estrategia-onboarding",
+      "categoria": "community-growth",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Benchmarking Roberto: TOP 10 Comunidades Skool - Best Practices 2026",
+      "plantilla": {
+        "dia_1": "Welcome post + reglas explícitas + introducción founder. Establece tono de comunidad",
+        "dia_2": "Community managers (mods) onboarded y VISIBLES. Welcome challenge pequeño (low barrier)",
+        "dia_3_4": "Primer live call del founder (máx 30 min) + Q&A exhaustiva. Establece ritmo de contenido",
+        "dia_5": "Primer desafío mayor (pequeño proyecto o discusión profunda). Recompensas (badges si hay gamification)",
+        "dia_6": "Análisis cuantitativo: quién participó, quiénes lurking, qué preguntas dominan",
+        "dia_7": "Cierre de ciclo con insights ('estos fueron los 5 temas top'). Anuncio de contenido semana 2"
+      },
+      "mecanismo": "Primeros 7 días establecen hábitos. Participación temprana = retención 10x mejor",
+      "cuando_usar": "Inmediatamente después de lanzamiento Skool. NO NEGOCIABLE para retención",
+      "roi": "7 días de intensidad = 20%+ mejor retención anual",
+      "benchmark": {
+        "halazgo_clave": "Onboarding en 7 días es CRÍTICO",
+        "comunidades_exitosas": "100% hicieron onboarding estructurado 7 dias"
+      },
+      "ejemplo_original": {
+        "producto": "Comunidades Skool TOP",
+        "patron": "welcome post + reglas + first challenge + founder intro"
+      },
+      "ejemplo_vertexaura": {
+        "lanzamiento": "20 febrero 2026",
+        "cronograma_exacto": {
+          "dia_1_feb20": "Welcome 'Welcome to VertexAura AI Builders' + Code of Conduct + Alfred presenta visión",
+          "dia_2_feb21": "Mods Roberto + Andrés visibles en #introductions. Challenge 'Document your first workflow'",
+          "dia_3_feb22": "Alfred live call 'How to think about agent design' (30 min) + preguntas",
+          "dia_4_feb23": "Contenido: 'Token optimization obsesiva' (post + ejemplos código)",
+          "dia_5_feb24": "Challenge 'Optimize your first agent cost' + badges para participantes",
+          "dia_6_feb25": "Análisis: 60% participó en challenges, preguntas top: 'cómo empiezo', 'costos reales'",
+          "dia_7_feb26": "Recap 'Week 1 insights: los 5 agent designs más creativos' + teaser semana 2"
+        },
+        "presupuesto_tiempo_total": "20 horas equipo",
+        "distribucion": "Alfred 8h, Roberto 6h, Andrés 6h"
+      },
+      "metricas_exito": {
+        "participation_dia_2": ">50% de cohort inicial",
+        "live_call_dia_3_viewers": ">80% de cohort",
+        "engagement_overall": ">60% han posteado algo en dias 1-7",
+        "retention_dia_8": ">85% siguen logueados",
+        "retention_dia_14": ">75% aún activos"
+      },
+      "antipatrones": [
+        "Onboarding vago = churn 35%+",
+        "Founder ausente primeros 7 dias = disminuye credibilidad",
+        "Sin challenges = engagement superficial"
+      ]
+    },
+    {
+      "id": "skool-content-minimum-viable",
+      "nombre": "Skool Content Minimum Viable Consistency",
+      "descripcion": "Fórmula de frecuencia mínima de contenido + live calls que es 'fundamental para retención' post-lanzamiento",
+      "tipo": "estrategia-contenido",
+      "categoria": "community-growth",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Benchmarking Roberto: TOP 10 Comunidades Skool - Best Practices 2026",
+      "plantilla": {
+        "minimo_absoluto": "3-4 posts/semana + 1-2 live calls",
+        "estructura_semanal": {
+          "lunes": "1 post tutorial/knowledge (agent patterns, prompting, case studies)",
+          "miercoles": "1 live call (preferiblemente founder) 60 min",
+          "viernes": "1 post community wins/showcase (agents creativos, resultados reales)",
+          "sabado": "1 post debate/pregunta (futuro, best practices, dilemas)",
+          "lunes_siguiente": "1 recap + anuncio tema próxima semana"
+        },
+        "total_por_semana": "4 posts + 1 live call = reproducible sin quemarse"
+      },
+      "mecanismo": "Consistencia baja > inconsistencia alta. Mejor 4 posts sólidos que 10 posts ralos",
+      "cuando_usar": "Planificación de contenido post-lanzamiento. Define ritmo sostenible y repetible",
+      "benchmark": {
+        "data_clave": "Mínimo 3-4 posts/semana + 1-2 live calls",
+        "clasificacion": "Fundamental para retención"
+      },
+      "ejemplo_original": {
+        "producto": "Comunidades Skool TOP",
+        "patron": "consistencia baja pero frecuente > calidad variable"
+      },
+      "ejemplo_vertexaura": {
+        "lanzamiento": "Semana 1 post-lanzamiento",
+        "cronograma_semanal": {
+          "lunes": "Agent Design Pattern: [tema] (1.200 palabras + código)",
+          "miercoles": "Office Hours con Roberto: tus workflows más complejos (60 min, grabado)",
+          "viernes": "Community Wins: agents más creativos esta semana (thread con screenshots + resultados)",
+          "sabado": "Debate: El futuro de la automación - IA vs procesos tradicionales (30 min read + 1h threadings)",
+          "proximo_lunes": "Recap + Week 2 teaser"
+        },
+        "total_semanal": "4 posts + 1 live call = 8-10 horas contenido"
+      },
+      "distribucion_equipo": {
+        "alfred": "2 live calls mensuales (4h/mes)",
+        "roberto": "2 posts/mes curados (4h/mes)",
+        "andres": "2 posts/mes técnicos (4h/mes)",
+        "content_writer_agent": "2 posts/semana automáticos (0h humano)",
+        "total": "~12h/mes si NO hay IA, ~4h/mes si IA content writer"
+      },
+      "metricas_exito": {
+        "publish_rate": "4 posts/semana (mínimo)",
+        "live_call_rate": "1-2/semana (mínimo)",
+        "consistency": ">90% de semanas en meta"
+      },
+      "antipatrones": [
+        "Inconsistencia (2 semanas pausa, luego 5 posts) = mata comunidad",
+        "Demasiado contenido sin moderación = deja de leer",
+        "Sin live calls = engagement cae 40%"
+      ]
+    },
+    {
+      "id": "skool-gamification-minimal-effective",
+      "nombre": "Skool Gamification Minimal Effective",
+      "descripcion": "Estrategia de gamification simple (solo badges) que genera +20-30% engagement sin toxicidad de sistemas complejos",
+      "tipo": "estrategia-engagement",
+      "categoria": "community-growth",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Benchmarking Roberto: TOP 10 Comunidades Skool - Best Practices 2026",
+      "plantilla": {
+        "rule": "3-5 badges máximo. Cada badge tiene trigger CLARO. Sin puntos numéricos ni leaderboards",
+        "paso_1": "Define 3-5 badges con triggers concretos (no 'engagement vago')",
+        "paso_2": "Cada badge visible en perfil del usuario",
+        "paso_3": "Opcional (cuidado): leaderboard semanal de puntos (genera competencia, riesgo: toxicidad)",
+        "paso_4": "Mantén simple: NO hagas sistema de niveles complejo",
+        "paso_5": "Monitorea: si engagement empieza a decaer mes 2+, reduce salience de gamification"
+      },
+      "mecanismo": "Badges = motivación inicial sin fricción. Gamification compleja = gaming behavior (optimizar para puntos, no para valor)",
+      "cuando_usar": "Lanzamiento o primeras 2-3 semanas para impulsar participación inicial. Después, baja salience",
+      "benchmark": {
+        "lift_esperado": "+20-30% engagement",
+        "duracion_efectiva": "Primeras 3-4 semanas"
+      },
+      "ejemplo_original": {
+        "producto": "Comunidades Skool TOP",
+        "data": "Gamification simple = +20-30% engagement"
+      },
+      "ejemplo_vertexaura": {
+        "lanzamiento": "20 febrero 2026",
+        "badges_definidas": [
+          {
+            "nombre": "First Workflow Shared",
+            "trigger": "Usuario sube 1 workflow a biblioteca",
+            "acierto_esperado": "semana 1"
+          },
+          {
+            "nombre": "Knowledge Contributor",
+            "trigger": "Usuario responde 5+ preguntas en threads",
+            "acierto_esperado": "semana 2-3"
+          },
+          {
+            "nombre": "Live Caller",
+            "trigger": "Asistir a 3+ live calls",
+            "acierto_esperado": "semana 3-4"
+          },
+          {
+            "nombre": "Challenge Master",
+            "trigger": "Completar todos los challenges semanales 2+ semanas seguidas",
+            "acierto_esperado": "mes 2"
+          }
+        ],
+        "total_badges": 4,
+        "nota": "Evitar: puntos numéricos (generan gaming), niveles (mantenimiento), leaderboards (toxicidad)"
+      },
+      "metricas_exito": {
+        "engagement_lift": "20-30% (vs sin badges)",
+        "participation_semana_1": ">40% de cohort con algún badge",
+        "decline_mes_2": "Si cae <5%, badges funcionan",
+        "decay_mes_3": "Si cae >15%, reduce salience de gamification"
+      },
+      "antipatrones": [
+        "Demasiados badges (>5) = overwhelm",
+        "Triggers vagas = no se siente logro",
+        "Leaderboards públicos = competencia tóxica",
+        "Sistema complejo de puntos = gaming behavior"
+      ]
+    },
+    {
+      "id": "skool-founder-pricing-early",
+      "nombre": "Skool Founder Pricing Early Acceso",
+      "descripcion": "Estrategia de pricing limitado temprano que convierte 5-15% de audience inicial a lifetime access",
+      "tipo": "estrategia-pricing",
+      "categoria": "community-monetization",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Benchmarking Roberto: TOP 10 Comunidades Skool - Best Practices 2026",
+      "plantilla": {
+        "paso_1": "Establece rango de precio: $X-Y 'for lifetime access' (ej: $49-199)",
+        "paso_2": "Define cuota límite: 'primeros 500' (da finitud psicológica)",
+        "paso_3": "Define deadline claro: 'cierre 28 febrero' (NADA de extensiones)",
+        "paso_4": "Comunica rango de conversión: 'típicamente 5-15% convierte en primeros 7 días'",
+        "paso_5": "Usa urgencia léxica: 'lifetime', 'early', 'limited', 'founders only'",
+        "paso_6": "Repite oferta en: welcome post (día 1), live call (día 3), 3 posts adicionales (días 4, 5, 6)",
+        "paso_7": "Establece fecha de cierre CLARA y NO la muevas"
+      },
+      "mecanismo": "Founder pricing temprano = revenue día 1 + validación rápida de product-market fit",
+      "cuando_usar": "Lanzamiento inicial de comunidad. Main revenue driver en primeras semanas",
+      "conversion_benchmark": {
+        "rango": "5-15% de audience",
+        "determinantes": "Calidad audience, claridad oferta, timing, product-market fit"
+      },
+      "ejemplo_original": {
+        "producto": "Comunidades Skool TOP",
+        "rango_precio": "$27-99 for life access",
+        "conversion_rate": "5-15% de audience inicial"
+      },
+      "ejemplo_vertexaura": {
+        "lanzamiento": "20 febrero 2026",
+        "oferta": {
+          "rango_precio": "$49-199 lifetime access",
+          "cuota_limit": "primeros 500",
+          "deadline": "28 febrero 2026 (DEFINITIVO, sin extensión)"
+        },
+        "lenguaje_oferta": "Lifetime access a todos los updates futuros + 1:1 calls with Alfred + private library de 500+ prompts + community exclusiva",
+        "conversion_esperada": "10% de 2.500 leads = 250 conversiones",
+        "revenue_mes_1": "Bajo: $12.450, Alto: $49.750",
+        "comunicacion": {
+          "welcome_post_dia_1": "Menciona pricing",
+          "live_call_dia_3": "5 min pitch sobre valor vs precio",
+          "posts_dia_4_5_6": "Diferentes ángulos de oferta",
+          "email_chain": "Todos los emails mencionan founder pricing + deadline"
+        }
+      },
+      "metricas_exito": {
+        "conversiones_dia_1": ">20 (signals hot audience)",
+        "conversiones_dia_1_7": ">100 (signals good fit)",
+        "average_price": "Debería estar hacia rango alto ($150+) si audience calificada",
+        "velocidad_agotar_500": "Idealmente <14 dias"
+      },
+      "antipatrones": [
+        "Extender deadline = destroy urgency",
+        "Cambiar precio mid-flight = reduce confianza",
+        "Sin comunicar value clear = conversión baja",
+        "Muy agresivo copywriting = percepción scam"
+      ]
+    },
+    {
+      "id": "skool-churn-benchmark-expectations",
+      "nombre": "Skool Churn Benchmark & Realistic Expectations",
+      "descripcion": "Fórmula para comunicar y gestionar churn esperado (15-25% mes 1, estabiliza 5-10%) evitando desmoralización del equipo",
+      "tipo": "estrategia-retention",
+      "categoria": "community-metrics",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Benchmarking Roberto: TOP 10 Comunidades Skool - Best Practices 2026",
+      "plantilla": {
+        "paso_1": "Comunica benchmark realista: '15-25% churn en mes 1 es NORMAL'",
+        "paso_2": "Explica que es normal, NO es fracaso",
+        "paso_3": "Segmenta causas esperadas: timing de vida (40%), expectativa gap (30%), community fit (20%), costo (10%)",
+        "paso_4": "Define meta de estabilización: 'mes 3-4 debería estar en 5-10%'",
+        "paso_5": "Establece sistemas para reducir churn: exit surveys, entrevistas con que se quedan, implementar cambios",
+        "paso_6": "Monitorea retention curves por cohort (quiénes se quedaron del mes 1, del mes 2)"
+      },
+      "mecanismo": "Churn inicial es natural (shake-out de curiosos). Si comunicado bien, evita pánico interno",
+      "cuando_usar": "Planning presupuestario interno mes 1. Comunicar a stakeholders ANTES de lanzamiento",
+      "benchmark": {
+        "mes_1_esperado": "15-25% churn",
+        "mes_2_3": "8-10% churn",
+        "mes_4_plus": "5-10% churn (saludable)"
+      },
+      "ejemplo_original": {
+        "producto": "Comunidades Skool TOP",
+        "data": "Churn típico 15-25% mes 1, estabiliza 5-10% mensuales"
+      },
+      "ejemplo_vertexaura": {
+        "lanzamiento": "20 febrero 2026",
+        "escenario": {
+          "cohort_inicial": 1000,
+          "mes_1_expectativa": {
+            "churn_porcentaje": "20%",
+            "miembros_salida": 200,
+            "miembros_quedan": 800,
+            "causas_esperadas": {
+              "timing_vida": "40% (80 personas, no es culpa nuestra)",
+              "expectativa_gap": "30% (60 personas, necesitaban algo más específico)",
+              "community_fit": "20% (40 personas, no era vibe comunidad)",
+              "costo_prohibitivo": "10% (20 personas, pricing issue)"
+            }
+          },
+          "mes_2": {
+            "churn_porcentaje": "8%",
+            "miembros_salida": 64,
+            "miembros_quedan": 736
+          },
+          "mes_3": {
+            "churn_porcentaje": "7%",
+            "miembros_quedan": 684,
+            "status": "✓ Stabilized"
+          }
+        },
+        "acciones_reduce_churn": [
+          "Exit surveys: por qué te vas (captura datos)",
+          "Interviews con top 20 engaged (qué los convenció)",
+          "Implement changes basados en feedback (ej: onramp rápido, track específico)",
+          "Crear tier gratis limitado si applicable"
+        ]
+      },
+      "metricas_monitoreo": {
+        "dia_7_churn": "5-10% (normal si bajo)",
+        "dia_14_churn": "10-15% (on track)",
+        "mes_1_churn": "15-25% (expected range)",
+        "si_mes_1_churn_gt_30": "RED FLAG - algo mal con onboarding/contenido/fit"
+      },
+      "antipatrones": [
+        "No comunicar churn = equipo cree está fallando",
+        "Cambiar estrategia drásticamente a primeras salidas = overreact",
+        "No analizar WHY sale gente = pierdes insights",
+        "Perseguir churn a 0% = imposible + desvía focus"
+      ]
+    },
+    {
+      "id": "skool-mods-onboarding-48h",
+      "nombre": "Skool Critical Mods Onboarding 48h",
+      "descripcion": "Protocolo intensivo de 48 horas para onboarded community managers ANTES de lanzamiento público",
+      "tipo": "estrategia-operaciones",
+      "categoria": "community-management",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Benchmarking Roberto: TOP 10 Comunidades Skool - Best Practices 2026",
+      "plantilla": {
+        "paso_1": "Identifica 2-4 mods (community builders, no necesariamente empleados)",
+        "paso_2": "Presupuesta 4-6 horas de onboarding en primeras 48h PRE-lanzamiento",
+        "paso_3": "Cubre contenido: valores de comunidad, workflow de moderación, 1-on-1 con founder, timeline de contenido, FAQ templates, cuándo escalar",
+        "paso_4": "Dales acceso a: analytics dashboard, pinned messages, moderation tools, suspension authority",
+        "paso_5": "Hazlos públicamente visibles en primeros 2 días de lanzamiento (preséntalos en welcome post)",
+        "paso_6": "Establece check-in diario primeras 2 semanas (stand-up 15 min)",
+        "paso_7": "Compensa: acceso VIP a contenido, reconocimiento público, posible revenue share (5% después mes 3 si comunidad >$5k MRR)"
+      },
+      "mecanismo": "Mods onboarded = comunidad saludable desde inicio. Mods desconectados = reputational risk + falta escalada",
+      "cuando_usar": "ANTES del lanzamiento público. Los mods deben estar 100% listos antes de que llegue la gente",
+      "timing_critico": "48 horas PRE-lanzamiento (no después)"
+      ,
+      "benchmark": {
+        "data_clave": "Mods deben estar onboarded en primeras 48h de lanzamiento",
+        "implicacion": "Si no están listos al iniciar, primer mes es caótico"
+      },
+      "ejemplo_original": {
+        "producto": "Comunidades Skool TOP",
+        "patron": "Mods visibles + onboarded = comunidad saludable"
+      },
+      "ejemplo_vertexaura": {
+        "lanzamiento_date": "20 febrero 2026",
+        "onboarding_window": "18-19 febrero (48h pre-lanzamiento)",
+        "mods_identificados": [
+          "Roberto (content curator)",
+          "Andrés (technical moderator)",
+          "2 community members activos de cursos anteriores"
+        ],
+        "onboarding_content_6h": {
+          "valores_comunidad_1h": "Transparencia, learning-first, debate respetuoso, no spam",
+          "moderation_sop_1_5h": "Qué flags (spam, off-topic, promotional), cuándo suspender, cómo responder, cuándo escalar a Alfred",
+          "1on1_founder_1h": "Visión proyecto (6 meses), expectativas de mods, cuándo involucrar Alfred",
+          "templates_faq_1h": "20 template responses para preguntas comunes (agent cost, productivity, implementation)"
+        },
+        "permisos_concedidos": [
+          "Analytics dashboard (stats reales tiempo real)",
+          "Pinned messages (destacar contenido importante)",
+          "Moderation tools (flag, delete, suspend)",
+          "Suspension authority (capaz suspender usuarios tóxicos)"
+        ],
+        "presentacion_publica": {
+          "dia_1_feb20": "'Meet your community team' announcement con fotos + bios"
+        },
+        "checkin_schedule": {
+          "feb_20_24": "Daily 15-min stand-ups (qué vimos, qué cambiar)",
+          "feb_25_marzo_10": "2x weekly check-ins"
+        },
+        "compensacion": {
+          "acceso_vip": "$0 cost (lifetime acces + futuros updates)",
+          "reconocimiento": "Nombrados en welcome post + website + newsletter",
+          "revenue_share": "5% de MRR comunidad si >$5k MRR después mes 3 (opcional)"
+        }
+      },
+      "metricas_success": {
+        "onboarding_completion": "100% de mods completaron 6h training",
+        "readiness_dia_1": "Mods visibles + activos en primeras 2h",
+        "escalation_time": "Mods responden flags en <1h (primeras 2 semanas)",
+        "retention_first_week": ">85% de cohort sigue logueado (señal mods haciéndolo bien)"
+      },
+      "antipatrones": [
+        "Mods no onboarded = inconsistencia normas",
+        "Mods ausentes primeros 2 dias = comunidad feels unmanaged",
+        "Sin guidelines claras = mods moderan inconsistentemente",
+        "Sin compensación = mods se queman rápido"
+      ]
+    },
+    {
+      "id": "odd-pricing-educated-audiences",
+      "nombre": "ODD_PRICING_EDUCATED_AUDIENCES",
+      "descripcion": "Usa precios X7 (47€, 97€, 297€) para audiencias profesionales educadas que valoran exclusividad + seriedad sobre descuentos percibidos",
+      "tipo": "estrategia-pricing",
+      "categoria": "pricing-psychology",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Roberto - Pricing Psychology: 47€ vs alternativas y estrategia óptima",
+      "plantilla": {
+        "paso_1": "Identifica audiencia educated (desarrolladores, creadores, profesionales)",
+        "paso_2": "Descarta charm pricing (X9) si audiencia busca VALOR, no 'descuento percibido'",
+        "paso_3": "Selecciona X7 (47, 97, 297)",
+        "paso_4": "Valida que NO hay competencia directa a ese precio en tu mercado",
+        "paso_5": "Usa mensajería: '[X7€] es sofisticado, no obvio. Señal de seriedad'"
+      },
+      "psicologia_subyacente": {
+        "left_digit_effect": "47€ procesado como '4X-algo', sin connotación barata de 49€",
+        "sophistication": "X7 percibido más inteligente que X9",
+        "perceived_discount": "Activa Left Digit pero sin parecer descuento agresivo",
+        "professional_signal": "Usado por SaaS premium, comunidades educativas top"
+      },
+      "evidencia_cientifica": [
+        "Psychology Today: X7 percibido como 'oferta inteligente' + 'calidad simultáneamente'",
+        "SaaS benchmark: Comunidades educativas top usan X7 (47, 97, 147, 297)",
+        "Substack creators: Mayoría top cobran 47€, 97€ (patrón X7 en upper tiers)"
+      ],
+      "cuando_usar": "SaaS, comunidades educativas, cursos premium, servicios profesionales para audiencias que no buscan 'barato'",
+      "ticket_ideal": "25€+",
+      "efectividad": {
+        "conversion_vs_charm": "-5% vs X9 (asumible)",
+        "ltv_vs_charm": "+30-33% LTV vs X9",
+        "customer_quality": "Mayor compromiso, churn menor"
+      },
+      "ejemplo_original": "47€/mes para Comunidad Skool IA. Roberto: 'ODD PRICING transmite sophistication. 47€ más sofisticado que 49€'",
+      "ejemplo_vertexaura": "Suite Pro OpenClaw → 197€/ms (no 199€). Messaging: 'Diseñado para developers que entienden calidad'",
+      "antipatrones": [
+        "Usar X7 para audiencia price-sensitive = baja conversión",
+        "X7 sin diferenciación clara = no funciona",
+        "Cambiar a X9 mid-flight = confunde audiencia"
+      ],
+      "metricas_exito": {
+        "conversion_rate": "8-12% en educated audiences",
+        "ltv": "2x+ vs charm pricing",
+        "churn_monthly": "<5%"
+      }
+    },
+    {
+      "id": "founder-pricing-urgency-engine",
+      "nombre": "FOUNDER_PRICING_URGENCY_ENGINE",
+      "descripcion": "Descuentos 40-45% para primeros 100-200 clientes con límite EXPLÍCITO crea urgencia + filtra clientes comprometidos",
+      "tipo": "estrategia-pricing",
+      "categoria": "pricing-psychology",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Roberto - Pricing Psychology: 47€ vs alternativas y estrategia óptima",
+      "plantilla": {
+        "paso_1": "Establece precio regular (TARGET_PRICE)",
+        "paso_2": "Aplica descuento 40-45% para primeros 100-200 (FOUNDER_TIER)",
+        "paso_3": "Especifica límite: 'Primeros 100 miembros a 26€/mes'",
+        "paso_4": "Comunica el cambio: 'Después, 47€/mes. Aprovecha ahora'",
+        "paso_5": "Monitorea conversión hasta 80% adoption founder tier",
+        "paso_6": "Cuando llegues a ~60% del cap, intensifica urgencia: 'Solo quedan 40 lugares a 26€'"
+      },
+      "mecanismo_psicologico": {
+        "urgencia": "Cap limita cantidad = FOMO",
+        "customer_filtering": "Descuento 40-45% atrae early adopters comprometidos, no tire-kickers",
+        "scarcity": "Número disminuyendo crea percepción de escasez REAL"
+      },
+      "sweet_spot_descuento": {
+        "40_45_porcent": "No tan bajo que signale desesperación, no tan alto que sea insostenible",
+        "psicologico": "Genera urgencia sin parecer 'liquidación'"
+      },
+      "cuando_usar": "Lanzamientos nuevos. Necesitas volumen inicial (early adopters) + revenue + customer quality (committed founders, no tire-kickers)",
+      "ticket_ideal": "20€+",
+      "ejemplo_original": "VertexAura: 26-28€/ms primeros 100-200. Roberto: 'Descuento 40-45% es óptimo'",
+      "ejemplo_vertexaura": "OpenClaw Certification → 297€. Founder pricing: 177€ (40% desc) primeros 50. Límite + urgency: 'Solo 50 certs a precio founder. Después, 297€. Inscripción cierra en 7 días'",
+      "proyeccion_revenue": "100-200 × 26€ = €2,600-5,200/mes primeras 2-3 semanas. Suficiente para validar demanda",
+      "retention_esperada": "Founder tier: >80% (high commitment)",
+      "antipatrones": [
+        "Descuento <30% = no crea urgencia",
+        "Descuento >50% = parece desesperación",
+        "Sin límite explícito = no hay urgencia",
+        "Cambiar límite mid-flight = kill credibilidad"
+      ],
+      "metricas_exito": {
+        "adoption_founder_tier": ">80% de cap en <2 semanas",
+        "churn_founder_tier": "<5% mes 1",
+        "revenue_mes_1": ">90% de proyección"
+      }
+    },
+    {
+      "id": "pricing-dinamico-escalonado",
+      "nombre": "PRICING_DINAMICO_ESCALONADO",
+      "descripcion": "Pricing que sube cada 30-60 días (26→47→79€) crea urgencia contínua sin parecer 'big bang' arbitrario",
+      "tipo": "estrategia-pricing",
+      "categoria": "pricing-psychology",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Roberto - Pricing Psychology: 47€ vs alternativas y estrategia óptima",
+      "plantilla": {
+        "paso_1": "Define 3 tiers de tiempo: FOUNDER (mes 0-2), EARLY_ADOPTER (mes 3-4), REGULAR (mes 6+)",
+        "paso_2": "Asigna precio a cada tier. Ej: 26€ → 47€ → 79€",
+        "paso_3": "Comunicación: 'Tu precio se bloquea cuando entras. No subiremos retroactivamente'",
+        "paso_4": "Crea tabla pública: 'Mira cuándo entró founder XYZ, paga 26€. Tú entras hoy, pagas 47€'",
+        "paso_5": "Esto activa FOMO + perceived scarcity",
+        "paso_6": "Aumenta cada 30-60 días. Timing PREDETERMINADO (no arbitrario)"
+      },
+      "mecanismo_psicologico": {
+        "urgencia_contínua": "Cada semana, el precio está a punto de subir",
+        "fairness": "Quién entró primero, pagó menos. Parece equitativo, no injusto",
+        "fomo_sostenido": "No es 'big bang', es incremento lento pero constante"
+      },
+      "alineacion_playbook": "Alineado con Alex Hormozi playbook de pricing dinámico",
+      "cuando_usar": "Cuando necesitas crecimiento gradual + urgencia continua. Evita 'big bang' pricing que asusta",
+      "ejemplo_original": "Roberto: '26€/ms founders → 47€/ms early adopters (mes 3-4) → 79€/ms regular (mes 6+)'",
+      "ejemplo_vertexaura": "Comunidad Skool IA: Semana 1-8: 26€. Semana 9-16: 47€. Semana 17+: 79€. Tabla landing: 'Fundadores (26€): Santi, María, Carlos... Early Adopters (47€): Tú entras aquí'",
+      "comunicacion_critica": {
+        "transparencia": "Announces cambios de precio CON ANTICIPACIÓN (no sorpresas)",
+        "tabla_publica": "Muestra quién pagó qué para caja social proof",
+        "pricing_lock": "Garantía que precio nunca sube retroactivamente para miembros existentes"
+      },
+      "antipatrones": [
+        "Cambiar precio arbitrariamente = kill confianza",
+        "Sin comunicar anticipadamente = parece bait & switch",
+        "Demasiados tiers = confunde",
+        "Subir precio demasiado rápido = baja conversión T2"
+      ],
+      "metricas_exito": {
+        "conversion_T1": ">10%",
+        "conversion_T2": "8-10%",
+        "velocidad_transicion": "T1 → T2 sin caída dramática conversión",
+        "perceived_fairness": "NPS sobre pricing >7/10"
+      }
+    },
+    {
+      "id": "money-back-guarantee-conversion-lever",
+      "nombre": "MONEY_BACK_GUARANTEE_CONVERSION_LEVER",
+      "descripcion": "30-días dinero-de-vuelta + descuento anual 22% convierte 40-50% de monthly a annual, maximizando LTV",
+      "tipo": "estrategia-pricing",
+      "categoria": "risk-reversal",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Roberto - Pricing Psychology: 47€ vs alternativas y estrategia óptima",
+      "plantilla": {
+        "paso_1": "Ofrece 30-días dinero-de-vuelta sin preguntas",
+        "paso_2": "Para annual plan, ofrece descuento 22% (equivalente a 1.5 meses gratis)",
+        "paso_3": "Mensajería: '30 días para confirmar que es para ti. Si no, dinero de vuelta. Sin riesgo'",
+        "paso_4": "Target: Convertir 40-50% de monthly → annual",
+        "paso_5": "Métrica de éxito: Churn <5% después de mes 1"
+      },
+      "mecanismo_psicologico": {
+        "risk_reversal": "Tú cargas el riesgo, no el cliente",
+        "loss_aversion": "Cliente tiene 30 días para confirmar. Reduce percepción de riesgo",
+        "annual_incentive": "22% discount + MBG = conversión atractiva a anual"
+      },
+      "efectividad": {
+        "conversion_rate_monthly_to_annual": "40-50%",
+        "churn_reduction": "Churn <5% después mes 1 (vs 8-10% sin MBG)",
+        "revenue_impact": "Si 100 entran monthly (26€/ms), ~45 pasan a annual (305€/año) = extra €1,500-2,500 MRR fijo"
+      },
+      "cuando_usar": "Cuando hay fricción de decisión (nueva categoría, audiencia dudosa). MBG = trust builder número 1",
+      "ticket_ideal": "20€+",
+      "ejemplo_original": "Roberto: 'MBG 30 días + descuento anual 22% (37€/ms equivalente) para convertir 40-50% monthly a annual'",
+      "ejemplo_vertexaura": "OpenClaw Certification: 30 días MBG. Annual plan (22% desc): 2,340€ (vs 3,000€). Messaging: 'Si no acelera tu carrera en 30 días, dinero de vuelta. Sin preguntas. Pero si quieres ahorrar 660€, paga anual ahora'",
+      "implementacion": {
+        "stripe_automacion": "Reembolsos automáticos si cancelled antes día 30",
+        "comunicacion": "MBG mencionado en landing, welcome email, FAQ, checkout"
+      },
+      "antipatrones": [
+        "MBG con condiciones (preguntas, fricción) = no funciona",
+        "Annual discount <15% = no atractivo",
+        "Sin comunicar MBG = nadie sabe que existe"
+      ],
+      "metricas_exito": {
+        "refund_rate": "<5% (manda que producto es solido)",
+        "conversion_to_annual": ">40%",
+        "mrr_fijo": "Crecer monthly + conversiones a annual = revenue predecible"
+      }
+    },
+    {
+      "id": "charm-vs-odd-vs-prestige-framework",
+      "nombre": "CHARM_VS_ODD_VS_PRESTIGE_SELECTION_FRAMEWORK",
+      "descripcion": "Framework universal de decisión de pricing: evalúa 3 familias (X9 Charm, X7 Odd, X0 Prestige) y selecciona ganadora por LTV, no conversión pura",
+      "tipo": "framework",
+      "categoria": "pricing-psychology",
+      "fecha_descubierta": "2026-02-15",
+      "fuente": "Roberto - Pricing Psychology: 47€ vs alternativas y estrategia óptima",
+      "plantilla": {
+        "paso_1": "Categoriza tu audiencia: price-sensitive (CHARM), value-conscious (ODD), premium (PRESTIGE)",
+        "paso_2": "Mapea competencia: ¿Qué usan? ¿Hay gap?",
+        "paso_3": "Test cada familia: X9 (19,49,99), X7 (47,97,297), X0 (50,100,500)",
+        "paso_4": "Mide: conversión, LTV, customer satisfaction",
+        "paso_5": "Ganador = precio que maximiza LTV, no solo conversión initial"
+      },
+      "las_tres_familias": {
+        "charm_x9": {
+          "ejemplos": "19€, 49€, 99€, 199€",
+          "psicologia": "Left Digit Effect. 49€ procesado como '40-algo'. Charm implícito = 'deal'",
+          "pros": "Máxima conversión inicial (+15-20%)",
+          "contras": "Percibido como 'barato', churn mayor, LTV -15-30%",
+          "ideal_para": "Lanzamiento ultra-aggressive, price war, audiencia price-sensitive"
+        },
+        "odd_x7": {
+          "ejemplos": "47€, 97€, 297€",
+          "psicologia": "Left Digit Effect sin connotación barata. Sophistication percibida",
+          "pros": "Balance óptimo (sofisticado + urgencia). LTV +30-33% vs charm",
+          "contras": "-5% conversión vs charm (asumible)",
+          "ideal_para": "Audiencias educated, SaaS premium, comunidades, servicios profesionales"
+        },
+        "prestige_x0": {
+          "ejemplos": "50€, 100€, 500€",
+          "psicologia": "Veblen Effect. Precio alto = mayor perceived value. No hay 'truco'",
+          "pros": "Máxima perceived quality, exclusivity",
+          "contras": "Barrera entrada altísima sin prueba social preestablecida",
+          "ideal_para": "Post-lanzamiento (con proof of concept), lujo, membresías VIP"
+        }
+      },
+      "cuando_usar": "SIEMPRE. Es el framework básico para CUALQUIER decisión de pricing",
+      "tabla_referencia": {
+        "39_charm": {
+          "precio": "39€",
+          "familia": "Charm",
+          "pros": "Máxima conversión initial",
+          "contras": "Percibido 'barato', baja LTV",
+          "ideal": "Lanzamiento ultra-aggressive"
+        },
+        "47_odd": {
+          "precio": "47€",
+          "familia": "Odd",
+          "pros": "Balance óptimo, sofisticado, LTV alto",
+          "contras": "-5% conversión vs 49€",
+          "ideal": "VertexAura (RECOMENDADO)"
+        },
+        "49_charm": {
+          "precio": "49€",
+          "familia": "Charm",
+          "pros": "Máximo charm effect, +15-20% conversión",
+          "contras": "Posicionamiento inferior, churn mayor",
+          "ideal": "Competencia directa, price war"
+        },
+        "59_prestige_lite": {
+          "precio": "59€",
+          "familia": "Prestige-lite",
+          "pros": "Psychological jump (salta a '5X-algo')",
+          "contras": "Barrera entrada alta sin prueba social",
+          "ideal": "Post-lanzamiento, scale up"
+        }
+      },
+      "caso_estudio_vertexaura": "47€ vs alternativas: 47€ (ODD) > 49€ (CHARM) porque 30% LTV mayor + mercado español sin competencia. Permite subir a 59€-79€ sin parecer arbitrario",
+      "metricas_comparacion": {
+        "conversion_rate": "X9 típica +15-20% vs X7",
+        "ltv": "X7 típica +30-33% vs X9",
+        "customer_quality": "X7 > X9 (mayor compromiso, churn menor)"
+      },
+      "antipatrones": [
+        "Optimizar para conversión pura = baja LTV a largo plazo",
+        "Cambiar familia mid-flight = confunde mercado",
+        "Sin validar en data real = recomendación teórica"
+      ],
+      "metricas_exito": {
+        "ganador": "Precio que maximiza LTV 24 meses, no conversión mes 1",
+        "validacion": "A/B test 1000+ leads por familia",
+        "decision_timing": "Después de 30 días de data, no especulación"
+      }
+    }
+  ]
+}

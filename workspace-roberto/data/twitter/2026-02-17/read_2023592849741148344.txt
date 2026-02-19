@@ -1,0 +1,11 @@
+
+@VadimStrizheus (Vadim):
+Friendly reminder to use Cloudflare R2 for Egress. 
+
+Just got billed on Supabase for @VugolaAI.
+
+Making the switch tn. https://t.co/wRbHy91bBm
+PHOTO: https://pbs.twimg.com/media/HBU-5bgWcAA6Vor.jpg
+date: Tue Feb 17 02:58:26 +0000 2026
+url: https://x.com/VadimStrizheus/status/2023592849741148344
+likes: 77  retweets: 1  replies: 23

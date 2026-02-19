@@ -1,0 +1,90 @@
+{
+  "topic": "rentahuman.ai",
+  "query": "rentahuman.ai",
+  "language": "en",
+  "scraped_at": "2026-02-11T09:02:06Z",
+  "source": "google_news_rss",
+  "article_count": 10,
+  "articles": [
+    {
+      "title": "AI agents are posting gigs for humans, and some of them are very weird - Business Insider",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOVERiaDJwbWtIOGZsSXpaRFB3U09KcHYxc3ZqX1BSM2czU3R0V190blRfMGhXQlpwM2dVNGlEVmNGVUtvR2hoYlZnWmtjdzdmSkQydkFfclJnc2Q5dTg3bzdoc04xLWRqanZEaG9ULUVEUEg5YndXN1hNdHNkRkg5dmlkRVVfV2o2bTBVVXhlWEZScXVsUDc4NEpoOG5acS1T?oc=5",
+      "source": "Business Insider",
+      "published_at": "Sat, 07 Feb 2026 09:00:00 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "Rentahuman.ai Turns Humans Into On-Demand Labor For AI Agents - Forbes",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPb01FOGplYmxuMmFWa0N6YkdGa3BCTTh3cVBaWktqM2d6b085NFg2bDZ0aWRHa3picGt5cU1WQWxiT2VlbFR4YzFyYlk4LThuMlRCbDZMMktEQ2lFRU1qam01cXdfUzFCanNMbFg0RGMxMGZ1NXJFeEh4SHN2QThBRl9IcFl5cmItMU5XNFZBN0M2eGtuYk1PbWpuMzFFUHI1N19sdXdqX0VUaXVxTmRuTHZOQTFtcUNWN2c?oc=5",
+      "source": "Forbes",
+      "published_at": "Thu, 05 Feb 2026 14:14:48 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "Rent-a-Human wants AI Agents to hire humans as gig workers - Mashable",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE42cy1wRFVYWUtwUTU4dTRuQWRVYm9QSVFKbEFKc1diSGJQd3dkNkxSVjNWcVkzMkZ4ZXU3bzA0VGg5QzdZUDZEVDA3MHVCclYyZkY2OGRITzhFeDg3X1BUaHZvUjhZdUU4TVFjM19YdHkxQkxodnBZcA?oc=5",
+      "source": "Mashable",
+      "published_at": "Wed, 04 Feb 2026 23:48:39 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "New Site Lets AI Rent Human Bodies - Futurism",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE56elotd1RaeVVmaFhVam9YOGRlQkdDRTdwVTdreTN3dkwwVjV3T3NnS296dVZRMms5YjUwakM0a1RHcE5DWnUwaUw5M2xQVV94WHB5U3lRQ0dkaExmdjhHcEZub0l0bXlUTmRPQ0hEV0F3RzA?oc=5",
+      "source": "Futurism",
+      "published_at": "Wed, 04 Feb 2026 21:05:00 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "Digging Deep: Is Rentahuman a Scam in the Cryptocurrency Circle Instead of AI-Hiring Humans? - 36 Kr",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1GN1BEcXJCeDlqTUdJS0hacnM5WnZqQVEtVzZQbUFob1NSRmhuMG9sOUVyaDN5U2tEMDZrWEtPNkhpVzJEc3drRDFFMHJaYkw1RGdr?oc=5",
+      "source": "36 Kr",
+      "published_at": "Sat, 07 Feb 2026 08:34:40 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "RentAHuman.ai: The Big Uno Reverse as AI Hires Humans to Get Work Done - sify.com",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQQzRwS3FIOXZ6dnRYYVdLSVpIMGhiSXpoOFA1UHFFanczVzh0eVNnVXE4VWNSUkFuUVpZQkZoa1F4cWRtb3V4WURsbkYzanlrMkwyX3h0WElVVW4xSVAwdTlsNk1FelJtY3ZrNnV4WFgxU1Zwb04tNlhMdnItODVsblpZT2NyX0U1Qnc2bnN2cXA5RlQ4enBROTFNR3VTMEFvc1N2ZDhFMA?oc=5",
+      "source": "sify.com",
+      "published_at": "Fri, 06 Feb 2026 07:05:35 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "AI Agents are now hiring humans - New York Post",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE14WTJLU3ItM1U0NDVKTHV4NUtLVzRFLWJXZ1p6WmYyYkVxT0RPZUNNUWJWbEVVbnItb3ZvV0poWWhpRkNMQnFaUjl2alZYVmFwMnZISWdyWHlIdjktdGFiZjJ6M2NGOUNYbHFLWUpvRXdLVWxJTWN2QXRxZw?oc=5",
+      "source": "New York Post",
+      "published_at": "Fri, 06 Feb 2026 11:00:00 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "Rent a Human: AI Outsources Physical Tasks to Humans - 조선일보",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdjJ5QmRMcUNZNk9BY3QxWlNhc193Uzg5ZnZRQ1g3bm9XSE9OdjFCRnJBUWlKa29CMHFsSEJvbnpqUnI1SUZWWHRnNW1BeEJKX0tfX3djdFZaSkVodXNybld0dndvTHB1SXEzaHN6TFM3R3ZFRVNVYnFBVHR2eXJQQWFUTUV0dDVk?oc=5",
+      "source": "조선일보",
+      "published_at": "Mon, 09 Feb 2026 02:48:45 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "Rent-a-Human Site Lets AI Agents Hire an IRL Set of Opposable Thumbs - Gizmodo",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWW0zVEdHeWhac2hDdUYtUWl1WTBXSExua0hyV0VRckJzeTJwQ0Nra2p2bGI1RV9faF9ScmNfak1jejAzeFFCUnVBZ0xSMnVvTFBCWjFfSU9YMWxSRnRhZFhwMk10djh6SkVfWXRyb2NNSkNWd1pIby1fOTNZVlRRcTJzWVVWVlR3RlJTbXVBNzRfWnZvNi03Wk1NR0VQWGw4?oc=5",
+      "source": "Gizmodo",
+      "published_at": "Wed, 04 Feb 2026 19:35:13 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    },
+    {
+      "title": "Rentahuman.ai lets AI hire humans. Internet wonders who's in charge now - India Today",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPTFBJaVhpQTZpa0RjYlFZT2dNMVBMUEJfYndPQUtMei11U3NESlBmZWJqeF90LVl5bW5sUVZSQTRoaldSY3kteWhfUHlOVEtoN0taTlZ3NUFQUFZRR1FBUXNSdFNDVV9oU202amVBTGV1Q1o4ZVE1dWZxVEt3dm5yRll6U3Rra2VEUzZXN2FOaDNBVXl0SGh3OWlzOUpFR3pSZ3BsbkF3RC1VNVZLUEVHaFlZMVBjNHlacTY1M0wyY1lIS3lCdXY2bExvTGJ2UdIB0wFBVV95cUxNZEJtRktiMzJfZHgzTDlCeExFNXFjZlBMaXZwaDg0WTV5ZllnVTJ2T3BqcXRVUlIzYUUxSEZCUmFXQjNqVWltQ0prbGZOX29xNTB3d19HVlFKME9GZTgzWFJsYi1aNm52UkNEbjZrb0FGMXF6eGM5S3llbEoxeFY5QVFYaEc2M3FyYktneFlmUWxwTURVY2ZLVlU1S05iNU5LbnVfR0FWalFJdVZyR1YxMWhNYTdyclNkNk9sUzhnREtHVmotRi1FajM4N1JEWmE0THpB?oc=5",
+      "source": "India Today",
+      "published_at": "Sun, 08 Feb 2026 10:51:44 GMT",
+      "relevance": "high",
+      "category": "industry_news"
+    }
+  ]
+}

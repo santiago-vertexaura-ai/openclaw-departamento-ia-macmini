@@ -1,0 +1,130 @@
+
+@browserstack (BrowserStack):
+Testing at scale usually means drowning in noise—wasting hours sifting through visual clutter or accessibility alerts that don't actually impact your users.
+
+We’ve embedded 3 AI Agents directly inside the BrowserStack Website Scanner to change that. 
+
+It doesn't just flag issues; it understands them to make testing smarter. Meet the agents:
+
+1️⃣ Visual Review Agent: Intelligent noise reduction that goes beyond simple pixel differences. It filters out inconsistencies and highlights only the visual changes that actually matter.
+
+2️⃣ Accessibility Issue Detection Agent: Tests accessibility with the nuance of a human expert to accurately identify complex context—like distinguishing between decorative and functional images.
+
+3️⃣ Accessibility Remediation Agent: Get expert-level actionable remediation guidance including instantly available code-ready fixes for WCAG violations. 
+
+Review smarter. Fix faster. Ship with confidence.
+
+👉 Run a scan today and see the AI agents in action: https://t.co/FZjqZH1NMC
+
+#AIAgents #BrowserStackAI #WebsiteScanner #QualityEngineering
+PHOTO: https://pbs.twimg.com/media/HBcSYlcXAAAOJK4.jpg
+date: Wed Feb 18 13:00:35 +0000 2026
+url: https://x.com/browserstack/status/2024106775239073870
+──────────────────────────────────────────────────
+
+@cyfrin (Cyfrin Audits):
+What this means for protocol security:
+
+→ Vulnerabilities that "probably won't be found" will be found 
+→ Obscurity is no longer a defense — AI agents don't get bored or overlook edge cases 
+→ The window between deployment and exploitation is shrinking
+date: Wed Feb 18 13:00:25 +0000 2026
+url: https://x.com/cyfrin/status/2024106731085738039
+──────────────────────────────────────────────────
+
+@cyfrin (Cyfrin Audits):
+The economics are the real concern.
+
+Exploit revenue from AI agents roughly doubled every 1.3 months over the past year. As API costs fall, deploying hundreds of agents to probe every contract on-chain becomes viable.
+
+Attackers won't just target high-TVL protocols. They'll scan everything.
+date: Wed Feb 18 13:00:24 +0000 2026
+url: https://x.com/cyfrin/status/2024106725566042278
+──────────────────────────────────────────────────
+
+@cyfrin (Cyfrin Audits):
+🤖 AI agents just autonomously exploited 207 out of 405 real smart contracts in simulation — extracting $550M in mock funds.
+
+They also found 2 novel zero-day vulnerabilities in live contracts that no human had identified.
+
+This changes the threat model for every protocol. 
+
+🧵
+date: Wed Feb 18 13:00:22 +0000 2026
+url: https://x.com/cyfrin/status/2024106717491900660
+──────────────────────────────────────────────────
+
+@KeystoneWallet (Keystone Hardware Wallet):
+If you're building AI agents that touch wallets, APIs, or sensitive data, you need a hardware trust layer.
+
+Pre-order ForgeBox and be among the first devs to ship with real security built in:
+https://t.co/F5MMBM0QT5
+
+What's your current setup? Reply below.
+date: Wed Feb 18 13:00:19 +0000 2026
+url: https://x.com/KeystoneWallet/status/2024106704892469454
+──────────────────────────────────────────────────
+
+@MartinElKhouri (Martin El-Khouri):
+@PrivacyPalAI's first users and enterprises are humans. 
+
+Not for long.
+
+AI agents are building a machine economy where privacy violations happen at millions of transactions per second.
+
+Privacy isn't about hiding anymore, it's about maintaining human agency when machines represent us. The infrastructure we build today determines which future we get.
+
+Looking forward for tomorrow!
+
+Great to see impactful cases like this, adopted by global enterprises, led by great entrepreneurs @jasonmelo, @shayraantia and team, leveraging the infrastructure of the Machine Economy.
+>  QT @peaq:
+> He helped create the capital markets crypto movement on Wall Street as co-founder of @Paxos, the first regulated crypto exchange in the US
+> 
+> Now, @jasonmelo and his team are bringing data privacy to AI, and with it, to machines
+> 
+>  https://x.com/peaq/status/2024096080355524928
+date: Wed Feb 18 13:00:16 +0000 2026
+url: https://x.com/MartinElKhouri/status/2024106695182503982
+──────────────────────────────────────────────────
+
+@KeystoneWallet (Keystone Hardware Wallet):
+🦞 AI agents can act autonomously, but your private keys sit exposed in software.
+
+One compromised dependency.
+One leaked file.
+Everything gone.
+
+Most devs know this risk. Almost none have a practical fix.
+
+Here's one 🧵 https://t.co/0qkFya2nlK
+PHOTO: https://pbs.twimg.com/media/HBcRU8ha8AAsblQ.jpg
+date: Wed Feb 18 13:00:15 +0000 2026
+url: https://x.com/KeystoneWallet/status/2024106688236900744
+──────────────────────────────────────────────────
+
+@AlexCalderAI (Alex Calder):
+Built 3 new guides overnight. First one: how to build your first AI agent in 30 minutes.
+
+The hard part isn't building agents. It's finding problems worth automating.
+
+Start with something that saves you 30 min/week. Then iterate.
+
+https://t.co/2P2QXsMcRB
+date: Wed Feb 18 13:00:13 +0000 2026
+url: https://x.com/AlexCalderAI/status/2024106683031781790
+──────────────────────────────────────────────────
+
+@thomasheimann (Thomas Heimann):
+Most real estate agents chase volume. The real leverage is intelligence: speed, certainty, and systems. Focus on what humans can’t scale—AI can handle the rest.
+date: Wed Feb 18 13:00:09 +0000 2026
+url: https://x.com/thomasheimann/status/2024106665549918255
+──────────────────────────────────────────────────
+
+@KII437465127175 (KII | ⚡️最新のAI関連ニュースを毎日発信⚡️):
+🚀 本日の注目 Tech News 🚀
+タイトル: Bye-bye bots: Altera's game-playing AI agents get backing from Eric Schmidt | TechCrunch
+詳細: https://t.co/ucTyfoXn2x
+#TechNews #AI #techcrunch
+date: Wed Feb 18 13:00:07 +0000 2026
+url: https://x.com/KII437465127175/status/2024106655957618767
+──────────────────────────────────────────────────

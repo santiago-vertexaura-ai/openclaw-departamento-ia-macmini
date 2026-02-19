@@ -1,0 +1,188 @@
+#!/bin/bash
+# auto-dispatch.sh — Crea tareas de content creation para Marina cuando Andrés completa análisis
+# + Registra comunicación entre agentes (Andrés → @Marina handoff)
+#
+# Se ejecuta desde el cron de Marina ANTES de tasks.sh fetch
+# Solo crea tareas si:
+#   1. Andrés tiene una tarea completada en los últimos 7 días
+#   2. Esa tarea tiene un doc asociado en agent_docs (tipo analysis)
+#   3. NO existe ya una tarea de Marina referenciando ese doc/tarea
+
+set -euo pipefail
+
+ENV_FILE="$HOME/clawd/.env.local"
+if [[ ! -f "$ENV_FILE" ]]; then
+  echo '{"dispatched":0,"reason":"no env file"}'
+  exit 0
+fi
+
+SUPABASE_URL=$(grep '^SUPABASE_URL=' "$ENV_FILE" | cut -d= -f2-)
+SUPABASE_KEY=$(grep '^SUPABASE_ANON_KEY=' "$ENV_FILE" | cut -d= -f2-)
+SUPABASE_SERVICE=$(grep '^SUPABASE_SERVICE_ROLE_KEY=' "$ENV_FILE" | cut -d= -f2-)
+
+if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_KEY" ]]; then
+  echo '{"dispatched":0,"reason":"missing credentials"}'
+  exit 0
+fi
+
+API="$SUPABASE_URL/rest/v1"
+
+# Export for Python subprocess
+export API SUPABASE_KEY SUPABASE_SERVICE
+
+# 1. Get Andrés's completed tasks from last 7 days
+SEVEN_DAYS_AGO=$(date -u -v-7d +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -d '7 days ago' +%Y-%m-%dT%H:%M:%SZ)
+
+ANDRES_TASKS=$(curl -s "${API}/agent_tasks?assigned_to=eq.andres&status=eq.completada&completed_at=gte.${SEVEN_DAYS_AGO}&select=id,title,task_type" \
+  -H "apikey: ${SUPABASE_KEY}" \
+  -H "Authorization: Bearer ${SUPABASE_KEY}")
+
+TASK_COUNT=$(echo "$ANDRES_TASKS" | python3 -c "import sys,json; print(len(json.load(sys.stdin)))" 2>/dev/null || echo "0")
+
+if [[ "$TASK_COUNT" == "0" ]]; then
+  echo '{"dispatched":0,"reason":"no completed Andrés tasks in last 7 days"}'
+  exit 0
+fi
+
+# 2. For each completed Andrés task, check doc + create Marina task + log handoff
+echo "$ANDRES_TASKS" | python3 -c "
+import sys, json, subprocess, os, re
+
+tasks = json.load(sys.stdin)
+api = os.environ['API']
+key = os.environ['SUPABASE_KEY']
+svc = os.environ['SUPABASE_SERVICE']
+
+dispatched = 0
+skipped = 0
+
+def curl_get(url, auth_key):
+    r = subprocess.run(
+        ['curl', '-s', url, '-H', f'apikey: {auth_key}', '-H', f'Authorization: Bearer {auth_key}'],
+        capture_output=True, text=True
+    )
+    return json.loads(r.stdout) if r.stdout.strip() else []
+
+def curl_post(url, data, auth_key):
+    r = subprocess.run(
+        ['curl', '-s', '-X', 'POST', url,
+         '-H', f'apikey: {auth_key}', '-H', f'Authorization: Bearer {auth_key}',
+         '-H', 'Content-Type: application/json', '-H', 'Prefer: return=representation',
+         '-d', json.dumps(data)],
+        capture_output=True, text=True
+    )
+    return json.loads(r.stdout) if r.stdout.strip() else None
+
+def check_no_marina_flag(task_data):
+    \"\"\"Check if task has explicit NO_MARINA flag in brief or description\"\"\"
+    brief = task_data.get('brief', {})
+    description = task_data.get('description') or ''
+
+    no_marina_patterns = [
+        r'NO.*Marina',
+        r'[sS][oó]lo.*Andr[ée]s',
+        r'Marina.*NO.*debe',
+        r'NO.*procesar.*Marina',
+        r'NO.*crear.*tarea.*Marina',
+        r'MUY_IMPORTANTE.*NO',
+        r'[sS][oó]lo para Andr[ée]s',
+        r'[sS][oó]lo para Santi'
+    ]
+
+    if brief and isinstance(brief, dict):
+        brief_str = json.dumps(brief)
+        for pattern in no_marina_patterns:
+            if re.search(pattern, brief_str, re.IGNORECASE):
+                return True
+
+    if description:
+        for pattern in no_marina_patterns:
+            if re.search(pattern, description, re.IGNORECASE):
+                return True
+
+    return False
+
+for task in tasks:
+    task_id = task['id']
+    task_title = task['title']
+    task_type = task.get('task_type', '')
+
+    # Only dispatch from analysis task types
+    if task_type not in ('content_analysis', 'viral_analysis', 'trend_analysis',
+                          'analysis', 'formula_update', 'weekly_brief'):
+        continue
+
+    # === CHECK NO_MARINA FLAG ===
+    full_task = curl_get(f'{api}/agent_tasks?id=eq.{task_id}&select=id,title,brief,description', key)
+    if full_task and check_no_marina_flag(full_task[0]):
+        print(f'SKIPPED (NO_MARINA flag): {task_title}', file=sys.stderr)
+        skipped += 1
+        continue
+
+    # Check if doc exists for this task (service key for agent_docs RLS)
+    docs = curl_get(f'{api}/agent_docs?task_id=eq.{task_id}&select=id,title,word_count', svc)
+    if not docs:
+        continue
+
+    doc = docs[0]
+    doc_id = doc['id']
+
+    # Check if Marina already has a task for this source
+    marina_tasks = curl_get(f'{api}/agent_tasks?assigned_to=eq.marina&select=id,brief', key)
+    already_exists = False
+    for mt in (marina_tasks or []):
+        brief = mt.get('brief')
+        if isinstance(brief, dict):
+            if brief.get('source_doc_id') == doc_id or brief.get('source_task_id') == task_id:
+                already_exists = True
+                break
+
+    if already_exists:
+        continue
+
+    # === CREATE MARINA TASK ===
+    new_task = curl_post(f'{api}/agent_tasks', {
+        'title': f'Crear contenido: {task_title}',
+        'assigned_to': 'marina',
+        'created_by': 'Alfred',
+        'task_type': 'content_creation',
+        'status': 'pendiente',
+        'priority': 'media',
+        'description': f'Crear contenido multi-plataforma basado en el analisis de Andres: \"{task_title}\". Usar formulas del vault y voice examples.',
+        'brief': {'source_doc_id': doc_id, 'source_task_id': task_id}
+    }, key)
+
+    if not new_task:
+        continue
+
+    new_id = new_task[0]['id'] if isinstance(new_task, list) else new_task.get('id', '')
+    if not new_id:
+        continue
+
+    # === LOG HANDOFF: Andrés → @Marina ===
+    curl_post(f'{api}/agent_activity', {
+        'agent_id': 'andres',
+        'action': 'task_handoff',
+        'task_id': new_id,
+        'details': {
+            'message': f'@Marina, he terminado mi analisis sobre \"{task_title}\". Los insights estan listos, te toca crear el contenido.',
+            'source_task_id': task_id,
+            'source_doc_id': doc_id
+        }
+    }, key)
+
+    # === LOG: Alfred delegates ===
+    curl_post(f'{api}/agent_activity', {
+        'agent_id': 'Alfred',
+        'action': 'task_reviewed',
+        'task_id': new_id,
+        'details': {
+            'message': f'@Marina, nueva tarea de content creation. @Andres ha completado el analisis, consulta formulas del vault y voice examples.'
+        }
+    }, key)
+
+    dispatched += 1
+    print(f'DISPATCHED: {new_id} <- {task_title}', file=sys.stderr)
+
+print(json.dumps({'dispatched': dispatched, 'skipped': skipped}))
+" 2>&1

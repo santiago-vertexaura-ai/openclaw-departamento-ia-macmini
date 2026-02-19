@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "bird": {
+      "version": "1.0.0",
+      "installedAt": 1770644733591
+    },
+    "last30days-lite": {
+      "version": "1.0.0",
+      "installedAt": 1770644966638
+    }
+  }
+}

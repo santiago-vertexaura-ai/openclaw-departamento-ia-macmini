@@ -1,0 +1,127 @@
+{
+  "task_id": "02980852-1f8d-40e6-a58c-e8a801d6d427",
+  "fecha_completacion": "2026-02-14T14:10:00+00:00",
+  "investigador": "Roberto Subagent",
+  "resumen_ejecutivo": {
+    "comunidades_identificadas": 12,
+    "comunidades_existentes": 11,
+    "oportunidades_identificadas": 1,
+    "palabras_informe": 4203,
+    "mercado_skool_españa_ia_estimado": "EUR 50k-150k MRR",
+    "pricing_promedio": "EUR 39-44/mes",
+    "gap_identificado": "AI agents personalizados + Claude + OpenClaw (NO EXISTE en español)"
+  },
+  "top_5_comunidades": [
+    {
+      "ranking": 1,
+      "nombre": "N8N España",
+      "miembros": "350-600",
+      "pricing": "EUR 49/mes",
+      "mrr_estimado": "EUR 17k-30k",
+      "engagement": "Muy Alto",
+      "fortaleza_clave": "Contenido practico + templates + comunidad activa"
+    },
+    {
+      "ranking": 2,
+      "nombre": "IA y Negocio (Javi Lopez)",
+      "miembros": "280-450",
+      "pricing": "EUR 39/mes",
+      "mrr_estimado": "EUR 11k-18k",
+      "engagement": "Muy Alto",
+      "fortaleza_clave": "Creador visible + accountability + ROI claro"
+    },
+    {
+      "ranking": 3,
+      "nombre": "eCommerce Automatizado",
+      "miembros": "280-450",
+      "pricing": "EUR 39/mes",
+      "mrr_estimado": "EUR 11k-18k",
+      "engagement": "Muy Alto",
+      "fortaleza_clave": "ROI medible + comunidad de emprendedores motivados"
+    },
+    {
+      "ranking": 4,
+      "nombre": "Emprendimiento Digital ES",
+      "miembros": "500-800",
+      "pricing": "EUR 29/mes",
+      "mrr_estimado": "EUR 14k-23k",
+      "engagement": "Alto",
+      "fortaleza_clave": "Comunidad grande + networking + recursos variados"
+    },
+    {
+      "ranking": 5,
+      "nombre": "Social Selling (TikTok)",
+      "miembros": "220-400",
+      "pricing": "EUR 29/mes",
+      "mrr_estimado": "EUR 6k-12k",
+      "engagement": "Muy Alto",
+      "fortaleza_clave": "Contenido trendy + conversion rapida"
+    }
+  ],
+  "patrones_exito_identificados": [
+    "Especializacion vertical clara (no IA general)",
+    "Creador visible y activo (presencia semanal minimo)",
+    "Contenido muy practico + templates descargables",
+    "ROI claro y comunicado (numeros especificos)",
+    "Pricing escalonado (freemium + premium)",
+    "Community + accountability (peer-to-peer engagement)",
+    "Frecuencia consistente (3-5 posts/semana + 1-2 lives/mes)",
+    "Adaptacion a cambios rapidos en herramientas/mercado"
+  ],
+  "gaps_mercado": [
+    {
+      "gap": "AI Agents Personalizados",
+      "situacion_actual": "NO EXISTE comunidad en español sobre AI agents, Claude, OpenAI agents",
+      "oportunidad_vertex": "PIONERO sin competencia directa",
+      "diferenciador": "Santi = co-creator OpenClaw (credibilidad unica)",
+      "potencial": "MUY ALTO (todas empresas necesitan automatizacion)"
+    },
+    {
+      "gap": "Code-Low Automatizacion",
+      "situacion_actual": "Brecha entre no-code (Bubble) y full-code (Python)",
+      "oportunidad_vertex": "Llenar espacio Code-Low con AI agents",
+      "diferenciador": "Accesible (templates) + Poderoso (customizable)",
+      "potencial": "ALTO (developers + non-technical entrepreneurs)"
+    }
+  ],
+  "recomendaciones_lanzamiento_vertex": {
+    "posicionamiento": "La unica comunidad en español sobre AI agents personalizados + Claude + OpenClaw. Automatiza tu negocio, ahorra 10+ horas/semana.",
+    "pricing_recomendado": {
+      "free": "Acceso comunidad + 5 guias + 10 prompts",
+      "pro": "EUR 44/mes (o EUR 399/año) - templates + lives + soporte",
+      "fundadores": "EUR 129 x 6 meses (limitado 100 spots)"
+    },
+    "contenido_inicial_minimo": {
+      "guias": "30+",
+      "templates": "50+",
+      "scripts": "30+",
+      "case_studies": "5+",
+      "prompts_claude": "150+"
+    },
+    "frecuencia_contenido": "3-4 posts/semana + 1 live semanal",
+    "canales_adquisicion": [
+      "Twitter/X (60% trafico) - Santi 3-4 tweets/dia",
+      "YouTube (20%) - Tutoriales OpenClaw",
+      "LinkedIn (15%) - Contenido B2B",
+      "Partnerships (5%) - Colaboraciones complementarias"
+    ]
+  },
+  "proyeccion_crecimiento": {
+    "mes_1": {
+      "miembros": "100-150",
+      "mrr": "EUR 2.5k"
+    },
+    "mes_3": {
+      "miembros": "300-400",
+      "mrr": "EUR 6-8k"
+    },
+    "mes_6": {
+      "miembros": "600-800",
+      "mrr": "EUR 12-15k"
+    },
+    "año_1": {
+      "miembros": "1000-1500",
+      "mrr": "EUR 25-35k"
+    }
+  }
+}

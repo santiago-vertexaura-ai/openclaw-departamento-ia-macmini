@@ -1,0 +1,83 @@
+
+@alexhillman (📙 Alex Hillman):
+Claude Code. Never used openclaw this was and still is more advanced in most ways, especially memory and knowledge management. 
+
+Using Claude code headless is exactly as intended, no tos issues. 
+
+Do you know WHY it’s failing on your web fetches? There are a few diff solutions depending on the actual issue.
+date: Wed Feb 18 13:00:29 +0000 2026
+url: https://x.com/alexhillman/status/2024106749133799796
+──────────────────────────────────────────────────
+
+@ak_7229 (Ak):
+@EdwardJacksonD @jessegenet @openclaw I asked it to make a blender file with a building and it did it first try. It was basic but it was something
+date: Wed Feb 18 13:00:22 +0000 2026
+url: https://x.com/ak_7229/status/2024106717378707859
+──────────────────────────────────────────────────
+
+@grok (Grok):
+Fascinating demos! IBA's adaptability from fintech security to superintelligence containment is impressive—real-time validation and kill switches could enhance NIST's interoperability goals. The cross-platform enforcement in those examples shows strong potential. How do you see it scaling for multi-agent systems?
+date: Wed Feb 18 13:00:18 +0000 2026
+url: https://x.com/grok/status/2024106702858035201
+──────────────────────────────────────────────────
+
+@1omsharma (Om):
+@steipete @openclaw “failed 43 times” is a funny way to say “built enough surface area for luck to finally stick.”
+date: Wed Feb 18 13:00:17 +0000 2026
+url: https://x.com/1omsharma/status/2024106698282242121
+──────────────────────────────────────────────────
+
+@WPDevTeam (WPDeveloper):
+Choosing a VPS for OpenClaw can save you hours…
+
+We compared 7 VPS options for 2026, from zero-DevOps managed hosting to budget DIY, dev-friendly setups, GPU servers, and local hardware. Includes specs and quick picks.
+
+Read here: https://t.co/3Yhd1my0EM
+
+#OpenClaw #VPS #AIagents
+https://t.co/3Yhd1my0EM
+date: Wed Feb 18 13:00:16 +0000 2026
+url: https://x.com/WPDevTeam/status/2024106693278261392
+──────────────────────────────────────────────────
+
+@allanmacgregor (Allan MacGregor 🇨🇦):
+OpenAI Didn't Buy a Product. They Bought a Distribution Channel.
+
+OpenAI didn't just acqui-hire OpenClaw's creator—they captured a token furnace that was sending millions in API revenue to Anthropic. Agent defaults are the new search engine deals.
+
+https://t.co/D2k1jKPwEO https://t.co/WqzRLULyb6
+PHOTO: https://pbs.twimg.com/media/HBcSSzIbEAA2Dg_.jpg
+date: Wed Feb 18 13:00:12 +0000 2026
+url: https://x.com/allanmacgregor/status/2024106676480283131
+──────────────────────────────────────────────────
+
+@steipete (Peter Steinberger 🦞):
+@israelpavlovic @openclaw what's the PR??
+date: Wed Feb 18 13:00:08 +0000 2026
+url: https://x.com/steipete/status/2024106661275689440
+──────────────────────────────────────────────────
+
+@btcsoltrader (GMtrader.sol):
+My Hawk Openclaw AI agent just started with live trades on Polymarket. 
+
+Very early days but a private island could be mine by year end. https://t.co/RaJEfGcyOD
+PHOTO: https://pbs.twimg.com/media/HBcSOw2XkAAIP66.png
+date: Wed Feb 18 13:00:08 +0000 2026
+url: https://x.com/btcsoltrader/status/2024106660269031594
+──────────────────────────────────────────────────
+
+@YGene_ (yO-Gene):
+@steipete @openclaw A true lion
+date: Wed Feb 18 13:00:04 +0000 2026
+url: https://x.com/YGene_/status/2024106642250272966
+──────────────────────────────────────────────────
+
+@sleyn_sol (sleyn):
+I just claimed my free access (MR-SZ565L) on mobilerun (@droid_run)! 🤖📱
+
+Remote control your Android phone with @openclaw on mobilerun for free.
+
+Get yours → https://t.co/1UZZZuGsxV
+date: Wed Feb 18 13:00:02 +0000 2026
+url: https://x.com/sleyn_sol/status/2024106635338174611
+──────────────────────────────────────────────────

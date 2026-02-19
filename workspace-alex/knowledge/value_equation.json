@@ -1,0 +1,22 @@
+{
+  "formula": "(Dream Outcome × Perceived Likelihood) / (Time Delay × Effort & Sacrifice) = Value",
+  "minimum_ratio": 10,
+  "components": {
+    "dream_outcome": {
+      "description": "El resultado especifico y medible que el cliente desea",
+      "vertexaura_example": "Automatizar tu marketing con AI agents y generar 5000EUR/mes extra"
+    },
+    "perceived_likelihood": {
+      "description": "Probabilidad percibida de lograr el resultado",
+      "increase_with": ["prueba social", "casos de estudio", "building in public", "templates probados", "acceso directo al fundador"]
+    },
+    "time_delay": {
+      "description": "Tiempo hasta ver resultados",
+      "reduce_with": ["quick wins en 7 dias", "templates preconstruidos", "workflows probados", "sesiones Q&A semanales"]
+    },
+    "effort_sacrifice": {
+      "description": "Esfuerzo y sacrificio requeridos",
+      "reduce_with": ["videos paso a paso", "copy-paste configs", "grupo de accountability", "workspace setup automatico"]
+    }
+  }
+}

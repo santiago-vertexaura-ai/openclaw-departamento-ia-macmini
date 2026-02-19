@@ -1,0 +1,27 @@
+{
+  "types": {
+    "unconditional": {
+      "template": "Si no te gusta, devolucion completa en {days} dias. Sin preguntas.",
+      "risk": "alto",
+      "trust_signal": "maximo"
+    },
+    "conditional": {
+      "template": "Si completas {modules} en {days} dias y no {result}, te devuelvo el dinero + {bonus}.",
+      "risk": "medio",
+      "trust_signal": "alto",
+      "recommended_for": "Skool VertexAura"
+    },
+    "anti_guarantee": {
+      "template": "NO ofrezco garantia porque busco gente comprometida. Si necesitas garantia para {price}, esto no es para ti.",
+      "risk": "bajo",
+      "trust_signal": "polarizante"
+    }
+  },
+  "vertexaura_recommended": {
+    "type": "conditional",
+    "result": "automatizar al menos 1 flujo funcional con Claude Code",
+    "timeframe_days": 60,
+    "condition": "completar los 5 modulos core",
+    "bonus": "1h de consultoria gratis con Santi"
+  }
+}

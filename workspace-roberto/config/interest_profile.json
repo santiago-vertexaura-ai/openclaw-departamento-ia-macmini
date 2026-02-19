@@ -1,0 +1,5 @@
+{
+  "topics": {},
+  "last_updated": null,
+  "notes": "Alfred populates this file by detecting interests from Santi's conversations and links. Topics with count >= 3 get proposed as new keywords."
+}

@@ -295,6 +295,29 @@ QMD semantic search makes it retrievable next session
 
 Cuando Santi pide buscar, investigar, analizar o recopilar datos, Alfred DEBE crear una tarea en Supabase y asignarla al agente correcto. Alfred NO investiga — Alfred coordina y despacha.
 
+### ⚠️ REGLA OBLIGATORIA: assigned_to SIEMPRE MINÚSCULAS
+
+**SI UNA TAREA APARECE EN KANBAN, DEBE ESTAR EN SUPABASE CON assigned_to MINÚSCULAS.**
+
+- ✅ Correcto: `assigned_to: "marina"`
+- ❌ Incorrecto: `assigned_to: "Marina"`
+
+**Por qué:**
+- Crons de agentes buscan `assigned_to=eq.marina` (minúsculas)
+- Si la tarea tiene `Marina` (mayúscula), cron NO la detecta
+- Resultado: tarea invisible, agente no trabaja, bloqueo silencioso
+
+**Validación automática:**
+- Cron `kanban-supabase-validator` corre cada hora
+- Detecta y CORRIGE automáticamente cualquier tarea con mayúsculas
+- Si encuentras tarea bloqueada, ejecuta: `bash scripts/validate-kanban-supabase-sync.sh`
+
+**Checklist al crear tarea:**
+- [ ] assigned_to es minúsculas (alfred, roberto, andres, marina, arturo, alex)
+- [ ] Status válido: backlog, pendiente, en_progreso, completada, fallida
+- [ ] Priority válida: urgente, alta, media, baja
+- [ ] Brief contiene contexto suficiente para agente
+
 ### Routing de agentes
 
 | Tipo de peticion | assigned_to | task_type |
@@ -406,20 +429,64 @@ Reglas:
 - Nunca almacenar credenciales en archivos de memoria
 - Cuando algo se borra o cambia (agente, servicio, proceso), actualizar inmediatamente
 
-## Pipeline de Contenido
+## Pipeline de Contenido (NUEVO - SIN DOCUMENTOS, TODO EN CALENDAR)
 
 ```
 Roberto (investigacion) → agent_docs (research/report)
      ↓
 Alfred decide "esto merece contenido" (proactive-leader cron)
-  O Santi pulsa "Crear Contenido" en Dashboard (con notas de enfoque)
+  O Santi pulsa "Crear Contenido" en Dashboard (con notas)
      ↓
-Marina (content_creation) — brief: { source_doc_id, platforms, notes }
+Marina (content_creation) — brief: { platforms, notas, context }
      ↓
-agent_docs (draft, review_status=pending_review)
+Marina GENERA POST (en memoria, NO guarda local):
+  bash tasks.sh complete <task_id> '{
+    "content": "Post completo aquí...",
+    "platform": "twitter|linkedin|instagram|tiktok|youtube|email",
+    "scheduled_at": "2026-02-20T08:00:00Z"  (opcional, default next day 8am)
+  }'
      ↓
-Santi revisa en Dashboard → Aprobar / Pedir Revision / Rechazar
+CRON sync-marina-tasks-to-calendar (cada 5 min):
+  Detecta tarea Marina completada
+  → Extrae JSON del result field
+  → Agrega automáticamente a content_calendar (review_status=pending_review)
+     ↓
+DASHBOARD Social Calendar (izq) + Panel detalle (der 50%):
+  - Lista de todos los posts programados
+  - Click post → abre panel derecha con preview + metadata
+  - Botones: APROBAR / REVISAR / RECHAZAR
+     ↓
+SANTI CONTROLA TODO DESDE DASHBOARD:
+
+  Si APRUEBA:
+    → Status = "approved"
+    → Cron publica automáticamente a la hora programada
+    
+  Si PIDE REVISIÓN:
+    → Escribe feedback en textarea
+    → Sistema crea tarea Marina con feedback
+    → Marina regenera variante mejorada
+    → Completa nuevamente (vuelve al calendar)
+    → Santi aprueba o pide más revisiones
+    
+  Si RECHAZA:
+    → Escribe razón/feedback
+    → Sistema crea tarea URGENTE Marina
+    → Marina regenera desde cero
+    → Vuelve al calendar
 ```
+
+**REGLAS MARINA:**
+- ✅ NO generar documentos
+- ✅ Completar tarea CON JSON en result field
+- ✅ Cron automático persiste a calendar (cada 5 min)
+- ✅ Santi controla TODO desde dashboard (approve/reject/revise)
+- ✅ Feedback automático → nueva tarea Marina (con contexto)
+
+**Componentes:**
+- Dashboard: `src/components/social/ContentCalendarManager.tsx` (lista + panel detalle)
+- Cron sync: `sync-marina-tasks-to-calendar` (cada 5 min)
+- Protocolo: `workspace-marina/PROTOCOL-CALENDAR.md`
 
 ### Como crear tarea Marina
 

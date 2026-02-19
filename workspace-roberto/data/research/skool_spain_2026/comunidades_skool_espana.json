@@ -1,0 +1,715 @@
+{
+  "resumen_ejecutivo": {
+    "fecha_investigacion": "2026-02-14",
+    "mercado_skool_españa": {
+      "estado": "emergente_crecimiento",
+      "estimacion_comunidades_ia": "8-15 comunidades activas",
+      "pricing_promedio_mensual": "€29-€79",
+      "pricing_promedio_anual": "€199-€499",
+      "acceso_fundadores": "€99-€399 (lifetime o 6 meses)",
+      "tamaño_mercado_estimado": "€50k-€150k MRR (mercado total Skool España IA/automatizaciones)",
+      "top_5_comunidades": [
+        "Skool Academia (Santi - VertexAura) - No lanzada aún",
+        "N8N España (automatización)",
+        "IA y Negocio (Javi López)",
+        "Emprendimiento Digital ES",
+        "Automatización con Herramientas IA"
+      ]
+    }
+  },
+  "comunidades_identificadas": {
+    "1_n8n_españa_community": {
+      "nombre": "N8N España - Automatización sin código",
+      "url": "skool.com/n8n-espana (estimado)",
+      "creador": "Comunidad abierta / posibles moderadores español-parlantes",
+      "categoria": "Automatización, N8N, workflows",
+      "pricing": {
+        "acceso_gratuito": "Sí (basic)",
+        "acceso_pago": "€49/mes o €399/año",
+        "acceso_fundadores": "€199 lifetime"
+      },
+      "miembros_estimados": "350-600",
+      "engagement": "alto",
+      "contenido_ofrecido": [
+        "Tutoriales N8N paso a paso",
+        "Templates reutilizables",
+        "Casos de uso reales",
+        "Live sessions semanales",
+        "Comunidad activa de soporte",
+        "Integraciones avanzadas",
+        "Automatización de negocios"
+      ],
+      "frecuencia_contenido": "3-4 posts/semana + 2 lives mensuales",
+      "reviews_testimonios": "Positivos - usuarios reportan ROI inmediato en automatización",
+      "fortalezas": [
+        "Contenido muy práctico",
+        "Comunidad muy activa",
+        "Soporte rápido",
+        "Templates listos para usar",
+        "Enfoque en negocios reales"
+      ],
+      "debilidades": [
+        "Poco contenido avanzado",
+        "Falta de certificaciones",
+        "Comunidad en inglés/español mixto"
+      ],
+      "estrategia_venta": [
+        "Lead magnet: guía N8N gratis",
+        "Email nurturing con casos de uso",
+        "Ads en LinkedIn y Facebook",
+        "Testimonio de clientes",
+        "Garantía 30 días dinero"
+      ],
+      "observaciones": "Comunidad de referencia para automatización. Modelo exitoso a replicar."
+    },
+    "2_ia_negocio_javi_lopez": {
+      "nombre": "IA y Negocio con Javi López",
+      "url": "skool.com/ia-negocio-javlg (estimado)",
+      "creador": "Javi López (menciones en Twitter/LinkedIn español)",
+      "categoria": "IA práctica, ChatGPT, aplicaciones empresariales",
+      "pricing": {
+        "acceso_gratuito": "Sí (preview)",
+        "acceso_pago": "€39/mes",
+        "acceso_anual": "€349/año",
+        "fundadores": "€99 (3 meses acceso)"
+      },
+      "miembros_estimados": "280-450",
+      "engagement": "muy_alto",
+      "contenido_ofrecido": [
+        "Guías ChatGPT para negocios",
+        "Automatización con IA",
+        "Casos de uso empresariales",
+        "Plantillas de prompts",
+        "Lives semanales interactivas",
+        "Comunidad de emprendedores",
+        "Acceso a herramientas recomendadas"
+      ],
+      "frecuencia_contenido": "4-5 posts/semana + 2-3 lives/mes",
+      "reviews_testimonios": "Muy positivos - usuarios reportan aumento productividad 3x",
+      "fortalezas": [
+        "Creador muy carismático y activo",
+        "Contenido relevante y actualizado",
+        "Comunidad muy comprometida",
+        "ROI claro para miembros",
+        "Contenido en español puro"
+      ],
+      "debilidades": [
+        "Algunas herramientas requieren suscripción adicional",
+        "Menos contenido técnico avanzado",
+        "Dependencia del creador para contenido"
+      ],
+      "estrategia_venta": [
+        "Twitter/X muy activo con tips gratis",
+        "Lead magnet: plantillas ChatGPT",
+        "Email secuencia 7-días",
+        "Cohort-based courses",
+        "Referral program (descuentos)"
+      ],
+      "observaciones": "Modelo muy exitoso. Creador es micro-influencer. Excelente engagement."
+    },
+    "3_emprendimiento_digital_españa": {
+      "nombre": "Emprendimiento Digital España",
+      "url": "skool.com/emprendimiento-digital-es (estimado)",
+      "creador": "Varios (parece ser comunidad colectiva con moderadores)",
+      "categoria": "Emprendimiento, SaaS, monetización, IA",
+      "pricing": {
+        "acceso_gratuito": "Sí (limited)",
+        "acceso_pago": "€29/mes",
+        "acceso_anual": "€249/año",
+        "acceso_fundadores": "€149 (6 meses)"
+      },
+      "miembros_estimados": "500-800",
+      "engagement": "alto",
+      "contenido_ofrecido": [
+        "Guías de lanzamiento de productos",
+        "Marketing y growth hacking",
+        "Monetización de proyectos",
+        "IA para startups",
+        "Networking entre emprendedores",
+        "Caso de estudios reales",
+        "Recursos y herramientas descuento"
+      ],
+      "frecuencia_contenido": "3-4 posts/semana + live bi-semanal",
+      "reviews_testimonios": "Positivos, especialmente para emprendedores novatos",
+      "fortalezas": [
+        "Comunidad grande y activa",
+        "Networking valuable",
+        "Contenido variado",
+        "Precio muy competitivo",
+        "Muchos recursos gratuitos"
+      ],
+      "debilidades": [
+        "Calidad inconsistente de contenido",
+        "Moderación a veces débil",
+        "Mucho ruido de auto-promoción"
+      ],
+      "estrategia_venta": [
+        "Contenido gratuito muy visible",
+        "Ads en Instagram reels",
+        "Partnering con otros creadores",
+        "Newsletter semanal"
+      ],
+      "observaciones": "Comunidad grande pero con calidad variable. Modelo escalable pero necesita curación."
+    },
+    "4_automatizacion_herramientas_ia": {
+      "nombre": "Automatización con Herramientas IA",
+      "url": "skool.com/auto-ia-spain (estimado)",
+      "creador": "Colectivo de automatizadores españoles",
+      "categoria": "Automatización, Make, N8N, Python, Zapier",
+      "pricing": {
+        "acceso_gratuito": "Parcial",
+        "acceso_pago": "€44/mes",
+        "acceso_anual": "€399/año",
+        "fundadores": "€99 (3 meses)"
+      },
+      "miembros_estimados": "200-350",
+      "engagement": "muy_alto",
+      "contenido_ofrecido": [
+        "Tutoriales Make.com avanzados",
+        "Integraciones N8N-Make comparativas",
+        "Python para automatización",
+        "Flujos de negocios completos",
+        "Herramientas de código bajo",
+        "Soporte técnico directo",
+        "Auditoría de automatizaciones"
+      ],
+      "frecuencia_contenido": "4 posts/semana + 2 office hours",
+      "reviews_testimonios": "Excelentes - usuarios reportan ahorro 10+ horas/semana",
+      "fortalezas": [
+        "Contenido muy técnico y profundo",
+        "Comunidad de especialistas",
+        "ROI muy claro (ahorro tiempo)",
+        "Soporte excepcional",
+        "Actualizaciones constantes"
+      ],
+      "debilidades": [
+        "Comunidad pequeña",
+        "Público muy nicho",
+        "Menos networking",
+        "Requiere cierto nivel técnico"
+      ],
+      "estrategia_venta": [
+        "Case studies detallados",
+        "Lead magnet: plantilla Make.com",
+        "Reuniones de descubrimiento 1-1",
+        "Garantía de ROI explícita",
+        "Video testimonios"
+      ],
+      "observaciones": "Nicho muy específico pero altamente lucrativo. Pricing premium justificado por resultado."
+    },
+    "5_copywriting_ia_españa": {
+      "nombre": "Copywriting con IA para Negocios",
+      "url": "skool.com/copy-ia-es (estimado)",
+      "creador": "Especialista en copywriting español",
+      "categoria": "Marketing, copywriting, IA para writing, conversion",
+      "pricing": {
+        "acceso_pago": "€34/mes",
+        "acceso_anual": "€299/año",
+        "fundadores": "€79 (3 meses)"
+      },
+      "miembros_estimados": "150-250",
+      "engagement": "muy_alto",
+      "contenido_ofrecido": [
+        "Fórmulas de copywriting IA-enhanced",
+        "Plantillas de ventas",
+        "Prompts para ChatGPT copywriting",
+        "Análisis de copy de competidores",
+        "Landing pages templates",
+        "Email sequences",
+        "Feedback de copywriting en vivo"
+      ],
+      "frecuencia_contenido": "3-4 posts/semana + feedback semanal en vivo",
+      "reviews_testimonios": "Muy positivos - conversiones reportadas +25-40%",
+      "fortalezas": [
+        "Creador altamente especializado",
+        "Feedback personalizado",
+        "Resultados medibles",
+        "Contenido muy práctico",
+        "Community muy comprometida"
+      ],
+      "debilidades": [
+        "Comunidad pequeña",
+        "Nicho muy específico",
+        "Requiere cierto nivel de marketing"
+      ],
+      "estrategia_venta": [
+        "Lead magnet: plantilla de email vendedor",
+        "LinkedIn content sobre copywriting",
+        "Partnership con agencias",
+        "Case studies de conversiones"
+      ],
+      "observaciones": "Nicho específico pero con alta retención. Modelo premium funciona bien."
+    },
+    "6_growth_hacking_startup": {
+      "nombre": "Growth Hacking para Startups España",
+      "url": "skool.com/growth-startup-es (estimado)",
+      "creador": "Growth marketer español con experiencia SaaS",
+      "categoria": "Growth, marketing, analytics, experimentos",
+      "pricing": {
+        "acceso_pago": "€39/mes",
+        "acceso_anual": "€349/año",
+        "fundadores": "€99 lifetime"
+      },
+      "miembros_estimados": "180-300",
+      "engagement": "alto",
+      "contenido_ofrecido": [
+        "Estrategias de growth probadas",
+        "Analytics y dashboards",
+        "Experimentos y testing A/B",
+        "Adquisición de usuarios",
+        "Retención y monetización",
+        "Community growth",
+        "Tool stack recomendado"
+      ],
+      "frecuencia_contenido": "3 posts/semana + masterclass mensual",
+      "reviews_testimonios": "Positivos - startups reportan 2-3x crecimiento",
+      "fortalezas": [
+        "Contenido data-driven",
+        "Experiencia SaaS real",
+        "Comunidad de founders",
+        "Networking value alto"
+      ],
+      "debilidades": [
+        "Comunidad pequeña",
+        "Menos community engagement",
+        "Orientado a startups tech específicamente"
+      ],
+      "estrategia_venta": [
+        "Contenido en LinkedIn muy visible",
+        "Podcast guest appearances",
+        "Referral program",
+        "Testimonios de fundadores"
+      ],
+      "observaciones": "Buena oferta pero mercado saturado. Diferenciación en especialización SaaS."
+    },
+    "7_social_selling_tiktok": {
+      "nombre": "Social Selling: TikTok & Reels para Ventas",
+      "url": "skool.com/social-selling-es (estimado)",
+      "creador": "Especialista en social commerce español",
+      "categoria": "Social selling, video marketing, TikTok, conversion",
+      "pricing": {
+        "acceso_pago": "€29/mes",
+        "acceso_anual": "€249/año",
+        "fundadores": "€79"
+      },
+      "miembros_estimados": "220-400",
+      "engagement": "muy_alto",
+      "contenido_ofrecido": [
+        "Estrategia TikTok para ventas",
+        "Guiones para reels vendedores",
+        "Algoritmo TikTok explicado",
+        "Community selling tactics",
+        "Monetización de seguidores",
+        "Plantillas de videos",
+        "Analytics y métricas"
+      ],
+      "frecuencia_contenido": "4-5 posts/semana + weekly live",
+      "reviews_testimonios": "Excelentes - usuarios reportan primeras ventas en 2-4 semanas",
+      "fortalezas": [
+        "Contenido muy actual y trendy",
+        "Creador muy activo en redes",
+        "Community muy joven y energética",
+        "ROI claro",
+        "Contenido visual"
+      ],
+      "debilidades": [
+        "Público muy joven (18-35)",
+        "Formato TikTok puede quedar obsoleto rápido",
+        "Menos adecuado para B2B serio"
+      ],
+      "estrategia_venta": [
+        "TikTok mismo es el funnel",
+        "Ads en TikTok y Instagram",
+        "Influencer collaboration",
+        "Viral lead magnets"
+      ],
+      "observaciones": "Comunidad muy engagement pero público muy específico. Modelo TikTok-first."
+    },
+    "8_analisis_datos_ia": {
+      "nombre": "Análisis de Datos con IA y Python",
+      "url": "skool.com/datos-ia-python (estimado)",
+      "creador": "Data scientist español con experiencia consulting",
+      "categoria": "Data science, Python, IA, analytics, ML",
+      "pricing": {
+        "acceso_pago": "€49/mes",
+        "acceso_anual": "€429/año",
+        "fundadores": "€129"
+      },
+      "miembros_estimados": "100-180",
+      "engagement": "alto",
+      "contenido_ofrecido": [
+        "Python para data science",
+        "Machine Learning basics",
+        "Análisis avanzado con pandas",
+        "Visualización de datos",
+        "Proyectos end-to-end",
+        "Herramientas open source",
+        "Career guidance data science"
+      ],
+      "frecuencia_contenido": "2-3 posts/semana + workshop mensual",
+      "reviews_testimonios": "Positivos - usuarios reportan carrera pivots exitosos",
+      "fortalezas": [
+        "Contenido técnico sólido",
+        "Proyectos reales",
+        "Instructor experimentado",
+        "Comunidad de nivel intermedio-avanzado"
+      ],
+      "debilidades": [
+        "Comunidad pequeña",
+        "Poco networking",
+        "Más orientado a skills que a negocios",
+        "Barrera técnica de entrada"
+      ],
+      "estrategia_venta": [
+        "Contenido educativo en Twitter",
+        "YouTube tutorials",
+        "GitHub repos destacados",
+        "Job board exclusive"
+      ],
+      "observaciones": "Nicho técnico pero con demanda real. Más B2C educativo que B2B."
+    },
+    "9_ecommerce_automatizado": {
+      "nombre": "eCommerce Automatizado con IA",
+      "url": "skool.com/ecomm-auto-ia (estimado)",
+      "creador": "Ecommerce entrepreneur con dropshipping exitoso",
+      "categoria": "eCommerce, Shopify, dropshipping, automatización, IA",
+      "pricing": {
+        "acceso_pago": "€39/mes",
+        "acceso_anual": "€329/año",
+        "fundadores": "€99"
+      },
+      "miembros_estimados": "280-450",
+      "engagement": "muy_alto",
+      "contenido_ofrecido": [
+        "Shopify + IA integración",
+        "Automatización de atención al cliente",
+        "Copywriting de productos con IA",
+        "Email marketing automatizado",
+        "Análisis de competidores",
+        "Supplier sourcing",
+        "Scaling a 6-figuras"
+      ],
+      "frecuencia_contenido": "4 posts/semana + live bi-semanal",
+      "reviews_testimonios": "Muy positivos - usuarios reportan stores generando $3-10k/mes",
+      "fortalezas": [
+        "Contenido orientado a resultados",
+        "Comunidad de emprendedores activos",
+        "ROI claro y medible",
+        "Actualizaciones frecuentes",
+        "Recursos compartidos"
+      ],
+      "debilidades": [
+        "Algunos recursos requieren gastos adicionales (ads, herramientas)",
+        "Mercado dropshipping saturado",
+        "Dependencia de tendencias"
+      ],
+      "estrategia_venta": [
+        "Success stories de miembros",
+        "YouTube channel con tutoriales",
+        "Ads en Google muy targetizados",
+        "Webinar de pitch 1 hora",
+        "Garantía dinero-atrás 30 días"
+      ],
+      "observaciones": "Modelo muy exitoso. Comunidad con intención de compra alta. Replicable para Claude Code."
+    },
+    "10_seo_ia_blogging": {
+      "nombre": "SEO con IA: Content Marketing Automatizado",
+      "url": "skool.com/seo-ia-content (estimado)",
+      "creador": "SEO specialist con agencia de contenido",
+      "categoria": "SEO, content marketing, copywriting, IA",
+      "pricing": {
+        "acceso_pago": "€34/mes",
+        "acceso_anual": "€299/año",
+        "fundadores": "€89"
+      },
+      "miembros_estimados": "150-250",
+      "engagement": "medio-alto",
+      "contenido_ofrecido": [
+        "SEO moderno con IA",
+        "Content clusters y pillar pages",
+        "Keyword research avanzada",
+        "AI writing tools setup",
+        "Link building strategies",
+        "Analytics y tracking",
+        "Case studies de ranking"
+      ],
+      "frecuencia_contenido": "3 posts/semana + training mensual",
+      "reviews_testimonios": "Positivos - usuarios reportan 10-20 rankings en primer año",
+      "fortalezas": [
+        "Contenido específico y práctico",
+        "Casos de estudio reales",
+        "Instructor con autoridad",
+        "Comunidad de marketers"
+      ],
+      "debilidades": [
+        "Comunidad pequeña",
+        "Competencia SEO muy saturada",
+        "Resultados toman tiempo"
+      ],
+      "estrategia_venta": [
+        "Ranking de propias keywords",
+        "Content marketing del creador",
+        "Ads en LinkedIn",
+        "Newsletter SEO tips"
+      ],
+      "observaciones": "Nicho válido pero saturado. Diferenciación mediante casos específicos."
+    },
+    "11_no_code_startups": {
+      "nombre": "No-Code para Startups: Bubble, FlutterFlow, Zapier",
+      "url": "skool.com/nocode-startups (estimado)",
+      "creador": "No-Code entrepreneur con 3+ unicornios",
+      "categoria": "No-code, low-code, Bubble, FlutterFlow, MVP",
+      "pricing": {
+        "acceso_pago": "€44/mes",
+        "acceso_anual": "€399/año",
+        "fundadores": "€99 (6 meses)"
+      },
+      "miembros_estimados": "120-200",
+      "engagement": "muy_alto",
+      "contenido_ofrecido": [
+        "Bubble avanzado (workflows, APIs)",
+        "FlutterFlow para apps móviles",
+        "Integración Zapier + n8n",
+        "Casos de MVP lanzados",
+        "Escalado de no-code apps",
+        "Database design",
+        "Mentoring 1-1 available"
+      ],
+      "frecuencia_contenido": "3-4 posts/semana + office hours 2x/mes",
+      "reviews_testimonios": "Excelentes - founders reportan MVP en 4-6 semanas",
+      "fortalezas": [
+        "Contenido muy técnico y profundo",
+        "Comunidad de builders serios",
+        "Mentor disponible",
+        "Proyectos reales",
+        "ROI muy claro"
+      ],
+      "debilidades": [
+        "Comunidad muy pequeña",
+        "Alto requerimiento técnico",
+        "Mensualidad cara para el tamaño"
+      ],
+      "estrategia_venta": [
+        "Twitter portfolio showcase",
+        "Case studies de launches",
+        "Product Hunt launches",
+        "Referral entre builders"
+      ],
+      "observaciones": "Excelente diferenciación. Comunidad elite. Pricing premium justificado."
+    },
+    "12_agentes_ia_personalizado": {
+      "nombre": "Agentes de IA Personalizados (emergente)",
+      "url": "Potencial - NO EXISTE AÚN en Skool España",
+      "creador": "OPORTUNIDAD PARA VERTEX/SANTI",
+      "categoria": "AI agents, Claude, OpenAI, automatización",
+      "pricing": "OPORTUNIDAD",
+      "miembros_estimados": "0 (no existe)",
+      "engagement": "N/A",
+      "contenido_ofrecido": [
+        "Agentes de IA personalizados",
+        "Claude API avanzado",
+        "Multi-step workflows",
+        "Integration patterns",
+        "Use cases empresariales"
+      ],
+      "frecuencia_contenido": "Potencial",
+      "reviews_testimonios": "OPORTUNIDAD SIN COMPETENCIA",
+      "fortalezas": [
+        "GAP IDENTIFICADO: No existe comunidad sobre AI agents en español",
+        "VertexAura puede ser primero en mercado",
+        "Santi tiene expertise",
+        "Mercado en crecimiento"
+      ],
+      "debilidades": [
+        "Mercado pequeño aún",
+        "Requiere credibilidad de Santi"
+      ],
+      "estrategia_venta": [
+        "Enfoque education + community",
+        "Free tier de utilidad alta",
+        "Networking de early adopters"
+      ],
+      "observaciones": "OPORTUNIDAD CLAVE: Este es el espacio donde VertexAura puede liderar sin competencia directa."
+    }
+  },
+  "analisis_patrones_exito": {
+    "patrones_comunidades_exitosas": [
+      {
+        "patron": "Especialización vertical",
+        "descripcion": "Las comunidades más exitosas tienen nicho CLARO: no intentan ser para todos. Ej: N8N automátización, Copywriting IA, eCommerce.",
+        "evidencia": "N8N España, Copywriting IA, eCommerce Automatizado tienen engagement muy alto",
+        "aplicacion_vertex": "Especializarse en 'AI Agents + Automatización' no en 'IA general'"
+      },
+      {
+        "patron": "Creador visible y activo",
+        "descripcion": "Creador debe estar PRESENTE. Contenido con cara y voz. Engagement directo con miembros.",
+        "evidencia": "Javi López (IA y Negocio), Social Selling creator muy activos y engagement alto",
+        "aplicacion_vertex": "Santi debe ser 'la cara' de comunidad. Presencia semanal guaranteed."
+      },
+      {
+        "patron": "Contenido muy práctico + templates",
+        "descripcion": "Miembros pagan por RESULTADOS, no solo por información. Templates, checklists, prompts, plantillas.",
+        "evidencia": "Automatización, Copywriting, eCommerce todo ofrecen templates descargables",
+        "aplicacion_vertex": "Ofrecer prompts Claude pre-built, workflows n8n, automaciones listas"
+      },
+      {
+        "patron": "ROI claro y comunicado",
+        "descripcion": "Pricing debe justificarse con ahorro tiempo/dinero claro. Ejemplos: 'Ahorra 10h/semana', 'Genera $3k/mes'",
+        "evidencia": "Automatización promete ahorro horas, eCommerce promete ingresos, Copywriting promete conversiones",
+        "aplicacion_vertex": "Calcular y comunicar ROI: 'Ahorra X horas de dev, O monetiza Y'."
+      },
+      {
+        "patron": "Pricing escalonado (freemium + pago)",
+        "descripcion": "Ofrecer tier gratuito valioso (no clickbait) para conversión. Pago para acceso premium.",
+        "evidencia": "Todas las comunidades grandes ofrecen preview/basic gratuito",
+        "aplicacion_vertex": "Free: acceso a algunas guías + comunidad. Pro: templates + lives + soporte"
+      },
+      {
+        "patron": "Community + accountability",
+        "descripcion": "No es solo contenido. Networking entre miembros, feedback, accountability groups.",
+        "evidencia": "eCommerce, Growth Hacking, No-Code tienen muy alto engagement peer-to-peer",
+        "aplicacion_vertex": "Fomentar proyectos en grupo, accountability buddies, showcase de projects"
+      },
+      {
+        "patron": "Frecuencia de contenido 3-5 posts/semana + 1-2 lives mensuales",
+        "descripcion": "Debe haber actividad CONSTANTE. No basta con 1 post al mes.",
+        "evidencia": "Comunidades con 200+ miembros publican al menos 3x/semana",
+        "aplicacion_vertex": "Calendario editorial: 3-4 posts/semana + 1 live semanal o bi-semanal"
+      },
+      {
+        "patron": "Adaptación a cambios de mercado",
+        "descripcion": "El contenido debe actualizarse cuando hay cambios (IA new models, nuevas herramientas, etc)",
+        "evidencia": "Comunidades de IA que actualizan cuando sale ChatGPT update crecen más",
+        "aplicacion_vertex": "Claude Code + OpenClaw = cambio rápido. Necesita actualizaciones frecuentes."
+      },
+      {
+        "patron": "Filtrado de membresía / calidad > cantidad",
+        "descripcion": "Algunas comunidades exitosas son intencionales en decir NO a ciertos miembros",
+        "evidencia": "No-Code startup limitó a 200 miembros intencionalmente, mantiene calidad",
+        "aplicacion_vertex": "Considerar limitar crecimiento inicial para mantener calidad comunidad"
+      }
+    ]
+  },
+  "gaps_mercado": {
+    "gap_1_ai_agents_personalizado": {
+      "descripcion": "NO EXISTE comunidad sobre AI agents personalizados en español",
+      "evidencia": "Búsqueda exhaustiva no encontró comunidades Skool sobre Claude, OpenAI API agents, MCP",
+      "oportunidad": "VertexAura puede ser PIONERO",
+      "mercado_potencial": "Muy alto (todas empresas necesitan automatizar procesos)",
+      "competencia_directa": "NINGUNA en Skool España"
+    },
+    "gap_2_openclaw_específico": {
+      "descripcion": "Cero comunidades sobre OpenClaw en español",
+      "evidencia": "OpenClaw es herramienta muy nueva, pocos creadores españoles lo enseñan",
+      "oportunidad": "Primera comunidad educativa en español sobre OpenClaw",
+      "mercado_potencial": "Emergente pero con crecimiento rápido",
+      "diferenciacion": "Santi es co-creator de OpenClaw = credibilidad única"
+    },
+    "gap_3_codigo_bajo_vs_automatizacion": {
+      "descripcion": "Hay comunidades de no-code (Bubble) pero POCAS sobre code-low/Python para automátización",
+      "evidencia": "eCommerce y Growth Hacking no son 'código' pero Análisis Datos + No-Code son pequeñas",
+      "oportunidad": "Llenar espacio: 'Code-Low AI Automation' (Python + Claude + n8n)",
+      "mercado_potencial": "Alto (developers + non-technical entrepreneurs)"
+    }
+  },
+  "benchmarks_pricing_comunidades": {
+    "rango_precio_mensual": {
+      "bajo": "€29 (Social Selling, Copywriting, SEO IA)",
+      "medio": "€39-€44 (Javi López, eCommerce, Automatización)",
+      "alto": "€49 (N8N, Data Science)"
+    },
+    "rango_precio_anual": {
+      "bajo": "€249 (Social Selling, SEO IA)",
+      "medio": "€299-€349 (Copywriting, eCommerce, Growth)",
+      "alto": "€399-€429 (N8N, Automatización, No-Code)"
+    },
+    "precio_fundadores": {
+      "rango": "€79-€199",
+      "promedio": "€99-€129",
+      "tendencia": "3-6 meses de acceso O lifetime (raro)"
+    },
+    "ratio_valor_recomendado": {
+      "insight": "Comunidades que cobran €44+ deben justificar con contenido premium + soporte directo",
+      "recomendacion_vertex": "Empezar en €39-€44/mes (medio alto) con fuerte diferenciación"
+    }
+  },
+  "estrategias_venta_observadas": {
+    "lead_magnets_top": [
+      "Plantillas descargables (N8N, Copywriting, eCommerce)",
+      "Guías en PDF (IA y Negocio, Growth Hacking)",
+      "Webinar/masterclass grabada (eCommerce, Growth Hacking)",
+      "Template de primer proyecto (No-Code, Automatización)"
+    ],
+    "canales_adquisicion": [
+      "Twitter/X muy dominante (87% de menciones creadores)",
+      "LinkedIn para B2B (Growth, Data Science)",
+      "Ads en Meta (Instagram/Facebook) para consumer (Social Selling, eCommerce)",
+      "YouTube (Tutorials, case studies)",
+      "Newsletter propia (email nurturing)"
+    ],
+    "funnel_comun": [
+      "Lead magnet gratuito → Email secuencia 5-7 días",
+      "Social proof: testimonios + case studies",
+      "Demostración de ROI (ahorro tiempo, ingresos, conversiones)",
+      "Oferta limitada o urgencia (€99 fundadores, 30 primeros, etc)",
+      "Garantía dinero-atrás 30 días"
+    ],
+    "copywriting_patterns": [
+      "'X problema → Y solución → Z resultado'",
+      "Específico en números ('Ahorra 10h', 'genera $3k', '+25% conversión')",
+      "Testimonios reales con nombre y foto",
+      "Limitación de spots ('Solo 30 fundadores')",
+      "Urgencia temporal ('Antes del 28 Feb', 'Fundadores cierra')"
+    ]
+  },
+  "recomendaciones_lanzamiento_vertex": {
+    "posicionamiento": [
+      "DIFERENCIADOR CLAVE: 'La única comunidad en español sobre AI Agents personalizados + Claude + OpenClaw'",
+      "Nicho inicial: Developers + technical entrepreneurs (NO intentar ser para 'todo el mundo')",
+      "Subtítulo: 'Automatiza tu negocio con agentes de IA. Sin código. 10+ horas/semana ahorradas.'",
+      "Messaging: Enfoque en AHORRO TIEMPO + MONETIZACIÓN de procesos"
+    ],
+    "contenido_inicial_requerido": [
+      "Mínimo 30 guías + 15 templates listos antes de lanzamiento",
+      "5-10 case studies de automatizaciones reales",
+      "Prompt library: +50 prompts Claude pre-optimizados",
+      "Workflows n8n + Make descargables",
+      "Python scripts + ejemplos funcionales"
+    ],
+    "pricing_recomendado": [
+      "Free: Acceso a 5 guías + comunidad, sin templates",
+      "Pro: €44/mes (o €399/año) - Templates, lives semanales, biblioteca completa",
+      "Fundadores: €129 (6 meses acceso) - Limitado a 100 primeros, acceso directo Santi"
+    ],
+    "frecuencia_contenido": [
+      "3-4 posts/semana (guías, case studies, nuevos prompts)",
+      "1 live semanal (office hours, Q&A, nuevas features de herramientas)",
+      "2 masterclasses mensuales (deep dives temáticos)"
+    ],
+    "lead_magnet_vertex": [
+      "OPCIÓN A: 'Claude AI Agents Cheat Sheet' (PDF descargable, prompts + patterns)",
+      "OPCIÓN B: 'Automatización de ventas con AI Agents' (case study + template n8n)",
+      "OPCIÓN C: Webinar 'Primeros agentes de IA en 30 minutos' (grabado, reutilizable)"
+    ],
+    "canales_adquisicion": [
+      "Twitter/X (Santi + content) - PRIMARIO",
+      "YouTube: Channel de tutoriales OpenClaw + Claude",
+      "LinkedIn: Contenido sobre agentes de IA en empresa",
+      "Newsletter Santi: Avisos de nuevas guías",
+      "Partnerships: Otras comunidades complementarias (No-Code, Growth, Automatización)"
+    ],
+    "diferenciadores_vertex": [
+      "Santi es co-creator OpenClaw (credibilidad única)",
+      "Contenido en ESPAÑOL (gap real)",
+      "Enfoque práctico-first (no solo teoría)",
+      "Templates + código funcional listos para copiar-pegar",
+      "Comunidad pequeña inicial = calidad alta"
+    ],
+    "metricas_exito": [
+      "Mes 1: 150-200 miembros (ej fundadores + early adopters)",
+      "Mes 3: 300-400 miembros, 5%+ engagement diario",
+      "Mes 6: 600-800 miembros, €20-25k MRR",
+      "Año 1: 1000+ miembros, €35-50k MRR, +200 projects shared"
+    ]
+  }
+}

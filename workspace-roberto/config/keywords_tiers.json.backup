@@ -1,0 +1,63 @@
+{
+  "tier1_critical": [
+    "OpenClaw",
+    "ClawdBot",
+    "VertexAura",
+    "Claude Code"
+  ],
+  "tier2_high": [
+    "AI agents",
+    "agentic AI",
+    "multi-agent systems",
+    "agent frameworks",
+    "Claude",
+    "Anthropic",
+    "AI orchestration",
+    "autonomous agents",
+    "AI agent platform",
+    "agent-to-agent",
+    "tool-calling AI",
+    "function calling LLM",
+    "MCP protocol",
+    "Model Context Protocol"
+  ],
+  "tier3_medium": [
+    "AI automation",
+    "AI marketing",
+    "marketing AI tools",
+    "n8n",
+    "make.com",
+    "zapier AI",
+    "langchain",
+    "langgraph",
+    "crewai",
+    "autogen",
+    "AI workflow",
+    "no-code AI",
+    "AI for business",
+    "enterprise AI",
+    "AI integration",
+    "RAG",
+    "retrieval augmented generation",
+    "AI chatbot",
+    "voice AI",
+    "conversational AI",
+    "AI assistant"
+  ],
+  "tier4_watch": [
+    "AI consulting",
+    "AI agency",
+    "marketing automation",
+    "content AI",
+    "AI content creation",
+    "AI copywriting",
+    "AI video",
+    "AI tools for creators",
+    "AI SaaS",
+    "AI startup",
+    "AI freelance",
+    "implementar IA",
+    "automatización inteligente",
+    "agentes IA en español"
+  ]
+}

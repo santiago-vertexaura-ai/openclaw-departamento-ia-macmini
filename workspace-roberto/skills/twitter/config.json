@@ -1,0 +1,19 @@
+{
+  "bird_profile": "Default",
+  "bird_path": "/opt/homebrew/bin/bird",
+  "max_results_default": 20,
+  "leads_min_followers": 200,
+  "leads_keywords_es": [
+    "implementar IA",
+    "automatización inteligente",
+    "agentes IA",
+    "consultoría IA",
+    "necesito ayuda con IA",
+    "busco experto IA",
+    "marketing con IA",
+    "automatizar mi negocio",
+    "inteligencia artificial empresa"
+  ],
+  "accounts_to_monitor": [],
+  "data_dir": "data/twitter"
+}

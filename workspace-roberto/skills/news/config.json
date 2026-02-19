@@ -1,0 +1,12 @@
+{
+  "topics": {
+    "core": ["OpenClaw", "ClawdBot", "Claude Code", "AI agents"],
+    "platforms": ["Anthropic Claude", "OpenAI", "Gemini", "n8n"],
+    "industry": ["AI automation", "AI marketing", "Marketing AI tools"],
+    "vertexaura": ["AI content creation", "AI tools for creators"]
+  },
+  "languages": ["en", "es"],
+  "source": "google_news_rss",
+  "max_articles_per_topic": 10,
+  "rss_base_url": "https://news.google.com/rss/search"
+}

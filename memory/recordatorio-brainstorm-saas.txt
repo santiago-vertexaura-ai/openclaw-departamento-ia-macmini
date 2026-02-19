@@ -1,0 +1,33 @@
+=== RECORDATORIO: SESIÓN BRAINSTORM SAAS ===
+Vencimiento: 11:00-11:30h CET
+Hora notificación: 16:41h CET (5h40min después de vencimiento)
+
+CONTEXTO BRAINSTORM:
+- Tema: Definir funcionalidades core SaaS VertexAura
+- Input: Research Roberto (14 Feb) + Analysis Andrés (14 Feb) sobre competencia multi-plataforma
+- Objetivo: Clarificar 15 funcionalidades, priorizar MVP, validar scope con Santi
+
+DOCUMENTO PREPARADO:
+- Archivo: /tmp/saas_funcionalidades.md (8.3 KB)
+- Contiene: 15 funcionalidades (Tier 1 MVP + Tier 2 Scalability + Tier 3 Premium)
+- Contiene: Análisis competitivo (10 competidores vs VertexAura)
+- Contiene: Roadmap 6-12 meses + Pricing Strategy
+
+ACCIONABLES IDENTIFICADOS:
+1. Validar scope MVP (¿5 features core suficientes?)
+2. Priorizar competidores a monitorizar
+3. Definir plataformas prioridad 1 (IG Reels → TikTok → YouTube)
+4. Timeline lanzamiento (Beta 4 semanas, Launch 8 semanas)
+
+PREGUNTAS PARA LA SESIÓN:
+1. ¿Scope MVP? ¿Solo análisis visual o incluir transcripción/audio?
+2. ¿Plataformas prioridad 1? (IG Reels, TikTok, YouTube Shorts, Tweets?)
+3. ¿Output format? (Dashboard web, API, reports PDF, all?)
+4. ¿Monetización? (SaaS suscripción, pay-per-analysis, freemium?)
+5. ¿Timeline lanzamiento? (Beta 4 semanas, launch 8 semanas?)
+6. ¿Competidores directos a monitorizar?
+
+PRÓXIMO PASO:
+Documentación lista para brainstorm. Santi indicará cuándo hacerlo.
+
+=== FIN RECORDATORIO ===

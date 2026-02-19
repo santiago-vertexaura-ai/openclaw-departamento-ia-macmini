@@ -4,6 +4,8 @@
 .env.*.local
 *.key
 *.pem
+*.p12
+credentials.json
 
 # OPENCLAW SECRETS
 credentials/
@@ -18,6 +20,9 @@ venv_scraper/
 .venv/
 dist/
 build/
+alfred-dashboard/node_modules/
+alfred-dashboard/.next/
+alfred-dashboard/.env*
 
 # GENERATED
 .next/
@@ -35,7 +40,9 @@ yarn-debug.log*
 
 # SENSITIVE DATA
 cost-*.json
+alfred-costs.json
 agents-status.json
+alfred-status.json
 standup-active.json
 *.bak
 

@@ -1,0 +1,61 @@
+{
+  "framework": "Schwartz Awareness Levels",
+  "levels": [
+    {
+      "level": 1,
+      "name": "Unaware",
+      "description": "No saben que tienen un problema",
+      "hook_strategy": "Curiosidad pura, datos impactantes",
+      "example_hooks": [
+        "El 90% de los marketers van a perder su trabajo en 2 años",
+        "Esto esta pasando y nadie lo ve"
+      ]
+    },
+    {
+      "level": 2,
+      "name": "Problem-Aware",
+      "description": "Saben el problema pero no la solucion",
+      "hook_strategy": "Empatia + agitar dolor",
+      "example_hooks": [
+        "Pasas 12h/dia en tareas repetitivas?",
+        "Si sigues haciendo X, nunca vas a lograr Y"
+      ]
+    },
+    {
+      "level": 3,
+      "name": "Solution-Aware",
+      "description": "Saben que existen soluciones pero no la tuya",
+      "hook_strategy": "Diferenciacion, comparativas",
+      "example_hooks": [
+        "Ya probaste ChatGPT. Ya probaste Zapier. Nada funciona porque necesitas AGENTES",
+        "La diferencia entre herramientas y agentes"
+      ]
+    },
+    {
+      "level": 4,
+      "name": "Product-Aware",
+      "description": "Conocen tu solucion pero no han comprado",
+      "hook_strategy": "Prueba social + urgencia",
+      "example_hooks": [
+        "23 personas ya automatizaron su marketing con nuestro sistema",
+        "Resultados reales de nuestros primeros usuarios"
+      ]
+    },
+    {
+      "level": 5,
+      "name": "Most Aware",
+      "description": "Ya te conocen, ya confian",
+      "hook_strategy": "Oferta directa, deadline",
+      "example_hooks": [
+        "La comunidad abre manana. 47EUR/mes. Esto incluye:",
+        "Ultima oportunidad al precio de lanzamiento"
+      ]
+    }
+  ],
+  "weekly_mix": {
+    "level_1_2": "40%",
+    "level_3": "30%",
+    "level_4": "20%",
+    "level_5": "10%"
+  }
+}

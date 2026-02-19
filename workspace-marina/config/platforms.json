@@ -1,0 +1,28 @@
+{
+  "linkedin": {
+    "max_chars": 3000,
+    "ideal_length": "800-1500 chars",
+    "format": "hook + espacio + cuerpo + CTA",
+    "hashtags": "3-5 max",
+    "visual": "carrusel 1080x1350 o imagen 1200x627",
+    "tone": "profesional pero cercano, datos y resultados concretos",
+    "min_weekly": 2
+  },
+  "twitter": {
+    "max_chars": 280,
+    "thread_max": 10,
+    "format": "hook tweet + thread si necesario",
+    "hashtags": "1-2 max",
+    "visual": "imagen 1600x900",
+    "tone": "directo, punchy, hot takes con datos",
+    "min_daily": 3
+  },
+  "instagram": {
+    "max_chars": 2200,
+    "format": "hook + cuerpo + CTA + hashtags en primer comentario",
+    "hashtags": "20-30 en primer comentario",
+    "visual": "carrusel 1080x1350 o reel vertical 1080x1920",
+    "tone": "visual-first, storytelling, behind-the-scenes",
+    "min_weekly": 3
+  }
+}

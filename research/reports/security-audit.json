@@ -1,0 +1,247 @@
+{
+  "timestamp": "2026-02-18T12:00:00Z",
+  "timezone": "Europe/Madrid",
+  "auditType": "system_security_8h_periodic",
+  "hostname": "Mini de Alfred",
+  "findings": [
+    {
+      "id": "PORT_PUBLIC_3000",
+      "severity": "HIGH",
+      "category": "exposed_ports",
+      "description": "Node.js process listening on port 3000 (*:3000) - publicly exposed",
+      "details": {
+        "port": 3000,
+        "process": "node",
+        "pid": 44449,
+        "binding": "*:3000",
+        "service": "Dashboard (Next.js)",
+        "exposed": true
+      },
+      "status": "OPEN",
+      "recommendation": "Bind to 127.0.0.1:3000 only or implement authentication/firewall rules"
+    },
+    {
+      "id": "PORT_PUBLIC_3443",
+      "severity": "HIGH",
+      "category": "exposed_ports",
+      "description": "Node.js process listening on port 3443 (*:3443) - publicly exposed",
+      "details": {
+        "port": 3443,
+        "process": "node",
+        "pid": "unknown",
+        "binding": "*:3443",
+        "exposed": true
+      },
+      "status": "OPEN",
+      "recommendation": "Identify service and restrict binding or implement authentication"
+    },
+    {
+      "id": "PORT_PUBLIC_7000_5000",
+      "severity": "HIGH",
+      "category": "exposed_ports",
+      "description": "ControlCenter listening on ports 7000 and 5000 on all interfaces (IPv4 + IPv6)",
+      "details": {
+        "ports": [7000, 5000],
+        "process": "ControlCe (ControlCenter)",
+        "pid": 851,
+        "binding": "*:7000, *:5000",
+        "interfaces": ["IPv4", "IPv6"],
+        "exposed": true
+      },
+      "status": "OPEN",
+      "recommendation": "Restrict to localhost or configure firewall rules"
+    },
+    {
+      "id": "PERMS_JOBS_JSON",
+      "severity": "MEDIUM",
+      "category": "file_permissions",
+      "description": "jobs.json has world-readable permissions (644)",
+      "details": {
+        "file": "/Users/alfredpifi/.openclaw/cron/jobs.json",
+        "permissions": "644",
+        "owner": "alfredpifi",
+        "group": "staff",
+        "readable_by": "other_users",
+        "content_risk": "Contains cron job configuration and task definitions"
+      },
+      "status": "VULNERABLE",
+      "recommendation": "Change to 600 (chmod 600 /Users/alfredpifi/.openclaw/cron/jobs.json)"
+    },
+    {
+      "id": "PERMS_ENV_LOCAL_OK",
+      "severity": "INFO",
+      "category": "file_permissions",
+      "description": "Environment files have correct permissions (600)",
+      "details": {
+        "files": [
+          "/Users/alfredpifi/clawd/.env.local",
+          "/Users/alfredpifi/.openclaw/openclaw.json"
+        ],
+        "permissions": "600",
+        "owner": "alfredpifi",
+        "status": "SECURE"
+      },
+      "status": "SECURE",
+      "recommendation": "Continue monitoring"
+    },
+    {
+      "id": "GATEWAY_RUNNING",
+      "severity": "INFO",
+      "category": "process_status",
+      "description": "OpenClaw gateway daemon is running",
+      "details": {
+        "process": "openclaw-gateway",
+        "pid": 17910,
+        "user": "alfredpifi",
+        "memory": "455456 KB",
+        "cpu_percent": 7.4,
+        "uptime": "running"
+      },
+      "status": "OK",
+      "recommendation": "Monitor for unusual CPU/memory usage"
+    },
+    {
+      "id": "LOCAL_SERVICES_BOUND",
+      "severity": "LOW",
+      "category": "exposed_ports",
+      "description": "Multiple services correctly bound to localhost only",
+      "details": {
+        "services": [
+          "Python (5050) - 127.0.0.1:5050",
+          "nginx (8001) - 127.0.0.1:8001",
+          "ollama (11434) - 127.0.0.1:11434",
+          "VSCode servers - 127.0.0.1:*"
+        ],
+        "binding": "127.0.0.1 only"
+      },
+      "status": "SECURE",
+      "recommendation": "Maintain this configuration"
+    },
+    {
+      "id": "FIREWALL_STATUS",
+      "severity": "INFO",
+      "category": "firewall_status",
+      "description": "Firewall status check requires elevated privileges",
+      "details": {
+        "status": "UNABLE_TO_CHECK",
+        "reason": "sudo access needed for pfctl",
+        "note": "Run with elevated privileges to verify macOS firewall state"
+      },
+      "status": "NEEDS_VERIFICATION",
+      "recommendation": "Manually verify: System Preferences > Security & Privacy > Firewall"
+    },
+    {
+      "id": "FILE_PERMS_WORLD_READABLE",
+      "severity": "MEDIUM",
+      "category": "file_permissions",
+      "description": "Sensitive files found with overly permissive permissions",
+      "details": {
+        "count": 1,
+        "files": [
+          {
+            "path": "/Users/alfredpifi/.openclaw/cron/jobs.json",
+            "perms": "644",
+            "risk": "Cron configuration visible to other users"
+          }
+        ]
+      },
+      "status": "VULNERABLE",
+      "recommendation": "Fix immediately: chmod 600 ~/.openclaw/cron/jobs.json"
+    },
+    {
+      "id": "UNSAFE_PORT_BINDINGS",
+      "severity": "CRITICAL",
+      "category": "network_security",
+      "description": "Multiple services exposed to public network interfaces",
+      "details": {
+        "exposed_services": [
+          {
+            "port": 3000,
+            "service": "Node.js Dashboard",
+            "binding": "*:3000",
+            "risk": "Public access to dashboard without apparent auth"
+          },
+          {
+            "port": 3443,
+            "service": "Node.js (unknown)",
+            "binding": "*:3443",
+            "risk": "Unidentified service on public HTTPS port"
+          },
+          {
+            "port": 7000,
+            "service": "ControlCenter",
+            "binding": "*:7000, *:7000 IPv6",
+            "risk": "Public control interface"
+          },
+          {
+            "port": 5000,
+            "service": "ControlCenter",
+            "binding": "*:5000, *:5000 IPv6",
+            "risk": "Public control interface"
+          }
+        ],
+        "total_exposed": 4
+      },
+      "status": "CRITICAL",
+      "recommendation": "URGENT: Implement network isolation. Bind services to 127.0.0.1, add authentication, or configure firewall rules immediately."
+    }
+  ],
+  "summary": {
+    "audit_timestamp": "2026-02-18T12:00:00Z",
+    "total_findings": 10,
+    "critical": 1,
+    "high": 3,
+    "medium": 2,
+    "low": 1,
+    "info": 3,
+    "overall_risk_level": "HIGH",
+    "critical_issues": [
+      "Multiple services publicly exposed on all network interfaces (ports 3000, 3443, 5000, 7000)",
+      "jobs.json has world-readable permissions (644) - sensitive cron data exposed"
+    ],
+    "remediation_priority": [
+      {
+        "priority": 1,
+        "issue": "Fix jobs.json permissions",
+        "command": "chmod 600 /Users/alfredpifi/.openclaw/cron/jobs.json",
+        "impact": "MEDIUM",
+        "time": "immediate"
+      },
+      {
+        "priority": 2,
+        "issue": "Restrict port bindings to localhost",
+        "details": [
+          "Node.js :3000 and :3443",
+          "ControlCenter :5000 and :7000"
+        ],
+        "impact": "CRITICAL",
+        "time": "urgent"
+      },
+      {
+        "priority": 3,
+        "issue": "Verify firewall configuration",
+        "command": "System Preferences > Security & Privacy > Firewall",
+        "impact": "HIGH",
+        "time": "today"
+      }
+    ],
+    "positive_findings": [
+      "Environment files (.env.local, openclaw.json) have correct 600 permissions",
+      "Gateway daemon running normally",
+      "Local services (ollama, nginx, python) correctly bound to localhost"
+    ],
+    "next_steps": [
+      "Address CRITICAL port binding issue immediately",
+      "Audit running Node.js processes to identify service on port 3443",
+      "Implement network policies/firewall rules",
+      "Schedule firewall verification (manual check)"
+    ]
+  },
+  "scan_details": {
+    "method": "lsof, stat, ps, netstat",
+    "scope": "system_ports_bindings, file_permissions, process_status",
+    "coverage": "partial",
+    "notes": "Firewall status check requires sudo; logs unavailable without specific paths. Gateway daemon responding normally.",
+    "last_updated": "2026-02-18T12:00:00Z"
+  }
+}
