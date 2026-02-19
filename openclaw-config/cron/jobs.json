@@ -26,7 +26,7 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1771432800000,
+        "nextRunAtMs": 1771513200000,
         "lastRunAtMs": 1771419600000,
         "lastStatus": "ok",
         "lastDurationMs": 85000,
@@ -120,7 +120,7 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1771452000000,
+        "nextRunAtMs": 1771538400000,
         "lastRunAtMs": 1771365614073,
         "lastStatus": "ok",
         "lastDurationMs": 154916,
@@ -217,7 +217,7 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1771462800000,
+        "nextRunAtMs": 1771549200000,
         "lastRunAtMs": 1771376400022,
         "lastStatus": "ok",
         "lastDurationMs": 132732,
@@ -331,7 +331,7 @@
       "description": "Alfred busca tareas de content creation pendientes y las envia a Marina para generar drafts",
       "enabled": false,
       "createdAtMs": 1771300800000,
-      "updatedAtMs": 1771402940063,
+      "updatedAtMs": 1771435589578,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -353,9 +353,9 @@
         "bestEffort": true
       },
       "state": {
-        "lastRunAtMs": 1771402828930,
+        "lastRunAtMs": 1771435505159,
         "lastStatus": "ok",
-        "lastDurationMs": 111133,
+        "lastDurationMs": 84419,
         "consecutiveErrors": 0
       }
     },
@@ -384,7 +384,7 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1771486200000,
+        "nextRunAtMs": 1771572600000,
         "lastRunAtMs": 1771399800033,
         "lastStatus": "ok",
         "lastDurationMs": 72818,
@@ -448,41 +448,10 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1771448400000,
+        "nextRunAtMs": 1771534800000,
         "lastRunAtMs": 1771362036620,
         "lastStatus": "ok",
         "lastDurationMs": 60827,
-        "consecutiveErrors": 0
-      }
-    },
-    {
-      "id": "alfred-process-own-tasks",
-      "name": "Alfred - Procesar tareas propias",
-      "description": "Procesa tareas de Alfred: recordatorios, diagnósticos, mejoras, análisis",
-      "enabled": false,
-      "createdAtMs": 1771323705000,
-      "updatedAtMs": 1771371819518,
-      "schedule": {
-        "kind": "every",
-        "everyMs": 600000,
-        "anchorMs": 1771323705000
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Eres Alfred. TAREAS PENDIENTES VENCIDAS (>2h):\n\n1) RECORDATORIO: Sesion brainstorm SaaS (11:00-11:30h VENCIDA)\n   → Notifica a Santi: qué se discutió, accionables, próximos pasos\n\n2) DIAGNÓSTICO: Instagram feed vacío en dashboard (>2h20min)\n   → Investiga: /Users/alfredpifi/clawd/alfred-dashboard/\n   → Root cause, solución, reporte\n\n3) PREPARACIÓN: Lista funcionalidades SaaS (>2h25min)\n   → 10-15 funcionalidades VertexAura\n   → Análisis vs competencia\n   → Guarda: /tmp/saas_funcionalidades.md\n\nACCIÓN:\n- Ejecuta cada tarea\n- Marca completada en Supabase\n- Documenta en vault\n\nPRIORIDAD MÁXIMA (vencidas).",
-        "model": "anthropic/claude-haiku-4-5"
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "telegram",
-        "bestEffort": true
-      },
-      "state": {
-        "lastRunAtMs": 1771371705019,
-        "lastStatus": "ok",
-        "lastDurationMs": 114499,
         "consecutiveErrors": 0
       }
     },
@@ -511,7 +480,7 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1771452000000,
+        "nextRunAtMs": 1771539300000,
         "lastRunAtMs": 1771376532754,
         "lastStatus": "ok",
         "lastDurationMs": 166955,
@@ -602,7 +571,7 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1771488000000,
+        "nextRunAtMs": 1771574400000,
         "lastRunAtMs": 1771401836036,
         "lastStatus": "ok",
         "lastDurationMs": 286479,
@@ -635,6 +604,52 @@
       },
       "state": {
         "nextRunAtMs": 1771783200000
+      }
+    },
+    {
+      "id": "alfred-daily-github-commit",
+      "name": "Alfred - Commit Diario a GitHub (22:30)",
+      "description": "Sincronización diaria de cambios a GitHub con resumen en español",
+      "enabled": true,
+      "createdAtMs": 1771446000000,
+      "updatedAtMs": 1771446000000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 22 * * *",
+        "tz": "Europe/Madrid"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "command",
+        "command": "bash /tmp/commit-diario.sh"
+      },
+      "delivery": {
+        "mode": "silent",
+        "channel": "telegram",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1771490400000,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "alfred-auto-remediation",
+      "name": "Alfred - Auto-Remediation (Cada 10 min)",
+      "description": "Reinicia servicios críticos si están down",
+      "enabled": true,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000
+      },
+      "payload": {
+        "kind": "command",
+        "command": "bash /Users/alfredpifi/clawd/scripts/auto-remediation-services.sh"
+      },
+      "state": {
+        "consecutiveErrors": 0,
+        "nextRunAtMs": null
       }
     }
   ]

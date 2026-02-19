@@ -222,7 +222,7 @@
     "port": 18789,
     "mode": "local",
     "auth": {
-      "token": "6ff98cc285ac967f86d9b680d0a389a69fef76a67a41def4"
+      "token": "[REDACTED]"
     },
     "http": {
       "endpoints": {

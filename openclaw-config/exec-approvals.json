@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/Users/alfredpifi/.clawdbot/exec-approvals.sock",
+    "token": "[REDACTED]"
+  },
+  "defaults": {},
+  "agents": {}
+}
